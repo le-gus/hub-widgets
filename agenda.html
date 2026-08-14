@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  html, body { margin:0; padding:0; width:520px; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    background: #f0f6fb;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  .day { background: #ffffff; border: 1px solid #dce8f2; border-radius: 6px; padding: 8px 6px; min-height: 90px; }
+  .day.today { border-color: #2b6cb0; border-width: 2px; }
+  .dname { font-size: 9px; color: #6b8caa; text-transform: uppercase; letter-spacing: 0.4px; }
+  .dnum { font-size: 15px; font-weight: 700; color: #1e3a52; margin-bottom: 6px; }
+  .evt { background: #dbe9f7; color: #2b6cb0; font-size: 9px; padding: 3px 4px; border-radius: 3px; margin-bottom: 3px; line-height: 1.25; }
+  .evt.alt { background: #e4dbf7; color: #6b3fa0; }
+</style>
+</head>
+<body>
+  <div class="week">
+    <div class="day today"><div class="dname">Sex</div><div class="dnum">14</div><div class="evt">18:00 Beach Tênis</div></div>
+    <div class="day"><div class="dname">Sáb</div><div class="dnum">15</div></div>
+    <div class="day"><div class="dname">Dom</div><div class="dnum">16</div></div>
+    <div class="day"><div class="dname">Seg</div><div class="dnum">17</div><div class="evt alt">19:00 Terapia - Ju</div></div>
+    <div class="day"><div class="dname">Ter</div><div class="dnum">18</div><div class="evt">19:00 Beach Tênis</div></div>
+    <div class="day"><div class="dname">Qua</div><div class="dnum">19</div><div class="evt">18:00 Beach Tênis</div></div>
+    <div class="day"><div class="dname">Qui</div><div class="dnum">20</div><div class="evt">19:00 Beach Tênis</div></div>
+  </div>
+</body>
+</html>
