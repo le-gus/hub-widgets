@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  html, body { margin:0; padding:0; }
+  body {
+    width: 640px;
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    background: #f2f7ee;
+    box-sizing: border-box;
+    padding: 22px 26px;
+  }
+  .headline { font-size: 14px; color: #33402a; line-height: 1.5; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid #dbe8d1; }
+  .headline b { color: #4a7c3f; }
+  .section-title { font-size: 10.5px; color: #7a8a6a; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; margin-bottom: 10px; margin-top: 20px; }
+  .card { border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; border-left: 4px solid; }
+  .card-name { font-size: 13.5px; font-weight: 700; color: #2f3a28; }
+  .card-meta { font-size: 10.5px; color: #6b7a5c; margin-top: 2px; }
+  .card-obs { font-size: 11px; color: #4a4235; margin-top: 6px; line-height: 1.4; background: rgba(255,255,255,0.55); border-radius: 5px; padding: 6px 8px; }
+  .grp-frequente { border-color: #c0392b; background: #fbeceb; }
+  .grp-moderado { border-color: #b8860b; background: #faf3e2; }
+  .grp-espacado { border-color: #2b5a8c; background: #e9f0f7; }
+  .grp-raro { border-color: #6b6b6b; background: #eeeeee; }
+  .badge { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; padding: 2px 6px; border-radius: 3px; color: #fff; margin-left: 6px; vertical-align: middle; }
+  .b-frequente { background: #c0392b; }
+  .b-moderado { background: #b8860b; }
+  .b-espacado { background: #2b5a8c; }
+  .b-raro { background: #6b6b6b; }
+  .upcoming-row { display: flex; justify-content: space-between; font-size: 11.5px; color: #4a5540; padding: 5px 0; border-bottom: 1px dashed #dbe8d1; }
+  .upcoming-row:last-child { border-bottom: none; }
+  .upcoming-date { color: #7a8a6a; font-size: 10.5px; }
+  .sync-note { font-size: 10px; color: #8a9a7a; margin-top: 16px; padding-top: 10px; border-top: 1px solid #dbe8d1; }
+</style>
+</head>
+<body>
+  <div class="headline"><b>1 planta vencida hoje</b> (15/08), <b>1 amanhã</b>. Frequências revisadas com pesquisa real em 15/08 — 24 plantas na base.</div>
+
+  <div class="section-title">Regar hoje (15/08)</div>
+  <div class="card grp-frequente">
+    <div class="card-name">Fitônia Rosa <span class="badge b-frequente">3-4d</span></div>
+    <div class="card-meta">Ciclo normal: a cada 4 dias</div>
+    <div class="card-obs">Estava bastante murcha em 14/08 — regar hoje, depois volta ao ciclo normal.</div>
+  </div>
+
+  <div class="section-title">Amanhã (16/08)</div>
+  <div class="card grp-moderado">
+    <div class="card-name">Trapoeraba Roxa <span class="badge b-moderado">6-8d</span></div>
+    <div class="card-meta">Ciclo normal: a cada 7 dias</div>
+    <div class="card-obs">Estava ressecada/estressada em 14/08 — rega antecipada, depois volta ao ciclo de 7 dias.</div>
+  </div>
+
+  <div class="section-title">Próximos 7 dias</div>
+  <div class="upcoming-row"><span>Vênus Papa-moscas <span class="badge b-frequente">prato</span></span><span class="upcoming-date">18/08</span></div>
+  <div class="upcoming-row"><span>Samambaia</span><span class="upcoming-date">18/08</span></div>
+  <div class="upcoming-row"><span>Angelônica</span><span class="upcoming-date">19/08</span></div>
+  <div class="upcoming-row"><span>Fitônia Branca</span><span class="upcoming-date">19/08</span></div>
+  <div class="upcoming-row"><span>Begônia de Bolinhas</span><span class="upcoming-date">21/08</span></div>
+  <div class="upcoming-row"><span>Begônia Rex</span><span class="upcoming-date">21/08</span></div>
+  <div class="upcoming-row"><span>Planta-Zebra</span><span class="upcoming-date">21/08</span></div>
+
+  <div class="section-title">Em recuperação — segurando rega</div>
+  <div class="card grp-espacado">
+    <div class="card-name">Lírio-de-São-José <span class="badge b-espacado">9-14d</span></div>
+    <div class="card-obs">Sinais de excesso de rega em 14/08 — segurando até 22/08 pra deixar secar bem antes de retomar.</div>
+  </div>
+
+  <div class="sync-note">Widget gerado a partir da database Plantas do Notion. Grupos: Frequente (3-4d) · Moderado (6-8d) · Espaçado (9-14d) · Raro (15d+).</div>
+</body>
+</html>
