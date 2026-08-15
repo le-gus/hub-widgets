@@ -16,15 +16,6 @@
   .fit-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
   .fit-num { font-size: 34px; font-weight: 700; color: #3a3226; }
   .fit-sub { font-size: 10px; color: #9a8a6a; }
-  .comp-bars { flex: 1; display: flex; flex-direction: column; gap: 6px; }
-  .comp-row { display: flex; align-items: center; gap: 8px; }
-  .comp-label { width: 60px; font-size: 11px; color: #6b5f48; }
-  .comp-track { flex: 1; height: 8px; background: #f0e6cc; border-radius: 4px; overflow: hidden; }
-  .comp-fill { height: 100%; border-radius: 4px; }
-  .comp-fill.train { background: #c0623a; }
-  .comp-fill.sleep { background: #b5651d; }
-  .comp-fill.recovery { background: #4a7c3f; }
-  .comp-val { width: 28px; text-align: right; font-size: 11px; color: #3a3226; font-weight: 600; }
 
   .two-col { display: flex; gap: 24px; }
   .col { flex: 1; }
@@ -40,24 +31,20 @@
   .rec-label { font-size: 10px; color: #9a8a6a; margin-bottom: 8px; }
   .rec-range { font-size: 10.5px; color: #6b5f48; margin-top: 4px; }
   .rec-range b { color: #4a7c3f; }
+  .sync-note { font-size: 10px; color: #b08a4a; margin-top: 14px; padding-top: 10px; border-top: 1px solid #ece1c9; }
 </style>
 </head>
 <body>
-  <div class="headline">Recuperação de hoje está entre as melhores da semana (<b>HRV 67ms</b>), mas pouca atividade registrada até agora — o Fit Score caiu porque o componente Treino está fraco.</div>
+  <div class="headline">Dados de hoje ainda sincronizando. Último dia fechado (<b>14/08</b>): Fit Score 72, recuperação forte com <b>HRV 67ms</b> — um dos melhores números da semana.</div>
 
-  <div class="section-title">Fit Score — 41 (média 7d: 55)</div>
+  <div class="section-title">Fit Score — último fechado (14/08)</div>
   <div class="fit-row">
-    <div><div class="fit-num">41</div><div class="fit-sub">hoje</div></div>
-    <div class="comp-bars">
-      <div class="comp-row"><span class="comp-label">Treino</span><div class="comp-track"><div class="comp-fill train" style="width:18%"></div></div><span class="comp-val">18</span></div>
-      <div class="comp-row"><span class="comp-label">Sono</span><div class="comp-track"><div class="comp-fill sleep" style="width:45%"></div></div><span class="comp-val">45</span></div>
-      <div class="comp-row"><span class="comp-label">Recuperação</span><div class="comp-track"><div class="comp-fill recovery" style="width:74%"></div></div><span class="comp-val">74</span></div>
-    </div>
+    <div><div class="fit-num">72</div><div class="fit-sub">14/08 · média 7d: 50</div></div>
   </div>
 
   <div class="two-col">
     <div class="col">
-      <div class="section-title">Sono — última noite</div>
+      <div class="section-title">Sono — última noite registrada (13→14/08)</div>
       <div style="font-size:20px;font-weight:700;color:#3a3226;">5h30</div>
       <div class="sleep-bar">
         <div class="deep" style="width:9%"></div>
@@ -71,14 +58,16 @@
       </div>
     </div>
     <div class="col">
-      <div class="section-title">Recuperação — hoje</div>
+      <div class="section-title">Recuperação — última leitura (14/08)</div>
       <div class="rec-num">67ms</div>
       <div class="rec-label">HRV</div>
-      <div class="rec-range">Semana: 31–73ms · hoje é <b>quase o melhor dia</b></div>
-      <div class="rec-num" style="margin-top:10px;">63bpm</div>
+      <div class="rec-range">Semana: 31–73ms · <b>próximo do melhor dia</b></div>
+      <div class="rec-num" style="margin-top:10px;">71bpm</div>
       <div class="rec-label">FC repouso</div>
-      <div class="rec-range">Semana: 60–72bpm · hoje é <b>o mais baixo</b></div>
+      <div class="rec-range">Semana: 60–72bpm · perto do teto da faixa</div>
     </div>
   </div>
+
+  <div class="sync-note">Noite de 14→15/08 ainda não sincronizou do HealthKit. Widget mostra o último dado fechado (14/08) até a sincronização de hoje chegar.</div>
 </body>
 </html>
