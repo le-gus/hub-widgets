@@ -2,164 +2,167 @@
 <html>
 <head>
 <meta charset="utf-8">
-<style>
-  * { box-sizing: border-box; }
-  html, body { margin:0; padding:0; }
-  body {
-    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
-    background: #f4f1ea;
-    color: #2b2620;
-    padding: 0;
-  }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 24px 60px; }
-
-  .hero { text-align: center; padding: 30px 20px 34px; }
-  .hero .date { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #9a8a6a; font-weight: 700; margin-bottom: 10px; }
-  .hero h1 { font-size: 24px; margin: 0 0 18px; color: #2b2620; font-weight: 700; }
-  .hero .stats-row { display: flex; justify-content: center; gap: 34px; margin-top: 6px; flex-wrap: wrap; }
-  .hero .stat-num { font-size: 40px; font-weight: 800; color: #b5651d; line-height: 1; }
-  .hero .stat-num.muted { color: #9a8a6a; }
-  .hero .stat-sub { font-size: 12px; color: #6b5f48; margin-top: 4px; }
-  .hero .summary { max-width: 580px; margin: 20px auto 0; font-size: 14.5px; line-height: 1.6; color: #4a4235; }
-
-  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: #9a8a6a; margin: 34px 0 12px; padding-left: 2px; }
-
-  .overview-box { background: #fffdf7; border: 1px solid #e6dcc0; border-radius: 14px; padding: 20px 22px; font-size: 13.5px; line-height: 1.65; color: #3a352c; }
-
-  .card { border-radius: 14px; padding: 22px 24px; margin-bottom: 16px; border-left: 5px solid; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-  .card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .card-icon { font-size: 22px; }
-  .card-title { font-size: 15.5px; font-weight: 700; }
-  .card-persona { font-size: 11px; color: #8a7e68; font-weight: 500; }
-  .card-metrics { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
-  .metric-chip { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; background: rgba(255,255,255,0.6); }
-  .card-body { font-size: 13.5px; line-height: 1.65; color: #3a352c; }
-  .card-body b { color: #2b2620; }
-
-  .nutricao { background: #eaf3e4; border-color: #4a7c3f; }
-  .nutricao .card-title { color: #3c6633; }
-  .nutricao .metric-chip { color: #3c6633; }
-  .nutricao .caveat { margin-top: 10px; padding: 8px 10px; background: rgba(255,255,255,0.6); border-radius: 8px; font-size: 12px; color: #5a4f30; }
-
-  .fisico { background: #fbeee4; border-color: #c0642b; }
-  .fisico .card-title { color: #a34f1f; }
-  .fisico .metric-chip { color: #a34f1f; }
-
-  .produto { background: #e6ecf7; border-color: #2b56a3; }
-  .produto .card-title { color: #1f4180; }
-  .produto .metric-chip { color: #1f4180; }
-
-  .neuro { background: #f0e6f7; border-color: #6b3fa0; }
-  .neuro .card-title { color: #56317f; }
-  .neuro .metric-chip { color: #56317f; }
-
-  .hub-box { background: #fffdf7; border: 1px solid #e6dcc0; border-radius: 14px; padding: 20px 22px; }
-  .hub-row { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px dashed #e6dcc0; font-size: 13px; }
-  .hub-row:last-child { border-bottom: none; }
-  .hub-label { flex: 0 0 110px; font-weight: 700; color: #9a8a6a; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; padding-top: 1px; }
-  .hub-value { flex: 1; color: #3a352c; line-height: 1.55; }
-
-  .footer-note { margin-top: 30px; padding-top: 16px; border-top: 1px solid #e6dcc0; font-size: 11px; color: #9a8a6a; line-height: 1.6; text-align: center; }
-</style>
+<title>Hub — Fechamento de 16/08/2026</title>
 </head>
-<body>
-<div class="wrap">
+<body style="margin:0;padding:32px 16px;background:#e7e9ed;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">
 
-  <div class="hero">
-    <div class="date">Relatório de Fechamento · 16 de Agosto de 2026</div>
-    <h1>Terceiro dia seguido sem sincronizar dados de saúde — mas os suplementos melhoraram</h1>
-    <div class="stats-row">
-      <div>
-        <div class="stat-num muted">—</div>
-        <div class="stat-sub">Sono de 16→17/08<br>sem dado (3ª noite seguida)</div>
-      </div>
-      <div>
-        <div class="stat-num muted">0</div>
-        <div class="stat-sub">Fit Score do dia<br>último real: 72 (14/08)</div>
-      </div>
-    </div>
-    <div class="summary">16/08 foi, na prática, um dia sem registro em quase todas as frentes — zero atividades diárias, zero refeições, e nenhum dado de sono/HRV/FC chegou do HealthKit pela terceira noite seguida. O único movimento real foi nos suplementos, que subiram de 1/7 para 5/8. Quatro especialistas leram os dados reais disponíveis — e disseram claramente onde simplesmente não há dado, em vez de inventar.</div>
-  </div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#e7e9ed;">
+<tr><td align="center" style="padding:0;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08),0 12px 30px rgba(0,0,0,.06);">
 
-  <div class="section-label">Overview do dia</div>
-  <div class="overview-box">16/08 não foi um dia ruim tanto quanto um dia <b>em silêncio</b>: sem treino, sem sono sincronizado, sem refeição logada, sem nenhuma das seis atividades diárias marcada. A tarefa de trabalho ("Comissões OneFlow") segue exatamente onde estava, em 40%. O sinal mais concreto de cuidado no dia foram os suplementos — 5 de 8 tomados, melhor que o dia anterior. Não é um dia pra se cobrar (não há dado suficiente pra isso), mas vale entender <b>por que o registro parou</b>: sem ele voltando, os próximos relatórios continuam tão vazios quanto este.</div>
+  <!-- header identity bar -->
+  <tr><td style="background:#1b2430;padding:14px 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td style="font-family:Georgia,'Times New Roman',serif;color:#e7c56a;font-size:17px;font-weight:700;letter-spacing:.02em;vertical-align:middle;">
+        <img src="https://le-gus.github.io/hub-widgets/gem-glint.gif" width="26" height="26" alt="" style="display:inline-block;vertical-align:middle;border:0;margin-right:8px;">Hub
+      </td>
+      <td align="right" style="font-family:Helvetica,Arial,sans-serif;color:#9aa4b2;font-size:12px;vertical-align:middle;">16 de agosto de 2026</td>
+    </tr></table>
+  </td></tr>
 
-  <div class="section-label">Quatro olhares sobre o seu dia</div>
+  <tr><td height="28" style="line-height:28px;font-size:1px;">&nbsp;</td></tr>
 
-  <div class="card nutricao">
-    <div class="card-head">
-      <span class="card-icon">🍽️</span>
-      <div>
-        <div class="card-title">Nutrição</div>
-        <div class="card-persona">Nutricionista</div>
-      </div>
-    </div>
-    <div class="card-metrics">
-      <span class="metric-chip">Sem refeições (3º dia seguido)</span>
-      <span class="metric-chip">Meds/Sups: 5 de 8</span>
-    </div>
-    <div class="card-body">Terceiro dia seguido (15, 16 e, até agora, 17/08) sem nenhuma refeição lançada no Wellness Project. No seu contexto — lowcarb, meta de reverter pré-diabetes e ganhar massa magra — um vácuo de 3 dias impede qualquer leitura real de macro ou micronutrientes; não dá pra saber se foi sub-registro ou mudança real de rotina alimentar, e não vou inventar números que não existem. Do lado dos suplementos, 16/08 teve melhora real frente ao dia anterior: <b>5 de 8 itens tomados</b> (Ômega 3 TG, Vitamina C, Eletrólitos, D3+K2, Metilcobalamina), contra 1 de 7 em 15/08 — ficaram de fora Suprabio, Magnésio bisglicinato e Maca Peruana.
-      <div class="caveat">⚠️ Sem refeições registradas, não há como avaliar micronutrientes — e o schema do Supabase pra isso ainda nem foi expandido (pendência conhecida). Prioridade real agora é voltar a logar, não ajustar dieta.</div>
-    </div>
-  </div>
+  <!-- headline -->
+  <tr><td style="padding:0 28px;">
+    <h1 style="margin:0 0 8px;font-family:Georgia,'Times New Roman',serif;font-size:23px;line-height:1.3;color:#1b2430;font-weight:700;">Terceiro dia seguido sem sincronizar dados de saúde — mas os suplementos melhoraram</h1>
+  </td></tr>
 
-  <div class="card fisico">
-    <div class="card-head">
-      <span class="card-icon">🏃</span>
-      <div>
-        <div class="card-title">Físico &amp; Recuperação</div>
-        <div class="card-persona">Educador Físico</div>
-      </div>
-    </div>
-    <div class="card-metrics">
-      <span class="metric-chip">Sem treino registrado</span>
-      <span class="metric-chip">Sono: sem dado</span>
-      <span class="metric-chip">HRV/FC: sem dado desde 14/08</span>
-    </div>
-    <div class="card-body">Sem sessão de treino em 15 nem 16/08. Mas o dado que mais chama atenção é outro: <b>nenhuma noite sincronizou do HealthKit nas últimas 3 (14→15, 15→16, 16→17)</b> — a última leitura real que existe é de 14/08 (sono 5h30, HRV 67ms, FC repouso 71bpm, Fit Score 72). Três dias é tempo suficiente pra deixar de ser coincidência: vale checar se o Apple Watch está carregando/conectando à noite, ou se o app perdeu permissão do HealthKit. Sem esse dado, não dá pra avaliar carga nem recuperação dos últimos dias com nenhuma confiança. <b>Recomendação:</b> antes de qualquer plano de treino, resolver o gap de sincronização é o item de maior prioridade — sem dado de recuperação, qualquer recomendação de carga seria chute.</div>
-  </div>
+  <tr><td height="20" style="line-height:20px;font-size:1px;">&nbsp;</td></tr>
 
-  <div class="card produto">
-    <div class="card-head">
-      <span class="card-icon">📋</span>
-      <div>
-        <div class="card-title">Tarefas</div>
-        <div class="card-persona">Product Owner Sênior</div>
-      </div>
-    </div>
-    <div class="card-metrics">
-      <span class="metric-chip">Comissões OneFlow — 40%</span>
-      <span class="metric-chip">Vencida há 12 dias (era 05/08)</span>
-      <span class="metric-chip">5 de 11 itens do checklist prontos</span>
-    </div>
-    <div class="card-body">"Comissões OneFlow" (<a href="https://github.com/omiexperience/omie-erp/issues/89325" style="color:inherit;">issue #89325</a>) segue como única tarefa ativa do backlog, em 40%, com prazo original de 05/08 — já <b>12 dias vencida</b>. Lendo o checklist real da tarefa: dos 11 itens, 5 estão feitos (revisão de JSON, controles de addons, scroll de input/select, DataStruct DataSource). Restam três frentes: <b>Checkbox</b> (`checked` não muda com SendData, texto não renderizando — a mais encravada), <b>Filter Bar</b> (input não ativa o evento, clear function pendente), e <b>Pop-up</b> (quase pronto — só falta o Subtitle; cortina e footer já resolvidos). Não há sinal de progresso registrado entre 15 e 16/08 — a tarefa parece parada, não só lenta. <b>Recomendação:</b> fechar Pop-up primeiro é uma vitória rápida (falta 1 item); Checkbox é o bloqueio mais técnico e merece virar sub-tarefa própria em vez de ficar espremido dentro do mesmo item guarda-chuva.</div>
-  </div>
+  <!-- hero stat row -->
+  <tr><td style="padding:0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td width="50%" align="center" style="background:#f4f5f7;border-radius:10px 0 0 10px;padding:18px 10px;border:1px solid #e2e5ea;border-right:none;">
+        <div style="font-family:Georgia,serif;font-size:30px;font-weight:700;color:#5c6773;line-height:1;">—</div>
+        <div style="font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#5c6773;margin-top:6px;line-height:1.4;">Sono de 16→17/08<br>sem dado · 3ª noite seguida</div>
+      </td>
+      <td width="50%" align="center" style="background:#f4f5f7;border-radius:0 10px 10px 0;padding:18px 10px;border:1px solid #e2e5ea;">
+        <div style="font-family:Georgia,serif;font-size:30px;font-weight:700;color:#b8862e;line-height:1;">0</div>
+        <div style="font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#5c6773;margin-top:6px;line-height:1.4;">Fit Score hoje<br>último real: 72 (14/08)</div>
+      </td>
+    </tr></table>
+  </td></tr>
 
-  <div class="card neuro">
-    <div class="card-head">
-      <span class="card-icon">🧠</span>
-      <div>
-        <div class="card-title">Atividades &amp; Estímulo Cognitivo</div>
-        <div class="card-persona">Neurologista</div>
-      </div>
+  <tr><td height="22" style="line-height:22px;font-size:1px;">&nbsp;</td></tr>
+
+  <!-- overview -->
+  <tr><td style="padding:0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fbfaf7;border:1px solid #ece7da;border-radius:10px;">
+      <tr><td style="padding:16px 18px;font-family:Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.6;color:#3a3f47;">
+        <span style="font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:#8a7e68;font-weight:700;">Overview do dia</span><br><br>
+        16/08 foi um dia <b>em silêncio</b>, não um dia ruim: sem treino, sem sono sincronizado, sem refeição logada, zero das seis atividades diárias marcadas. A tarefa de trabalho segue exatamente onde estava, em 40%. O único sinal real de cuidado foram os suplementos — 5 de 8, melhor que o dia anterior.
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td height="30" style="line-height:30px;font-size:1px;">&nbsp;</td></tr>
+
+  <tr><td style="padding:0 28px 8px;font-family:Helvetica,Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#8a94a1;font-weight:700;">Quatro olhares sobre o seu dia</td></tr>
+
+  <tr><td height="12" style="line-height:12px;font-size:1px;">&nbsp;</td></tr>
+
+  <!-- CARD: Nutrição -->
+  <tr><td style="padding:0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e2e5ea;border-radius:10px;overflow:hidden;">
+      <tr><td style="background:#4b7a5d;padding:12px 16px;">
+        <span style="font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;color:#ffffff;">🍽️ Nutrição</span>
+        <span style="font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#d6e6da;margin-left:8px;">Nutricionista</span>
+      </td></tr>
+      <tr><td style="background:#ffffff;padding:16px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin-bottom:10px;"><tr>
+          <td style="background:#eaf3e4;color:#3c6633;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:14px;">Sem refeições (3º dia)</td>
+          <td width="8"></td>
+          <td style="background:#eaf3e4;color:#3c6633;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:14px;">Meds/Sups: 5 de 8</td>
+        </tr></table>
+        <div style="font-family:Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.65;color:#3a3f47;">
+          Terceiro dia seguido sem nenhuma refeição lançada. No seu contexto lowcarb / pré-diabetes, um vácuo de 3 dias impede qualquer leitura de macro — não vou inventar número que não existe. Suplementos melhoraram de verdade: <b>5 de 8</b> tomados, contra 1 de 7 em 15/08.
+        </div>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td height="14" style="line-height:14px;font-size:1px;">&nbsp;</td></tr>
+
+  <!-- CARD: Físico -->
+  <tr><td style="padding:0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e2e5ea;border-radius:10px;overflow:hidden;">
+      <tr><td style="background:#2c7a7b;padding:12px 16px;">
+        <span style="font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;color:#ffffff;">🏃 Físico &amp; Recuperação</span>
+        <span style="font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#cfe8e8;margin-left:8px;">Educador Físico</span>
+      </td></tr>
+      <tr><td style="background:#ffffff;padding:16px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin-bottom:10px;"><tr>
+          <td style="background:#e3f1f1;color:#206b6c;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:14px;">Sono/HRV/FC: sem dado</td>
+          <td width="8"></td>
+          <td style="background:#e3f1f1;color:#206b6c;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:14px;">3 noites sem sync</td>
+        </tr></table>
+        <div style="font-family:Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.65;color:#3a3f47;">
+          Nenhuma noite sincronizou do HealthKit desde 14/08. Três dias é tempo suficiente pra deixar de ser coincidência — vale checar carga/conexão do Watch à noite. <b>Recomendação:</b> resolver o gap de sincronização antes de qualquer plano de treino.
+        </div>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td height="14" style="line-height:14px;font-size:1px;">&nbsp;</td></tr>
+
+  <!-- CARD: Tarefas / PO -->
+  <tr><td style="padding:0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e2e5ea;border-radius:10px;overflow:hidden;">
+      <tr><td style="background:#3b4c9e;padding:12px 16px;">
+        <span style="font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;color:#ffffff;">📋 Tarefas</span>
+        <span style="font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#ccd3f0;margin-left:8px;">Product Owner Sênior</span>
+      </td></tr>
+      <tr><td style="background:#ffffff;padding:16px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin-bottom:10px;"><tr>
+          <td style="background:#e6ecf7;color:#1f4180;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:14px;">40% concluído</td>
+          <td width="8"></td>
+          <td style="background:#e6ecf7;color:#1f4180;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:14px;">Vencida há 12 dias</td>
+        </tr></table>
+        <div style="font-family:Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.65;color:#3a3f47;">
+          "Comissões OneFlow" (issue #89325 no GitHub) segue como única tarefa ativa, prazo original 05/08. Do checklist real: 5 de 11 itens prontos. Restam Checkbox (mais encravado), Filter Bar, e Pop-up (quase pronto, só falta o Subtitle).
+        </div>
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:14px;"><tr><td>
+          <a href="https://github.com/omiexperience/omie-erp/issues/89325" style="display:inline-block;background:#3b4c9e;border:1px solid #3b4c9e;border-radius:8px;box-shadow:0 3px 0 0 #2c3b80;color:#ffffff;font-family:Helvetica,Arial,sans-serif;font-size:12.5px;font-weight:700;line-height:34px;padding:0 18px;text-decoration:none;">Ver issue #89325</a>
+        </td></tr></table>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td height="14" style="line-height:14px;font-size:1px;">&nbsp;</td></tr>
+
+  <!-- CARD: Neuro -->
+  <tr><td style="padding:0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e2e5ea;border-radius:10px;overflow:hidden;">
+      <tr><td style="background:#6b3fa0;padding:12px 16px;">
+        <span style="font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;color:#ffffff;">🧠 Atividades &amp; Estímulo Cognitivo</span>
+        <span style="font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#dccdf0;margin-left:8px;">Neurologista</span>
+      </td></tr>
+      <tr><td style="background:#ffffff;padding:16px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin-bottom:10px;"><tr>
+          <td style="background:#f0e6f7;color:#56317f;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:14px;">0 de 6 atividades</td>
+          <td width="8"></td>
+          <td style="background:#f0e6f7;color:#56317f;font-family:Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:14px;">Leitura parada em 32,6%</td>
+        </tr></table>
+        <div style="font-family:Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.65;color:#3a3f47;">
+          Segundo dia com variedade zerada — nenhum estímulo de linguagem, leitura, motor fino ou estratégico. <b>Recomendação:</b> não tentar recuperar os dois dias de uma vez; escolher uma atividade de baixo esforço pra retomar hoje.
+        </div>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td height="32" style="line-height:32px;font-size:1px;">&nbsp;</td></tr>
+
+  <!-- footer -->
+  <tr><td style="padding:16px 28px 28px;border-top:1px solid #ece7da;">
+    <div style="font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#9aa4b2;line-height:1.7;text-align:center;">
+      Gerado a partir de dados reais do Wellness Project, Notion e GitHub (16/08/2026).<br>
+      Os "especialistas" acima são leituras de padrão geradas por IA sobre dados reais — não substituem avaliação médica ou profissional.
     </div>
-    <div class="card-metrics">
-      <span class="metric-chip">0 de 6 atividades feitas</span>
-      <span class="metric-chip">Leitura parada em ~32,6%</span>
-    </div>
-    <div class="card-body">Segundo dia seguido com nenhuma das seis atividades diárias marcada — prancha, jogos, guitarra, Duolingo, bem-estar, notícias. O que preocupa aqui não é uma atividade isolada, é a <b>variedade zerada</b>: nenhum estímulo de linguagem (Duolingo), nenhuma leitura (Policarpo Quaresma segue em ~32,6%, sem avançar), nenhum estímulo motor fino (guitarra) nem estratégico (jogos). Consistência é o fator real de neuroplasticidade — dois dias seguidos zerados quebram esse padrão, não é só "um dia ruim". Sem registro de bem-estar também, o que tira contexto: não dá pra saber se é cansaço real, sobrecarga, ou só dias corridos. <b>Recomendação:</b> não tentar recuperar os dois dias de uma vez — escolher uma atividade de baixo esforço pra retomar hoje (Duolingo ou leitura) é mais realista que voltar às seis de uma vez.</div>
-  </div>
+  </td></tr>
 
-  <div class="section-label">O que o Hub já tinha registrado sobre 16/08</div>
-  <div class="hub-box">
-    <div class="hub-row"><div class="hub-label">Destaques</div><div class="hub-value">Meds/Sups com melhora real frente ao dia anterior (5/8 vs. 1/7). Leitura de "Policarpo Quaresma" sem avanço, parada em ~32,6%.</div></div>
-    <div class="hub-row"><div class="hub-label">Pontos de atenção</div><div class="hub-value">Nenhuma atividade diária feita. Suprabio, Magnésio e Maca Peruana ficaram sem tomar. Sem refeições nem sono registrados.</div></div>
-    <div class="hub-row"><div class="hub-label">Tarefas</div><div class="hub-value">1 ativa — "Comissões OneFlow" (40%, vencida desde 05/08); resto do backlog já concluído antes.</div></div>
-    <div class="hub-row"><div class="hub-label">Plantas</div><div class="hub-value">Nenhuma marcada como regada.</div></div>
-  </div>
+</table>
+</td></tr>
+</table>
 
-  <div class="footer-note">Gerado a partir de dados reais do Wellness Project, Notion e GitHub (16/08/2026). Os "especialistas" acima são leituras de padrão geradas por IA sobre dados reais — não substituem avaliação médica ou profissional, e onde o dado era incompleto ou ausente, isso foi dito explicitamente em vez de preenchido.</div>
-
-</div>
 </body>
 </html>
