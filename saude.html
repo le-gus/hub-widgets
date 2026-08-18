@@ -31,11 +31,24 @@
   .rec-label { font-size: 10px; color: #9a8a6a; margin-bottom: 8px; }
   .rec-range { font-size: 10.5px; color: #6b5f48; margin-top: 4px; }
   .rec-range b { color: #4a7c3f; }
+
+  .nutri-block { margin-top: 20px; padding-top: 16px; border-top: 1px solid #ece1c9; }
+  .cal-num { font-size: 28px; font-weight: 700; color: #3a3226; }
+  .cal-sub { font-size: 10px; color: #9a8a6a; margin-bottom: 8px; }
+  .macro-bar { display: flex; height: 14px; border-radius: 4px; overflow: hidden; margin: 8px 0 6px; }
+  .macro-bar .protein { background: #a0522d; }
+  .macro-bar .fat { background: #c9a227; }
+  .macro-bar .carb { background: #7a9c59; }
+  .macro-legend { display: flex; gap: 12px; font-size: 10px; color: #6b5f48; flex-wrap: wrap; margin-bottom: 10px; }
+  .macro-legend span { display: flex; align-items: center; gap: 4px; }
+  .meal-list { font-size: 10.5px; color: #6b5f48; line-height: 1.7; }
+  .meal-list b { color: #3a3226; }
+
   .sync-note { font-size: 10px; color: #b08a4a; margin-top: 14px; padding-top: 10px; border-top: 1px solid #ece1c9; }
 </style>
 </head>
 <body>
-  <div class="headline">Sincronização voltou depois de 2 dias em silêncio. Noite de 16→17/08: <b>9h20 de sono</b>, a mais longa da semana — e a recuperação respondeu: FC de repouso de 52bpm, a menor dos últimos 7 dias.</div>
+  <div class="headline">Sincronização voltou depois de 2 dias em silêncio. Noite de 16→17/08: <b>9h20 de sono</b>, a mais longa da semana — e a recuperação respondeu: FC de repouso de 52bpm, a menor dos últimos 7 dias. As refeições também voltaram a ser registradas no mesmo dia, depois de 2 dias sem lançamento.</div>
 
   <div class="section-title">Fit Score — ontem (16/08)</div>
   <div class="fit-row">
@@ -68,6 +81,27 @@
     </div>
   </div>
 
-  <div class="sync-note">Dado atualizado às 13:30 de 17/08, depois que o Apple Watch voltou a sincronizar (bateria tinha acabado nos dias anteriores).</div>
+  <div class="nutri-block">
+    <div class="section-title">Nutrição — hoje (17/08)</div>
+    <div class="cal-num">1.591 kcal</div>
+    <div class="cal-sub">4 refeições registradas · média 7d: 1.273 kcal</div>
+    <div class="macro-bar">
+      <div class="protein" style="width:31%"></div>
+      <div class="fat" style="width:69%"></div>
+      <div class="carb" style="width:0%"></div>
+    </div>
+    <div class="macro-legend">
+      <span><span class="dot" style="background:#a0522d"></span>Proteína 123g</span>
+      <span><span class="dot" style="background:#c9a227"></span>Gordura 120g</span>
+      <span><span class="dot" style="background:#7a9c59"></span>Carbo 0g</span>
+    </div>
+    <div class="meal-list">
+      <b>Café da manhã</b> — 332 kcal · 18,1g proteína · 28,6g gordura<br>
+      <b>Almoço</b> — 664 kcal · 52,7g proteína · 49,5g gordura<br>
+      <b>Jantar</b> — 595 kcal · 52,4g proteína · 41,9g gordura
+    </div>
+  </div>
+
+  <div class="sync-note">Dado atualizado às 13:30 de 17/08, depois que o Apple Watch voltou a sincronizar (bateria tinha acabado nos dias anteriores). Refeições de 15 e 16/08 seguem sem registro (0 kcal).</div>
 </body>
 </html>
