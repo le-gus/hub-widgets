@@ -19,13 +19,7 @@
 
   .two-col { display: flex; gap: 24px; }
   .col { flex: 1; }
-  .sleep-bar { display: flex; height: 14px; border-radius: 4px; overflow: hidden; margin: 8px 0 6px; }
-  .sleep-bar .deep { background: #2b4a6b; }
-  .sleep-bar .rem { background: #6b8caa; }
-  .sleep-bar .light { background: #c3d4e2; }
-  .sleep-legend { display: flex; gap: 12px; font-size: 10px; color: #6b5f48; flex-wrap: wrap; }
-  .sleep-legend span { display: flex; align-items: center; gap: 4px; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .no-data { font-size: 13px; color: #b08a4a; font-style: italic; margin-top: 6px; }
 
   .rec-num { font-size: 22px; font-weight: 700; color: #3a3226; }
   .rec-label { font-size: 10px; color: #9a8a6a; margin-bottom: 8px; }
@@ -43,46 +37,37 @@
   .macro-legend span { display: flex; align-items: center; gap: 4px; }
   .meal-list { font-size: 10.5px; color: #6b5f48; line-height: 1.7; }
   .meal-list b { color: #3a3226; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
 
   .sync-note { font-size: 10px; color: #b08a4a; margin-top: 14px; padding-top: 10px; border-top: 1px solid #ece1c9; }
 </style>
 </head>
 <body>
-  <div class="headline">Sincronização voltou depois de 2 dias em silêncio. Noite de 16→17/08: <b>9h20 de sono</b>, a mais longa da semana — e a recuperação respondeu: FC de repouso de 52bpm, a menor dos últimos 7 dias. As refeições também voltaram a ser registradas no mesmo dia, depois de 2 dias sem lançamento.</div>
+  <div class="headline">Fit Score de 17/08 fechou em <b>74</b> (média 7d: 51) — treino pesado de boxe (65min) e a dieta lowcarb retomada com <b>zero grama de carboidrato</b>. Sono, recuperação e nutrição de hoje (18/08) ainda não têm registro.</div>
 
-  <div class="section-title">Fit Score — ontem (16/08)</div>
+  <div class="section-title">Fit Score — ontem (17/08)</div>
   <div class="fit-row">
-    <div><div class="fit-num">47</div><div class="fit-sub">16/08 · média 7d: 66</div></div>
+    <div><div class="fit-num">74</div><div class="fit-sub">17/08 · média 7d: 51</div></div>
   </div>
 
   <div class="two-col">
     <div class="col">
-      <div class="section-title">Sono — última noite (16→17/08)</div>
-      <div style="font-size:20px;font-weight:700;color:#3a3226;">9h20</div>
-      <div class="sleep-bar">
-        <div class="deep" style="width:5%"></div>
-        <div class="rem" style="width:31%"></div>
-        <div class="light" style="width:64%"></div>
-      </div>
-      <div class="sleep-legend">
-        <span><span class="dot" style="background:#2b4a6b"></span>Profundo 0h30</span>
-        <span><span class="dot" style="background:#6b8caa"></span>REM 2h52</span>
-        <span><span class="dot" style="background:#c3d4e2"></span>Leve 5h59</span>
-      </div>
+      <div class="section-title">Sono — última noite (17→18/08)</div>
+      <div class="no-data">Ainda sem dado hoje</div>
     </div>
     <div class="col">
-      <div class="section-title">Recuperação — hoje (17/08)</div>
+      <div class="section-title">Recuperação — último dado (17/08)</div>
       <div class="rec-num">39ms</div>
       <div class="rec-label">HRV</div>
-      <div class="rec-range">Semana: 31–73ms</div>
-      <div class="rec-num" style="margin-top:10px;">52bpm</div>
+      <div class="rec-range">Semana: 31–67ms</div>
+      <div class="rec-num" style="margin-top:10px;">73bpm</div>
       <div class="rec-label">FC repouso</div>
-      <div class="rec-range">Semana: 52–73bpm · <b>o menor da semana</b></div>
+      <div class="rec-range">Semana: 66–73bpm</div>
     </div>
   </div>
 
   <div class="nutri-block">
-    <div class="section-title">Nutrição — hoje (17/08)</div>
+    <div class="section-title">Nutrição — ontem (17/08)</div>
     <div class="cal-num">1.591 kcal</div>
     <div class="cal-sub">4 refeições registradas · média 7d: 1.273 kcal</div>
     <div class="macro-bar">
@@ -100,8 +85,9 @@
       <b>Almoço</b> — 664 kcal · 52,7g proteína · 49,5g gordura<br>
       <b>Jantar</b> — 595 kcal · 52,4g proteína · 41,9g gordura
     </div>
+    <div class="cal-sub" style="margin-top:8px;">Hoje (18/08): ainda sem refeição registrada.</div>
   </div>
 
-  <div class="sync-note">Dado atualizado às 13:30 de 17/08, depois que o Apple Watch voltou a sincronizar (bateria tinha acabado nos dias anteriores). Refeições de 15 e 16/08 seguem sem registro (0 kcal).</div>
+  <div class="sync-note">Sono, recuperação e nutrição de 18/08 ainda não sincronizaram no momento da montagem do Hub. Valores mostrados são o último dado completo (17/08).</div>
 </body>
 </html>
