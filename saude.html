@@ -19,7 +19,6 @@
 
   .two-col { display: flex; gap: 24px; }
   .col { flex: 1; }
-  .no-data { font-size: 13px; color: #b08a4a; font-style: italic; margin-top: 6px; }
   .sleep-bar { display: flex; height: 14px; border-radius: 4px; overflow: hidden; margin: 8px 0 6px; }
   .sleep-bar .deep { background: #2b4a6b; }
   .sleep-bar .rem { background: #6b8caa; }
@@ -49,7 +48,7 @@
 </style>
 </head>
 <body>
-  <div class="headline">Noite de 17→18/08: <b>6h20 de sono</b>. FC de repouso caiu pra <b>54bpm</b>, a menor da semana. Fit Score de hoje (18/08) já em <b>71</b>. Nutrição de hoje ainda sem registro.</div>
+  <div class="headline">Noite de 17→18/08: <b>6h20 de sono</b>. FC de repouso caiu pra <b>54bpm</b>, a menor da semana. Fit Score de hoje (18/08) já em <b>71</b>. Nutrição de hoje: <b>1.518 kcal</b> registradas, dentro do padrão lowcarb.</div>
 
   <div class="section-title">Fit Score — hoje (18/08)</div>
   <div class="fit-row">
@@ -84,10 +83,24 @@
 
   <div class="nutri-block">
     <div class="section-title">Nutrição — hoje (18/08)</div>
-    <div class="no-data">Ainda sem refeição registrada hoje.</div>
-    <div class="cal-sub" style="margin-top:10px;">Ontem (17/08): 1.591 kcal · 123g proteína · 120g gordura · 0g carbo (4 refeições, lowcarb perfeito).</div>
+    <div class="cal-num">1.518 kcal</div>
+    <div class="cal-sub">Almoço + jantar registrados · média 7d: 1.608 kcal</div>
+    <div class="macro-bar">
+      <div class="protein" style="width:31%"></div>
+      <div class="fat" style="width:62%"></div>
+      <div class="carb" style="width:7%"></div>
+    </div>
+    <div class="macro-legend">
+      <span><span class="dot" style="background:#a0522d"></span>Proteína 113g</span>
+      <span><span class="dot" style="background:#c9a227"></span>Gordura 102g</span>
+      <span><span class="dot" style="background:#7a9c59"></span>Carbo 25g</span>
+    </div>
+    <div class="meal-list">
+      <b>Almoço</b> — 590 kcal · 52g proteína · 34,5g gordura · 8g carbo<br>
+      <b>Jantar</b> — 928 kcal · 60,7g proteína · 67,8g gordura · 17,2g carbo
+    </div>
   </div>
 
-  <div class="sync-note">Dado de sono/recuperação de 18/08 sincronizou às 12:18 (Wellness Project). Nutrição de hoje ainda não foi lançada.</div>
+  <div class="sync-note">Nutrição de hoje sincronizada junto com sono/recuperação (Wellness Project). Todos os 12 lançamentos vieram como itens genéricos importados (sem descrição de alimento); 1 item do jantar ficou sem macros registrados.</div>
 </body>
 </html>
