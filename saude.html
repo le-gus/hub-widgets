@@ -13,13 +13,10 @@
   .headline { font-size: 14px; color: #3a3226; line-height: 1.5; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid #ece1c9; }
   .headline b { color: #b5651d; }
   .section-title { font-size: 10.5px; color: #9a8a6a; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; margin-bottom: 10px; }
-  .fit-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
-  .fit-num { font-size: 34px; font-weight: 700; color: #3a3226; }
-  .fit-sub { font-size: 10px; color: #9a8a6a; }
+  .no-data { font-size: 13px; color: #b08a4a; font-style: italic; margin-top: 6px; }
 
   .two-col { display: flex; gap: 24px; }
   .col { flex: 1; }
-  .no-data { font-size: 13px; color: #b08a4a; font-style: italic; margin-top: 6px; }
   .sleep-bar { display: flex; height: 14px; border-radius: 4px; overflow: hidden; margin: 8px 0 6px; }
   .sleep-bar .deep { background: #2b4a6b; }
   .sleep-bar .rem { background: #6b8caa; }
@@ -27,60 +24,84 @@
   .sleep-legend { display: flex; gap: 12px; font-size: 10px; color: #6b5f48; flex-wrap: wrap; }
   .sleep-legend span { display: flex; align-items: center; gap: 4px; }
   .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .stale-note { font-size: 10.5px; color: #6b5f48; margin-top: 4px; }
 
   .rec-num { font-size: 22px; font-weight: 700; color: #3a3226; }
   .rec-label { font-size: 10px; color: #9a8a6a; margin-bottom: 8px; }
   .rec-range { font-size: 10.5px; color: #6b5f48; margin-top: 4px; }
   .rec-range b { color: #4a7c3f; }
-  .rec-range b.warn { color: #b5651d; }
+
+  .trend-block { margin-top: 20px; padding-top: 16px; border-top: 1px solid #ece1c9; }
+  .trend-row { display: flex; gap: 24px; }
+  .trend-col { flex: 1; }
+  .trend-title { font-size: 10px; color: #9a8a6a; margin-bottom: 6px; }
+  .bars { display: flex; align-items: flex-end; gap: 4px; height: 40px; }
+  .bars .bar { flex: 1; background: #c3d4e2; border-radius: 2px 2px 0 0; position: relative; }
+  .bars .bar.today { background: #b08a4a; }
+  .bar-labels { display: flex; gap: 4px; margin-top: 3px; }
+  .bar-labels span { flex: 1; font-size: 8px; color: #9a8a6a; text-align: center; }
 
   .nutri-block { margin-top: 20px; padding-top: 16px; border-top: 1px solid #ece1c9; }
-  .cal-num { font-size: 28px; font-weight: 700; color: #3a3226; }
-  .cal-sub { font-size: 10px; color: #9a8a6a; margin-bottom: 8px; }
+  .nutri-item { font-size: 11.5px; color: #3a3226; margin-bottom: 4px; }
+  .nutri-item b { color: #4a7c3f; }
+  .cal-sub { font-size: 10px; color: #9a8a6a; margin-top: 8px; }
 
   .sync-note { font-size: 10px; color: #b08a4a; margin-top: 14px; padding-top: 10px; border-top: 1px solid #ece1c9; }
 </style>
 </head>
 <body>
-  <div class="headline">Noite de 20→21/08: <b>7h05 de sono</b>, a melhor da semana. FC de repouso em <b>59bpm</b>, a menor da semana, e HRV subiu pra <b>51ms</b> (semana: 28–64ms, média 46ms) — forte recuperação depois do vale de ontem. Fit Score parcial de hoje (21/08): <b>80</b>, bem acima da média 7d (63) — Sono, Recuperação e Bem-estar já calculados. Nutrição de hoje ainda sem registro.</div>
-
-  <div class="section-title">Fit Score — hoje (21/08)</div>
-  <div class="fit-row">
-    <div><div class="fit-num">80</div><div class="fit-sub">21/08 (parcial: Sono 87 + Recuperação 73 + Bem-estar 75) · média 7d: 63</div></div>
-  </div>
+  <div class="headline">Ainda <b>sem sincronização hoje</b> (22/08) — a última sincronização do HealthBridge captou dados até ontem (21/08) às 22:57. Sono e recuperação de hoje aparecem assim que o app for aberto e sincronizado manualmente. Nutrição de hoje também sem registro ainda.</div>
 
   <div class="two-col">
     <div class="col">
-      <div class="section-title">Sono — última noite (20→21/08)</div>
-      <div style="font-size:20px;font-weight:700;color:#3a3226;">7h05</div>
-      <div class="sleep-bar">
-        <div class="deep" style="width:12%"></div>
-        <div class="rem" style="width:28%"></div>
-        <div class="light" style="width:60%"></div>
-      </div>
-      <div class="sleep-legend">
-        <span><span class="dot" style="background:#2b4a6b"></span>Profundo 0h50</span>
-        <span><span class="dot" style="background:#6b8caa"></span>REM 1h57</span>
-        <span><span class="dot" style="background:#c3d4e2"></span>Leve 4h17</span>
-      </div>
+      <div class="section-title">Sono — noite de 21→22/08</div>
+      <div class="no-data">Sem dado ainda.</div>
+      <div class="stale-note">Última noite sincronizada: 20→21/08 — <b>7h05</b> (0h50 profundo · 1h57 REM · 4h17 leve).</div>
     </div>
     <div class="col">
-      <div class="section-title">Recuperação — hoje (21/08)</div>
-      <div class="rec-num">51ms</div>
-      <div class="rec-label">HRV</div>
-      <div class="rec-range">Semana: 28–64ms · <b>a segunda melhor da semana</b></div>
-      <div class="rec-num" style="margin-top:10px;">59bpm</div>
-      <div class="rec-label">FC repouso</div>
-      <div class="rec-range">Semana: 59–77bpm · <b>a menor da semana</b></div>
+      <div class="section-title">Recuperação — hoje (22/08)</div>
+      <div class="no-data">Sem dado ainda.</div>
+      <div class="stale-note">Último dado disponível (21/08): HRV média <b>49ms</b> · FC repouso <b>65bpm</b>.</div>
+    </div>
+  </div>
+
+  <div class="trend-block">
+    <div class="trend-row">
+      <div class="trend-col">
+        <div class="trend-title">HRV — média diária, últimos 7 dias com dado (15–21/08)</div>
+        <div class="bars">
+          <div class="bar" style="height:71%"></div>
+          <div class="bar" style="height:82%"></div>
+          <div class="bar" style="height:63%"></div>
+          <div class="bar" style="height:65%"></div>
+          <div class="bar" style="height:72%"></div>
+          <div class="bar" style="height:88%"></div>
+          <div class="bar today" style="height:100%"></div>
+        </div>
+        <div class="bar-labels"><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span></div>
+      </div>
+      <div class="trend-col">
+        <div class="trend-title">FC repouso — diária, últimos 7 dias com dado (15–21/08)</div>
+        <div class="bars">
+          <div class="bar" style="height:95%"></div>
+          <div class="bar" style="height:86%"></div>
+          <div class="bar" style="height:95%"></div>
+          <div class="bar" style="height:83%"></div>
+          <div class="bar" style="height:100%"></div>
+          <div class="bar" style="height:94%"></div>
+          <div class="bar today" style="height:84%"></div>
+        </div>
+        <div class="bar-labels"><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span></div>
+      </div>
     </div>
   </div>
 
   <div class="nutri-block">
-    <div class="section-title">Nutrição — hoje (21/08)</div>
+    <div class="section-title">Nutrição — hoje (22/08)</div>
     <div class="no-data">Ainda sem refeição registrada hoje.</div>
-    <div class="cal-sub" style="margin-top:10px;">Ontem (20/08): 1.919 kcal · 186,6g proteína · 120,4g gordura · 15,8g carbo (9 lançamentos genéricos, importados como "Dinner").</div>
+    <div class="cal-sub">Ontem (21/08) fechou com <b style="color:#3a3226">1.774 kcal</b> em 2 refeições — Strogonoff Low Carb (almoço, 1001kcal) e Hambúrguer Low Carb com Pão Nuvem (janta, 773kcal). Total: 178,4g proteína · 107,4g gordura · 12,2g carbo.</div>
   </div>
 
-  <div class="sync-note">Dado de sono/recuperação de 21/08 sincronizado (Wellness Project). Nutrição de hoje ainda não foi lançada.</div>
+  <div class="sync-note">Fonte: HealthBridge (sono/recuperação) + recipes-hub (nutrição). Fit Score não é mais calculado desde 22/08 — HealthBridge não produz esse índice; ver pareceres de especialista no e-mail de fechamento.</div>
 </body>
 </html>
