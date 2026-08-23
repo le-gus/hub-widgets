@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hub Briefing</title>
+<title>Hub Briefing — 22/08/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,500&family=Petit+Formal+Script&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
@@ -33,13 +33,13 @@
     padding:60px 20px 110px;position:relative;overflow-x:hidden;
   }
   em, .serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;}
-  .field-label{max-width:660px;margin:0 auto 30px;font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);text-align:center;}
 
   .blob{position:fixed;border-radius:50%;filter:blur(100px);z-index:0;pointer-events:none;}
   .blob-1{width:560px;height:560px;top:-200px;left:-160px;background:radial-gradient(circle,var(--blue) 0%,transparent 70%);opacity:.28;}
   .blob-2{width:480px;height:480px;top:400px;right:-200px;background:radial-gradient(circle,var(--pink) 0%,transparent 70%);opacity:.22;}
   .blob-3{width:620px;height:620px;bottom:-300px;left:10%;background:radial-gradient(circle,var(--green) 0%,transparent 70%);opacity:.20;}
-  .blob-4{width:400px;height:400px;top:1400px;right:0;background:radial-gradient(circle,var(--violet) 0%,transparent 70%);opacity:.22;}
+  .blob-4{width:400px;height:400px;top:1600px;right:0;background:radial-gradient(circle,var(--violet) 0%,transparent 70%);opacity:.22;}
+  .blob-5{width:420px;height:420px;top:2600px;left:-140px;background:radial-gradient(circle,var(--amber) 0%,transparent 70%);opacity:.20;}
 
   .wrap{max-width:660px;margin:0 auto;position:relative;z-index:1;}
 
@@ -50,9 +50,8 @@
   .brand .script{font-size:23px;vertical-align:-3px;margin-right:2px;}
   .date-pill{font-family:'Newsreader',Georgia,serif;font-size:10.5px;letter-spacing:.06em;color:var(--text-dim);background:var(--glass);border:1px solid var(--stroke);border-radius:100px;padding:6px 13px;backdrop-filter:blur(20px);}
 
-  /* HERO */
   .display{font-family:'Bricolage Grotesque',-apple-system,sans-serif;}
-  .hero h1{font-family:'Bricolage Grotesque',-apple-system,sans-serif;font-size:46px;line-height:1.06;font-weight:600;letter-spacing:-.03em;margin:0 0 22px;max-width:580px;text-wrap:balance;}
+  .hero h1{font-family:'Bricolage Grotesque',-apple-system,sans-serif;font-size:42px;line-height:1.1;font-weight:600;letter-spacing:-.03em;margin:0 0 22px;max-width:580px;text-wrap:balance;}
   .hero h1 em{font-style:normal;font-weight:700;background:linear-gradient(100deg,#FF6E8E 10%,#FFB454 55%,#9D7BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
   .reveal.in{opacity:1;transform:translateY(0);}
@@ -61,74 +60,99 @@
   .reveal.in .spark-line{stroke-dashoffset:0;}
   .blob{transition:transform 1.2s cubic-bezier(.16,1,.3,1);}
   @media (prefers-reduced-motion:reduce){.spark-line{transition:none;stroke-dashoffset:0;} .blob{transition:none;}}
-  .ticker{display:flex;gap:0;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:14px 0;margin-bottom:64px;}
-  .tick{flex:1;padding:0 18px;border-right:1px solid var(--stroke);}
+  .ticker{display:flex;gap:0;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:14px 0;margin-bottom:64px;flex-wrap:wrap;}
+  .tick{flex:1;min-width:120px;padding:8px 18px;border-right:1px solid var(--stroke);}
   .tick:last-child{border-right:none;}
   .tick-label{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px;}
   .tick-val{font-family:'Newsreader',Georgia,serif;font-size:16px;font-weight:500;color:var(--text);font-variant-numeric:tabular-nums;}
 
   section{margin-bottom:60px;}
   .sec-tag{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
-  .sec-tag .dot{width:7px;height:7px;border-radius:50%;}
+  .sec-tag .dot{width:7px;height:7px;border-radius:50%;flex:none;}
   .sec-tag .txt{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);}
   .sec-tag .line{flex:1;height:1px;background:var(--stroke);}
 
-  /* RECUPERAÇÃO — split numeral layout */
   .recup-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start;}
-  .big-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:76px;line-height:1;letter-spacing:-.04em;color:var(--text);font-variation-settings:'opsz' 96;}
-  .big-num sup{font-size:22px;font-weight:500;color:var(--text-faint);top:-.4em;}
+  .big-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:64px;line-height:1;letter-spacing:-.04em;color:var(--text);font-variation-settings:'opsz' 96;}
+  .big-num sup{font-size:20px;font-weight:500;color:var(--text-faint);top:-.4em;}
   .big-num-cap{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-top:6px;}
   .mini-rows{display:flex;flex-direction:column;gap:14px;}
-  .mini-row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--stroke);padding-bottom:12px;}
+  .mini-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border-bottom:1px solid var(--stroke);padding-bottom:12px;}
   .mini-row:last-child{border:none;padding-bottom:0;}
   .mini-row .k{font-size:12.5px;color:var(--text-dim);}
-  .mini-row .v{font-family:'Newsreader',Georgia,serif;font-size:14px;color:var(--text);font-variant-numeric:tabular-nums;}
+  .mini-row .v{font-family:'Newsreader',Georgia,serif;font-size:14px;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap;}
   .mini-row .v.up{color:var(--green);}
-  .prose{grid-column:1/-1;margin-top:26px;font-size:14.5px;line-height:1.7;color:var(--text-dim);max-width:560px;}
+  .mini-row .v.warn{color:var(--amber);}
+  .prose{margin-top:26px;font-size:14.5px;line-height:1.75;color:var(--text-dim);max-width:580px;}
+  .prose p{margin:0 0 14px;}
+  .prose p:last-child{margin-bottom:0;}
+  .prose b{color:var(--text);font-weight:600;}
 
-  /* TREINO — pull number + list */
   .treino-grid{display:grid;grid-template-columns:130px 1fr;gap:28px;}
-  .pull{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:60px;line-height:0.95;letter-spacing:-.03em;background:linear-gradient(160deg,#5AC8FA,#0A84FF 70%);-webkit-background-clip:text;background-clip:text;color:transparent;font-variation-settings:'opsz' 60;}
+  .pull{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:52px;line-height:0.95;letter-spacing:-.03em;background:linear-gradient(160deg,#5AC8FA,#0A84FF 70%);-webkit-background-clip:text;background-clip:text;color:transparent;font-variation-settings:'opsz' 60;}
   .pull-cap{font-size:11px;color:var(--text-faint);margin-top:8px;line-height:1.4;}
-  h2.mod-title{font-family:'Bricolage Grotesque',sans-serif;font-size:23px;font-weight:600;letter-spacing:-.015em;margin:0 0 14px;max-width:480px;text-wrap:balance;font-variation-settings:'opsz' 24;}
+  h2.mod-title{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:600;letter-spacing:-.015em;margin:0 0 14px;max-width:500px;text-wrap:balance;font-variation-settings:'opsz' 24;}
   table.log{width:100%;border-collapse:collapse;margin:18px 0 20px;}
-  table.log th{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);text-align:left;font-weight:500;padding:0 0 8px;border-bottom:1px solid var(--stroke-2);}
-  table.log td{font-size:13px;padding:9px 0;border-bottom:1px solid var(--stroke);color:var(--text-dim);}
-  table.log td:last-child, table.log th:last-child{text-align:right;font-family:'Newsreader',Georgia,serif;color:var(--text);}
+  table.log th{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);text-align:left;font-weight:500;padding:0 8px 8px 0;border-bottom:1px solid var(--stroke-2);}
+  table.log td{font-size:12.5px;padding:9px 8px 9px 0;border-bottom:1px solid var(--stroke);color:var(--text-dim);}
+  table.log td:last-child, table.log th:last-child{text-align:right;font-family:'Newsreader',Georgia,serif;color:var(--text);padding-right:0;}
   .callout{border-radius:14px;padding:14px 16px;margin-top:6px;background:var(--glass-2);border:1px solid var(--stroke);}
   .callout .lbl{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
-  .callout p{margin:0;font-size:13.5px;line-height:1.6;color:var(--text-dim);}
-  .callout.good .lbl{color:var(--green);} .callout.bad .lbl{color:var(--rose);}
+  .callout p{margin:0 0 8px;font-size:13.5px;line-height:1.6;color:var(--text-dim);}
+  .callout p:last-child{margin-bottom:0;}
+  .callout.good .lbl{color:var(--green);} .callout.bad .lbl{color:var(--rose);} .callout.warn .lbl{color:var(--amber);}
 
-  /* NUTRIÇÃO — full table */
   table.meals{width:100%;border-collapse:collapse;}
-  table.meals th{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);text-align:left;font-weight:500;padding:0 10px 10px 0;border-bottom:1px solid var(--stroke-2);}
-  table.meals td{font-size:12.5px;padding:10px 10px 10px 0;border-bottom:1px solid var(--stroke);color:var(--text-dim);vertical-align:top;}
+  table.meals th{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);text-align:left;font-weight:500;padding:0 8px 10px 0;border-bottom:1px solid var(--stroke-2);}
+  table.meals td{font-size:12px;padding:9px 8px 9px 0;border-bottom:1px solid var(--stroke);color:var(--text-dim);vertical-align:top;}
   table.meals td.num, table.meals th.num{text-align:right;font-family:'Newsreader',Georgia,serif;color:var(--text);font-variant-numeric:tabular-nums;padding-right:0;}
   table.meals tr.total td{border-bottom:none;padding-top:14px;font-weight:600;color:var(--text);}
   table.meals tr.total td.num{color:var(--amber);}
+  .table-scroll{overflow-x:auto;}
 
-  /* TRABALHO — progress */
   .segbar{display:flex;gap:3px;margin:20px 0 10px;}
   .seg{height:8px;flex:1;border-radius:2px;background:var(--stroke-2);}
   .seg.on{background:var(--violet);}
-  .task-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--stroke);}
+  .task-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--stroke);}
   .task-row:last-child{border:none;}
   .task-name{font-size:13.5px;color:var(--text);}
-  .task-tag{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:100px;}
+  .task-tag{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:100px;white-space:nowrap;}
   .task-tag.prog{background:rgba(157,123,255,.15);color:var(--violet);}
   .task-tag.wait{background:rgba(255,180,84,.15);color:var(--amber);}
+  .task-tag.stall{background:rgba(255,110,142,.15);color:var(--rose);}
 
-  /* PSICÓLOGO — quote led, off-grid */
+  .act-grid{display:flex;flex-direction:column;gap:0;}
+  .act-row{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--stroke);}
+  .act-row:last-child{border:none;}
+  .act-check{width:16px;height:16px;border-radius:5px;flex:none;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:10px;}
+  .act-check.yes{background:rgba(61,220,155,.15);color:var(--green);border:1px solid rgba(61,220,155,.4);}
+  .act-check.no{background:rgba(255,110,142,.12);color:var(--rose);border:1px solid rgba(255,110,142,.35);}
+  .act-check.flag{background:rgba(255,180,84,.15);color:var(--amber);border:1px solid rgba(255,180,84,.4);}
+  .act-body .act-name{font-size:13.5px;color:var(--text);}
+  .act-body .act-detail{font-size:12px;color:var(--text-faint);margin-top:2px;line-height:1.5;}
+
   .psico{padding-left:28px;border-left:1px solid var(--stroke-2);}
-  .psico .serif{font-size:26px;line-height:1.42;color:var(--text);max-width:520px;text-wrap:balance;}
+  .psico .serif{font-size:24px;line-height:1.42;color:var(--text);max-width:520px;text-wrap:balance;}
   .psico .attrib{font-family:'Petit Formal Script',cursive;font-size:19px;color:var(--text-faint);margin-top:16px;}
-  .psico .prose{margin-top:22px;max-width:480px;}
+  .psico .prose{margin-top:22px;max-width:500px;}
 
-  /* OVERVIEW closing */
-  .overview{background:linear-gradient(160deg,rgba(157,123,255,.10),rgba(255,110,142,.06));border:1px solid var(--stroke-2);border-radius:24px;padding:38px 36px;text-align:center;}
-  .overview .big-num{font-size:64px;display:block;}
-  .overview p{max-width:440px;margin:16px auto 0;font-size:14px;line-height:1.7;color:var(--text-dim);}
+  .sympt-card{display:flex;gap:18px;align-items:flex-start;margin-bottom:20px;padding:16px 18px;border-radius:14px;background:rgba(255,110,142,.06);border:1px solid rgba(255,110,142,.22);}
+  .sympt-time{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:600;color:var(--rose);white-space:nowrap;}
+  .sympt-meta{font-size:12px;color:var(--text-faint);margin-top:4px;}
+
+  .overview{background:linear-gradient(160deg,rgba(157,123,255,.10),rgba(255,110,142,.06));border:1px solid var(--stroke-2);border-radius:24px;padding:38px 36px;}
+  .overview .ov-top{text-align:center;}
+  .overview .big-num{font-size:56px;display:inline-block;}
+  .overview .prose{margin-top:22px;max-width:100%;}
+  .overview .ov-list{margin-top:20px;padding-top:20px;border-top:1px solid var(--stroke);}
+  .overview .ov-list .row{display:flex;justify-content:space-between;gap:14px;font-size:12.5px;padding:8px 0;color:var(--text-dim);}
+  .overview .ov-list .row b{color:var(--text);font-weight:600;}
+
+  .status-box{background:var(--glass-2);border:1px solid var(--stroke);border-radius:14px;padding:16px 18px;font-size:12.5px;line-height:1.7;color:var(--text-dim);}
+  .status-box .row{display:flex;gap:8px;margin-bottom:6px;}
+  .status-box .row:last-child{margin-bottom:0;}
+  .status-box .ok{color:var(--green);}
+  .status-box .miss{color:var(--amber);}
 
   .footer{margin-top:50px;text-align:center;}
   .footer p{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:12px;letter-spacing:.01em;color:var(--text-faint);margin:0;}
@@ -136,142 +160,228 @@
 
   @media (max-width:520px){
     .recup-grid,.treino-grid{grid-template-columns:1fr;}
-    .hero h1{font-size:34px;}
+    .hero h1{font-size:30px;}
+    .psico{padding-left:16px;}
   }
 </style>
 </head>
 <body>
-<div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><div class="blob blob-4"></div>
+<div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><div class="blob blob-4"></div><div class="blob blob-5"></div>
 
 <div class="wrap">
 
   <div class="top">
     <div class="brand"><span class="script">Hub</span><span>· diário</span></div>
-    <div class="date-pill">SEX, 22 AGO</div>
+    <div class="date-pill">SÁB, 22 AGO</div>
   </div>
 
   <div class="hero">
-    <h1>O corpo <em>avançou</em> sob carga. À mesa, o excesso <em>cobrou</em> seu preço.</h1>
+    <h1>Disciplina no corpo e no carbo — até a pizza da noite <em>cobrar</em> a conta, e o sono <em>pedir</em> a atenção que não teve.</h1>
   </div>
 
   <div class="ticker reveal">
-    <div class="tick"><div class="tick-label">Sono</div><div class="tick-val">6h42</div></div>
-    <div class="tick"><div class="tick-label">FC repouso</div><div class="tick-val"><span class="count" data-target="54">0</span>bpm</div></div>
-    <div class="tick"><div class="tick-label">Treino</div><div class="tick-val"><span class="count" data-target="54">0</span>min</div></div>
-    <div class="tick"><div class="tick-label">Consumo</div><div class="tick-val"><span class="count" data-target="3260" data-thousand="1">0</span>kcal</div></div>
+    <div class="tick"><div class="tick-label">Sono</div><div class="tick-val">5h06</div></div>
+    <div class="tick"><div class="tick-label">FC repouso</div><div class="tick-val"><span class="count" data-target="72">0</span>bpm</div></div>
+    <div class="tick"><div class="tick-label">Treino (perna)</div><div class="tick-val"><span class="count" data-target="54">0</span>min</div></div>
+    <div class="tick"><div class="tick-label">Consumo</div><div class="tick-val"><span class="count" data-target="3293" data-thousand="1">0</span>kcal</div></div>
   </div>
 
-  <!-- RECUPERAÇÃO -->
+  <!-- NUTRITION -->
   <section class="reveal">
-    <div class="sec-tag"><div class="dot" style="background:var(--rose);"></div><div class="txt">Recuperação</div><div class="line"></div></div>
-    <div class="recup-grid">
-      <div>
-        <div class="big-num">6<sup>h</sup>42<sup>m</sup></div>
-        <div class="big-num-cap">Sono — 7º dia seguido em queda</div>
-        <svg width="200" height="46" viewBox="0 0 200 46" style="margin-top:18px;">
-          <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF6E8E" stop-opacity=".3"/><stop offset="100%" stop-color="#FF6E8E" stop-opacity="0"/></linearGradient></defs>
-          <path class="spark-line" d="M2 28 L34 22 L66 32 L98 16 L130 26 L162 12 L196 18" fill="none" stroke="#FF6E8E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M2 28 L34 22 L66 32 L98 16 L130 26 L162 12 L196 18 L196 46 L2 46 Z" fill="url(#sg)" stroke="none"/>
-          <circle cx="196" cy="18" r="3" fill="#FF6E8E"/>
-        </svg>
-      </div>
-      <div class="mini-rows">
-        <div class="mini-row"><span class="k">FC de repouso — quanto mais baixa, melhor a recuperação</span><span class="v up">54bpm ▾</span></div>
-        <div class="mini-row"><span class="k">HRV — variação do intervalo entre batimentos; alta é sinal de sistema nervoso descansado</span><span class="v up">61ms ▴</span></div>
-        <div class="mini-row"><span class="k">VO2max — capacidade aeróbica máxima (tend. 30d)</span><span class="v">42,1 ml/kg/min</span></div>
-        <div class="mini-row"><span class="k">Passos</span><span class="v">8.240</span></div>
-        <div class="mini-row"><span class="k">Cal. ativas</span><span class="v">612kcal</span></div>
-      </div>
-      <p class="prose">Pela sétima noite consecutiva, o sono cedeu terreno — e, ainda assim, tanto a frequência cardíaca de repouso quanto a variabilidade cardíaca (a HRV, que mede o quão descansado está o sistema nervoso autônomo) superaram a média semanal. Isso indica que o organismo vem absorvendo a carga de treino sem sinal de fadiga acumulada. A ressalva é sobre acúmulo, não sobre hoje: esses dois indicadores costumam ser os últimos a piorar — se o déficit de sono persistir por mais três ou quatro noites, é razoável esperar que a FC de repouso comece a subir e o rendimento no treino caia de forma perceptível.</p>
+    <div class="sec-tag"><div class="dot" style="background:var(--green);"></div><div class="txt">Nutrition</div><div class="line"></div></div>
+    <h2 class="mod-title">Carboidrato ficou na meta até no dia mais bagunçado do mês — mas caloria, gordura saturada e sódio saíram do script</h2>
+    <div class="table-scroll">
+    <table class="meals">
+      <tr><th>Horário</th><th>Item</th><th class="num">kcal</th><th class="num">Prot.</th><th class="num">Gord.</th><th class="num">Carbo</th></tr>
+      <tr><td>08:00–09:00</td><td>Suplementos manhã + queijo minas + café preto</td><td class="num">179</td><td class="num">10g</td><td class="num">15g</td><td class="num">1g</td></tr>
+      <tr><td>12:30</td><td>Almoço no mercado — asa, porco, salpicão, ovo, costela desfiada, torresmo (6 itens)</td><td class="num">1.477</td><td class="num">103g</td><td class="num">111g</td><td class="num">7g</td></tr>
+      <tr><td>13:40</td><td>Suplementos tarde — Ômega 3, Vit. C, eletrólitos, D3+K2, Maca (5 itens)</td><td class="num">10</td><td class="num">0g</td><td class="num">0g</td><td class="num">2g</td></tr>
+      <tr><td>20:15</td><td>Janta — pizza, 2 fatias generosas s/massa (muçarela, catupiry, bacon, frango, calabresa)</td><td class="num">1.595</td><td class="num">120g</td><td class="num">117g</td><td class="num">11g</td></tr>
+      <tr><td>20:15–23:00</td><td>Suplementos noite — Zinco, Suprabio+Fibras, Magnésio (3 itens)</td><td class="num">32</td><td class="num">0g</td><td class="num">0g</td><td class="num">8g</td></tr>
+      <tr class="total"><td colspan="2">Total do dia</td><td class="num">3.293</td><td class="num">233g</td><td class="num">243g</td><td class="num">29g</td></tr>
+    </table>
+    </div>
+    <div class="prose">
+      <p>Fechando 22/08: <b>~3.293 kcal</b>, <b>233g de proteína</b>, <b>243g de gordura</b> — dos quais pelo menos ~103g são gordura saturada, a fração que mais eleva o LDL e mais sobrecarrega a digestão em excesso pontual — e <b>29g de carboidrato bruto</b>, que descontando a fibra rastreada (~8g, mas com vários itens sem esse campo preenchido — número real de fibra é maior) dá um <b>carboidrato líquido de ~21g</b>, dentro da meta (~21g/dia) mesmo num sábado sem estrutura nenhuma. Sódio somou <b>pelo menos 3.824mg</b> registrados (quase o dobro do teto geral de ~2.300mg/dia) — "pelo menos" porque boa parte dos itens do almoço e a pizza não têm sódio totalmente discriminado no registro.</p>
+      <p><b>O que foi bem executado:</b> o controle de carboidrato foi o ponto alto do dia, não o problema. Mesmo no almoço de mercado (frito, gorduroso, mas sem arroz/pão/farinha) e na pizza sem massa à noite, o carboidrato líquido ficou dentro da meta — sinal de que a restrição virou hábito automático, não uma escolha que só acontece em dia calmo. Isso pesa mais para a reversão da pré-diabetes (controle da glicemia pós-refeição) do que o total calórico de um único dia. O suplemento de fibra (Suprabio, 8g) também foi uma jogada útil num dia sem vegetais.</p>
+      <p><b>O que não foi bem executado:</b> o total calórico ficou bem acima do padrão recente — a pizza sozinha respondeu por quase metade do dia (~1.595kcal, ~117g de gordura), empilhada em cima de um almoço já gorduroso. Gordura saturada muito alta + sódio muito acima do teto, concentrados numa única refeição noturna, é um padrão nutricional clássico de sobrecarga digestiva pontual — o mal-estar relatado depois (ver Medical — Gastroenterologia, abaixo) é coerente com esse perfil.</p>
+      <p><b>Risco, mesmo pequeno:</b> potássio rastreado no dia ficou baixo (~300mg conhecidos, de uma referência de ~3.400–4.700mg/dia) — mesmo contando a lacuna de dado, potássio baixo junto de sódio muito alto é a proporção errada (o ideal é o oposto) e pode contribuir para retenção de líquido e fadiga.</p>
+      <p><b>Perspectiva:</b> um excesso pontual de calorias como o de hoje, isolado, representa algo em torno de <b>0,2kg</b> em gordura (projeção estimada, não meta) — irrelevante para a trajetória de perda de peso se não virar padrão. É provável, porém, que a balança mostre um salto maior nos próximos 1–3 dias por retenção de água puxada pelo sódio — isso não é gordura e tende a normalizar com hidratação, não é motivo para restringir mais amanhã. Se esse tipo de noite (jantar de família, pizza pesada) virar recorrente, um excesso de ~1.500kcal por semana projeta cerca de 10kg/ano na direção contrária à meta — escala do que "só essa vez" vira se repetir com frequência.</p>
+    </div>
+    <div class="callout warn" style="margin-top:16px;">
+      <div class="lbl">Dado ausente atípico</div>
+      <p>A janta (pizza, maior refeição do dia) está sem fibra, potássio, magnésio, zinco e a maioria das vitaminas no registro — não porque não existam no alimento, mas porque a fonte (estimativa) não cobriu esses campos. Isso sub-representa o potássio e o magnésio totais do dia nos números acima.</p>
+    </div>
+    <div class="callout bad" style="margin-top:10px;">
+      <div class="lbl">Sinal atípico · Medical — Gastroenterologia</div>
+      <p>O mal-estar relatado logo após o jantar é atípico no histórico recente — ver parecer completo mais abaixo.</p>
+    </div>
+    <div class="callout" style="margin-top:10px;">
+      <div class="lbl" style="color:var(--text-faint);">Nota técnica</div>
+      <p>Dose de folato do suplemento sublingual de hoje (10.000mcg de metilfolato) é ~25x a ingestão de referência diária — não é parecer clínico, é só um dado bruto de suplementação que vale um olhar de quem acompanha o protocolo.</p>
     </div>
   </section>
 
-  <!-- TREINO -->
+  <!-- PERFORMANCE -->
   <section class="reveal">
     <div class="sec-tag"><div class="dot" style="background:var(--blue);"></div><div class="txt">Performance</div><div class="line"></div></div>
     <div class="treino-grid">
       <div>
-        <div class="pull">+<span class="count" data-target="100">0</span><span style="font-size:28px;">%</span></div>
-        <div class="pull-cap">carga no agachamento vs. última sessão</div>
+        <div class="pull"><span class="count" data-target="54">0</span><span style="font-size:22px;">min</span></div>
+        <div class="pull-cap">perna, 24 séries em 7 exercícios, 340kcal · 11h02–11h56</div>
       </div>
       <div>
-        <h2 class="mod-title">Força tradicional, 54 minutos: o agachamento como protagonista da sessão</h2>
-        <p style="font-size:14px;line-height:1.7;color:var(--text-dim);margin:0 0 4px;">A sessão desta manhã revela, sobretudo, disciplina de progressão: cada exercício manteve o volume da semana anterior, com exceção do agachamento, cuja carga foi deliberadamente dobrada.</p>
+        <h2 class="mod-title">Treino de perna sustenta volume, mas fica cego de dados a partir do início da tarde</h2>
+        <div class="table-scroll">
         <table class="log">
           <tr><th>Exercício</th><th>Séries × reps</th><th>Carga</th></tr>
-          <tr><td>Agachamento Smith</td><td>1×12 · 1×12 · 2×10</td><td>— · 10kg · 20kg</td></tr>
+          <tr><td>Agachamento Smith</td><td>1× aquec. · 1×12 · 2×10</td><td>— · 10kg/lado · 20kg/lado</td></tr>
           <tr><td>Cadeira extensora</td><td>4×12</td><td>40kg</td></tr>
           <tr><td>Mesa flexora</td><td>4×12</td><td>40kg</td></tr>
           <tr><td>Panturrilha (leg press)</td><td>4×12</td><td>40kg</td></tr>
-          <tr><td>Elevação lateral</td><td>4×10</td><td>8kg</td></tr>
-          <tr><td>Puxada de corda</td><td>3×12</td><td>14kg</td></tr>
-          <tr><td>Graviton (negativa)</td><td>1×6</td><td>76kg assist.</td></tr>
+          <tr><td>Elevação lateral</td><td>bloco leve</td><td>carga reduzida (poupando ombro p/ beach tênis)</td></tr>
+          <tr><td>Puxada de corda (antebraço)</td><td>bloco complementar</td><td>—</td></tr>
+          <tr><td>Graviton (negativa assistida)</td><td>1 série</td><td>76kg assist. — "muito difícil"</td></tr>
         </table>
-        <div class="callout good">
-          <div class="lbl">Próximo passo</div>
-          <p>Confirmando-se a boa execução dos 20kg na sessão seguinte, o incremento recomendado é para 22,5kg — resista à tentação de saltar diretamente aos 25kg, o que comprometeria a técnica antes da devida adaptação neuromuscular. Já a carga deliberadamente leve na elevação lateral (8kg) constitui decisão criteriosa em razão do beach tênis, e não um recuo no protocolo.</p>
         </div>
-        <div class="callout" style="margin-top:10px;">
-          <div class="lbl" style="color:var(--amber);">Ponto de atenção</div>
-          <p>O graviton (negativa assistida) segue sendo feito como exercício avulso, sem uma meta de redução de carga assistida ao longo do tempo — e é justamente essa progressão que leva à barra fixa sem assistência, seu objetivo declarado. Sem um marco (ex: reduzir 76kg pra 70kg em 4 semanas), o exercício tende a estagnar em vez de evoluir. Vale definirmos essa meta trimestral.</p>
-        </div>
+      </div>
+    </div>
+    <div class="prose">
+      <p>FC média de <b>108bpm</b> durante o treino, pico de <b>143bpm</b> — faixa moderada, coerente com treino de força que intercala esforço e descanso entre séries. O <b>HRV</b> do dia (variabilidade da frequência cardíaca — mede o intervalo entre batimentos; quanto maior, em geral melhor a capacidade de recuperação do sistema nervoso autônomo) ficou em ~52ms, acima da média móvel de 30 dias (~42ms) — bom sinal de que o corpo estava recuperado para receber a carga, não sinal de sobrecarga, apesar da noite maldormida.</p>
+      <p><b>O que funcionou:</b> a sessão cobriu toda a cadeia da perna (quadríceps, posterior, panturrilha) com volume respeitável, e manter a elevação lateral leve por causa do beach tênis foi um ajuste inteligente de gestão de carga entre modalidades. <b>O que falta:</b> não há <b>RPE</b> (Rate of Perceived Exertion — escala de 0 a 10 de quão difícil a série pareceu, o principal termômetro de quanto ainda dá para empurrar) registrado, nem humor pós-treino, nem nota de dor — sem isso, fica impossível saber se o agachamento a 20kg/lado ficou fácil (espaço pra subir carga) ou já no limite. Esta também é a primeira sessão de perna com séries e cargas detalhadas no histórico — sem sessão anterior comparável para confirmar progressão real ainda.</p>
+      <p><b>Perspectiva:</b> se o registro detalhado se mantiver, a próxima sessão de perna já permite medir progressão real (carga subindo, ou RPE caindo para o mesmo volume) — serve tanto à hipertrofia (evidenciar sobrecarga progressiva) quanto ao condicionamento. Sem RPE, o especialista de Performance segue sem o principal sinal de autorregulação de carga — o dado mais barato de coletar e mais caro de não ter, ainda mais com o graviton já perto do limite subjetivo relatado hoje.</p>
+    </div>
+    <div class="callout good">
+      <div class="lbl">Recomendação</div>
+      <p>Nas próximas sessões de perna, registrar RPE (0–10) e qualquer dor/desconforto pós-treino junto com séries e cargas. Se o RPE do agachamento no Smith ficar ≤7 na próxima vez, subir a carga (referência de hoje: 2×10 a 20kg/lado) para manter sobrecarga progressiva. Manter a elevação lateral leve enquanto o beach tênis estiver na rotina.</p>
+    </div>
+    <div class="callout warn" style="margin-top:10px;">
+      <div class="lbl">Dado ausente atípico</div>
+      <p>A sincronização do HealthBridge parou por volta de 13h20–13h30 local — passos, FC contínua, HRV e tempo em pé da tarde/noite (academia depois desse horário, mercado, visita à família) ficaram sem captura. Os 7.877 passos do dia são parciais, não o total — não devem ser lidos como baixo volume de atividade.</p>
+    </div>
+  </section>
+
+  <!-- STAFF -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--violet);"></div><div class="txt">Staff</div><div class="line"></div></div>
+    <h2 class="mod-title">Sábado sem card fechado, mas o board mudou: uma pendência sumiu, uma ficou oca por dentro</h2>
+    <div class="segbar">
+      <div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div>
+      <div class="seg"></div><div class="seg"></div><div class="seg"></div>
+    </div>
+    <div class="prose" style="margin-top:0;">
+      <p>O board de Tasks tem hoje apenas três itens fora de Done/Archived: <b>Comissões OneFlow</b> (In Progress, ~74% — 37 de 50 itens de checklist, issue #89325, prazo 29/08), <b>Criação da Doc do motor de Widget</b> (In Progress, página vazia) e um item novo, <b>Criar Controle para Omie-Image</b> (Not Started). Os outros 51 itens do banco já estão em Done — o esvaziamento de backlog relatado nas Observações é consistente com o board, ainda que o Notion não registre data de conclusão por tarefa para provar que foi hoje especificamente.</p>
+      <p>Em Comissões OneFlow, o fluxo A (resgate via Omie.Cash) está fechado, incluindo o desvio de ERP ativo/inativo e o loop do certificado digital que era um problema anterior. Falta o RegSource (a estrutura de dados que alimenta um formulário no ERP) dos modais de Resgate Manual e Pedido de Resgate — retrabalho gerado por uma mudança de escopo em 16/07 (Omie.Cash virou obrigatória), não atraso do Gustavo. Dois itens de front seguem travados esperando retorno de terceiros (Will, João), sem prazo marcado.</p>
+      <p><b>Perspectiva:</b> se o ritmo dos últimos ciclos continuar, a entrega de 29/08 é alcançável — mas só se o único bloco sem dependência externa (RegSource + roteamento dos dois modais) for tratado antes do fim de semana que vem. Deixado para a última semana, o risco vira real: são duas telas inteiras de formulário.</p>
+    </div>
+    <div style="margin-top:8px;">
+      <div class="task-row"><span class="task-name">Comissões OneFlow — ~74%, prazo 29/08</span><span class="task-tag prog">Em ritmo, com bloco pendente</span></div>
+      <div class="task-row"><span class="task-name">Criação Doc motor de Widget</span><span class="task-tag stall">Página vazia, sem conteúdo</span></div>
+      <div class="task-row"><span class="task-name">Criar Controle Omie-Image</span><span class="task-tag wait">Not Started</span></div>
+    </div>
+    <div class="callout good" style="margin-top:14px;">
+      <div class="lbl">Recomendação</div>
+      <p>Nos próximos 2–3 dias, priorizar RegSource + roteamento dos modais de Resgate Manual e Pedido de Resgate — único bloco sem dependência externa — e cobrar Will e João com prazo explícito (hoje só "aguardando", sem data).</p>
+    </div>
+    <div class="callout warn" style="margin-top:10px;">
+      <div class="lbl">Dado ausente atípico</div>
+      <p>"Criação da Doc do motor de Widget" está In Progress mas a página está completamente vazia — sem descrição, checklist, prazo ou link. Ou o trabalho acontece fora do Notion, ou foi marcada In Progress cedo demais.</p>
+    </div>
+  </section>
+
+  <!-- COGNITIVE -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--amber);"></div><div class="txt">Cognitive</div><div class="line"></div></div>
+    <h2 class="mod-title">Sábado produtivo, um item de estímulo provavelmente marcado por engano — e o sono que ele mesmo previu como risco</h2>
+    <div class="act-grid">
+      <div class="act-row"><div class="act-check no">✕</div><div class="act-body"><div class="act-name">Prancha ao acordar</div><div class="act-detail">Não feita — "esqueci geral". 2º dia seguido de esquecimento.</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Leitura</div><div class="act-detail">16min, verificada via Apple Livros — volume modesto, mas mantém o fio do hábito.</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Jogos</div><div class="act-detail">22h–23h, ao voltar da casa do irmão.</div></div></div>
+      <div class="act-row"><div class="act-check flag">!</div><div class="act-body"><div class="act-name">Guitarra</div><div class="act-detail">Marcada como feita, mas o próprio Detalhe da atividade diz que aos sábados normalmente não pratica ("Natália em casa") — possível inconsistência, não confirmada.</div></div></div>
+      <div class="act-check" style="display:none;"></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Duolingo</div><div class="act-detail">Praticado, mas o app contabilizou perda de sequência por horário-limite (terminou 00:00) — sem contagem de palavras aprendidas registrada.</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Bem-estar</div><div class="act-detail">Dia estressante na maior parte do tempo, mas desfecho positivo pela produtividade — bate com o relato livre.</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Marcar Beach Tênis</div><div class="act-detail">Corretamente resolvido como não-aplicável (sem Beach Tênis aos fins de semana).</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Grooming</div><div class="act-detail">Minoxidil aplicado à noite — ver checagem de protocolo completo no Executive Summary.</div></div></div>
+    </div>
+    <div class="prose">
+      <p>Pela lente da <b>neuroplasticidade</b> (a capacidade do cérebro de reorganizar suas próprias conexões em resposta a estímulos repetidos — por isso leitura, idioma e instrumento só rendem ganho real com consistência, não como eventos isolados), o destaque positivo é a resiliência de humor: Bem-estar registra estresse real (despertar abrupto, sol, treino pesado) mas fechamento produtivo, sob uma noite de sono claramente insuficiente. É bom sinal de regulação pontual, mas não é grátis — resiliência sob privação de sono tende a ter custo cumulativo, não sustentável como estratégia contínua.</p>
+      <p><b>Risco:</b> se a suspeita da Guitarra se confirmar (marcação por engano/arraste de outro dia), isso mascara uma lacuna real de variedade de estímulo — é o único item de treino motor-cognitivo fino do bloco, e sua ausência não detectada tende a se repetir todo sábado sem ser notada.</p>
+      <p><b>Perspectiva:</b> sono irregular combinado com boa variedade de estímulo nos demais domínios é sustentável em episódios isolados — mas se o padrão de sono tardio dos sábados se repetir, o efeito esperado ao longo de semanas é degradação da consolidação de memória (o sono profundo é quando o cérebro consolida o que foi praticado — leitura, idioma, instrumento — transformando prática em aprendizado retido) e maior variabilidade de humor, mesmo que a produtividade de um dia isolado mascare isso pontualmente.</p>
+    </div>
+    <div class="callout good">
+      <div class="lbl">Recomendação</div>
+      <p>Tratar a noite de hoje como prioridade de sono — a intenção já verbalizada ("preciso dormir cedo") precisa virar ação. Reinstaurar lembrete físico para a Prancha, já recorrente o esquecimento. Confirmar manualmente se a guitarra foi mesmo praticada hoje.</p>
+    </div>
+  </section>
+
+  <!-- WELLBEING -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--pink);"></div><div class="txt">Wellbeing</div><div class="line"></div></div>
+    <div class="psico">
+      <div class="serif">"Acabei ficando muito empolgado com a IA na noite anterior e fui dormir quase 3 da manhã... Agora preciso dormir cedo pra evitar acontecer o problema de ontem."</div>
+      <div class="attrib">das suas próprias Observações, hoje</div>
+      <div class="prose">
+        <p>Sexta virou madrugada mexendo com IA — foi dormir quase às 3h — e o corpo cobrou a conta às 8h30, quando o sol tirou você da cama sem escolha. Esse tipo de despertar não é descanso interrompido, é sono cortado pela metade: o estresse que você carregou o dia inteiro provavelmente tem mais a ver com esse déficit do que com qualquer evento específico do dia. Não há registro nativo de Estado de Espírito do Apple Health para 22/08, então essa leitura vem só do seu relato — vale registrar deliberadamente da próxima vez, se quiser comparar como você diz que se sente com o que o sensor mede.</p>
+        <p>Dito isso, o dia não foi um fracasso disfarçado de vitória — foi genuinamente produtivo apesar da base ruim: backlog avançado, treino de perna, compras da semana resolvidas, trabalho fechado às 18h20 com você satisfeito, visita ao pai que correu bem. Isso é real e vale reconhecer, não só descontar.</p>
+        <p>O ponto de atenção é outro: você mesmo nomeou o padrão. Não é a primeira vez que hiperfoco tarde da noite (com IA especificamente) rouba sono e depois cobra em estresse no dia seguinte. O risco de manter esse ciclo sem intervenção não é só cansaço pontual — é erosão de critério à noite (decisões de "só mais um pouco" pioram quanto mais tarde fica) e uma dívida de sono que se acumula silenciosamente.</p>
+      </div>
+      <div class="callout good" style="margin-top:14px;">
+        <div class="lbl">Recomendação</div>
+        <p>Já que o gatilho foi reconhecido (empolgação com IA à noite), vale um limite físico simples — um alarme ou lembrete a uma hora fixa para fechar o laptop, em vez de confiar em força de vontade no momento de maior hiperfoco. Funciona melhor como regra externa do que como decisão às 2h da manhã.</p>
       </div>
     </div>
   </section>
 
-  <!-- NUTRIÇÃO -->
+  <!-- MEDICAL -->
   <section class="reveal">
-    <div class="sec-tag"><div class="dot" style="background:var(--green);"></div><div class="txt">Nutrition</div><div class="line"></div></div>
-    <h2 class="mod-title">O equilíbrio do almoço, desfeito à mesa do jantar</h2>
-    <p style="font-size:14px;line-height:1.7;color:var(--text-dim);margin:0 0 18px;max-width:540px;">O dia começou e transcorreu, até o início da noite, dentro de um padrão exemplar: o churrasco do meio-dia, apesar da ocasião social, permaneceu rigorosamente dentro dos limites do protocolo lowcarb. Foi à mesa do jantar que o equilíbrio se desfez.</p>
-    <table class="meals">
-      <tr><th>Horário</th><th>Refeição</th><th class="num">kcal</th><th class="num">Prot.</th><th class="num">Gord.</th><th class="num">Carbo</th></tr>
-      <tr><td>08:00–09:00</td><td>Suplementos manhã + queijo + café</td><td class="num">179</td><td class="num">10g</td><td class="num">15g</td><td class="num">1g</td></tr>
-      <tr><td>12:30</td><td>Almoço — churrasco (6 itens)</td><td class="num">1.477</td><td class="num">103g</td><td class="num">111g</td><td class="num">7g</td></tr>
-      <tr><td>13:40</td><td>Suplementos tarde (5 itens)</td><td class="num">10</td><td class="num">0g</td><td class="num">0g</td><td class="num">2g</td></tr>
-      <tr><td>20:15</td><td>Jantar — pizza, 2 fatias s/massa</td><td class="num">1.595</td><td class="num">120g</td><td class="num">117g</td><td class="num">11g</td></tr>
-      <tr class="total"><td colspan="2">Total do dia</td><td class="num">3.260</td><td class="num">233g</td><td class="num">243g</td><td class="num">21g</td></tr>
-    </table>
-    <div class="callout bad" style="margin-top:20px;">
-      <div class="lbl">Sinal atípico · Medical — Gastroenterologia</div>
-      <p>O mal-estar relatado logo após o jantar constitui ocorrência atípica em seu histórico recente. Uma única refeição concentrando 117g de gordura e 3,6g de sódio é plenamente compatível com desconforto digestivo agudo. Convém ressaltar: o total de carboidratos do dia permaneceu baixo (21g) — a dieta lowcarb não é a causa provável; o volume de gordura da pizza, esse sim, parece ser o fator determinante. Um episódio isolado como este não compromete a meta de perda de peso. A repetição, porém, tende a duas consequências simultâneas: desconforto digestivo recorrente e a neutralização do déficit calórico que a semana vinha construindo — daí o valor de observar se o padrão volta a se repetir.</p>
+    <div class="sec-tag"><div class="dot" style="background:var(--rose);"></div><div class="txt">Medical — Gastroenterologia</div><div class="line"></div></div>
+    <h2 class="mod-title">Náusea pontual após pizza turbinada: sobrecarga de gordura, não sinal de alerta crônico</h2>
+    <div class="sympt-card">
+      <div>
+        <div class="sympt-time">20h45</div>
+        <div class="sympt-meta">náusea · moderada</div>
+      </div>
+      <div class="prose" style="margin-top:0;">
+        <p style="margin:0;">Relatada logo após terminar duas fatias generosas de pizza sem massa (~540g de recheio: muçarela, catupiry, bacon, frango desfiado, calabresa), terminada às 20h15 — ~117g de gordura e ~3,6g de sódio estimados só nessa refeição. Não é queixa recorrente no histórico.</p>
+      </div>
+    </div>
+    <div class="prose" style="margin-top:0;">
+      <p>Não há nenhum outro sintoma digestivo lançado no mesmo dia — evento isolado, não um quadro se acumulando. Também não foi possível correlacionar com dados vitais: os sensores (FC, HRV, saturação de oxigênio, frequência respiratória) pararam de sincronizar às 13h26 local, bem antes da pizza, e não há registro de sono para a noite de 22 para 23/08 ainda. Os dados simplesmente não existem para esse intervalo, não estão "normais".</p>
+      <p>Mecanicamente, o quadro é bem explicável: gordura em grande quantidade retarda o esvaziamento gástrico (o estômago demora mais para empurrar o conteúdo para o intestino) e estimula a liberação de <b>CCK</b> (colecistocinina — hormônio que contrai a vesícula biliar para ajudar a digerir gordura). Volume grande + gordura concentrada + velocidade de ingestão costumam produzir exatamente essa sensação de estufamento e náusea logo depois de comer, mesmo sem nenhuma doença digestiva instalada. Não ser queixa recorrente pesa a favor de reação pontual, contra processo crônico.</p>
+      <p>Vale registrar como ponto de atenção, não alarme: ~117g de gordura numa única refeição é um volume expressivo — perto do dobro de uma meta diária inteira para a maioria dos adultos — e merece ficar no radar se aparecer de novo em contextos sociais parecidos (pizza, churrasco).</p>
+    </div>
+    <div class="callout good">
+      <div class="lbl">Recomendação</div>
+      <p>Hidratação nas próximas horas; evitar deitar logo após comer se a náusea persistir por mais algumas horas; nas próximas refeições sociais, moderar porção/gordura combinada num único prato. Não é necessário atendimento por este episódio isolado. Buscar avaliação médica se: o quadro se repetir com frequência (especialmente após refeições gordurosas), surgir dor no quadrante superior direito irradiando para costas/ombro, febre, vômitos persistentes por mais de 24h, sangue no vômito/fezes, ou pele/olhos amarelados.</p>
     </div>
   </section>
 
-  <!-- TRABALHO -->
-  <section class="reveal">
-    <div class="sec-tag"><div class="dot" style="background:var(--violet);"></div><div class="txt">Mentor de Produto</div><div class="line"></div></div>
-    <h2 class="mod-title">Comissões OneFlow: na sexta de treze semanas, o ritmo certo não se confunde com estagnação</h2>
-    <div class="segbar">
-      <div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div>
-      <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
-    </div>
-    <p class="prose" style="margin-top:0;">Desde a última verificação, em 15 de agosto, dois dos cinco subitens do escopo de cálculo foram concluídos, e a reunião de alinhamento com o Financeiro já se encontra agendada. O que se alterou nesta semana foi a consolidação do escopo — não o ritmo de execução, que permanece plenamente condizente com uma entrega de ciclo trimestral. Mantido este ritmo, a conclusão projetada permanece dentro da janela do trimestre, com folga aproximada de duas semanas — desde que a reunião com o Financeiro não introduza retrabalho de escopo.</p>
-    <div style="margin-top:18px;">
-      <div class="task-row"><span class="task-name">Comissões OneFlow</span><span class="task-tag prog">Em ritmo</span></div>
-      <div class="task-row"><span class="task-name">Apresentação Novas Homes</span><span class="task-tag wait">Aguardando você</span></div>
-    </div>
-  </section>
-
-  <!-- PSICÓLOGO -->
-  <section class="reveal">
-    <div class="sec-tag"><div class="dot" style="background:var(--pink);"></div><div class="txt">Psicólogo</div><div class="line"></div></div>
-    <div class="psico">
-      <div class="serif">"Hoje acabou não sendo aquele dia foda no trabalho — mas foi de boa, adiantei muito o que dependia de mim."</div>
-      <div class="attrib">das suas próprias observações, hoje</div>
-      <p class="prose">O que se lê aqui é regulação emocional, não procrastinação: numa sexta-feira de cobrança deliberadamente baixa, você ainda assim adiantou o que lhe competia. Declinar do boxe em razão da canelite foi um exercício de escuta corporal apurada; substituí-lo por duas horas de beach tênis preservou o movimento sem arriscar a lesão. Quanto à ansiedade em torno da pesagem de amanhã, merece observação cuidadosa nos próximos dias — curiosidade genuína difere substancialmente de carga emocional, e, por ora, o que se manifesta em seu relato parece ser a primeira.</p>
-    </div>
-  </section>
-
-  <!-- OVERVIEW -->
+  <!-- EXECUTIVE SUMMARY -->
   <div class="overview reveal">
-    <span class="big-num"><span class="count" data-target="3">0</span><span style="font-size:28px;color:var(--text-faint);">/5</span></span>
-    <div class="big-num-cap" style="margin-top:8px;">tarefas do dia concluídas</div>
-    <p>Prancha e Duolingo cumpridos; leitura e noticiário permanecem pendentes. Em síntese: um dia de decisões acertadas quanto ao corpo — o treino executado com critério, o descanso do boxe como escuta atenta — manchado por um excesso pontual à mesa que o padrão da semana tem margem de sobra para absorver.</p>
+    <div class="ov-top">
+      <span class="big-num"><span class="count" data-target="7">0</span><span style="font-size:26px;color:var(--text-faint);">/8</span></span>
+      <div class="big-num-cap" style="margin-top:8px;">atividades diárias concluídas</div>
+    </div>
+    <div class="prose">
+      <p>Sábado sem estrutura de agenda (sem Boxe, sem Beach Tênis no fim de semana) virou, na prática, um dos dias mais cheios do mês: backlog de trabalho avançado, treino de perna completo, compras da semana fechadas, visita ao pai — tudo isso apesar de uma noite de sono cortada pela metade (5h06, dormiu quase às 3h por empolgação com IA, acordado às 8h09 pelo sol). O padrão nutricional segurou o carboidrato dentro da meta lowcarb o dia inteiro, inclusive nas duas refeições fora de casa — mas o volume e a gordura do jantar (pizza) empurraram a caloria do dia para quase o dobro do normal e geraram um episódio isolado de mal-estar à noite, já coberto pelo Medical acima.</p>
+      <p>Protocolo de grooming: eram devidos hoje <b>Minoxidil</b> (2x/dia, 07:00 e 19:00), <b>Nanoxidil 7%</b> (2x/dia, mesmo horário) e <b>Dermaroller facial</b> (semanal). O Hub confirma apenas a aplicação de Minoxidil à noite — sem confirmação da dose da manhã, do Nanoxidil, ou do Dermaroller. Adesão parcial, não é possível afirmar mais que isso pelos dados disponíveis.</p>
+      <p>Trabalho: nenhuma das duas tarefas de acompanhamento (Comissões OneFlow, Doc do motor de Widget) avançou tecnicamente no board do Notion hoje — mas isso é esperado para um sábado, e o relato livre indica avanço real de backlog fora dessas duas tarefas específicas.</p>
+    </div>
+    <div class="ov-list">
+      <div class="row"><span>Nutrição</span><b>Abaixo da meta (calórica) — carboidrato dentro do alvo</b></div>
+      <div class="row"><span>Remédios / suplementos</span><b>Todos — 9/9</b></div>
+      <div class="row"><span>Plantas regadas</span><b>Não (nenhuma planta era do dia)</b></div>
+      <div class="row"><span>Notícias lidas</span><b>Sem confirmação</b></div>
+    </div>
   </div>
 
-  <div class="footer">
-    <p><span class="script">Hub</span> — redigido às 07:58, com os dados do dia encerrado à meia-noite</p>
+  <div class="footer" style="margin-top:34px;">
+    <div class="status-box">
+      <div class="row"><span class="ok">●</span><span>Nutrição (recipes-hub), suplementos, treino, tarefas e Observações — consumidos normalmente.</span></div>
+      <div class="row"><span class="miss">●</span><span>HealthBridge parou de sincronizar às ~13h26 local — FC, HRV, passos e tempo em pé da tarde/noite estão incompletos; sono da noite de 22→23 ainda sem dado no momento da publicação.</span></div>
+    </div>
+    <p style="margin-top:26px;"><span class="script">Hub</span> — fechamento de 22/08/2026, publicado em 23/08</p>
   </div>
 
 </div>
@@ -280,7 +390,6 @@
 (function(){
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // count-up numbers
   function animateCount(el){
     var target = parseFloat(el.getAttribute('data-target'));
     var thousand = el.getAttribute('data-thousand') === '1';
@@ -297,7 +406,6 @@
     requestAnimationFrame(tick);
   }
 
-  // scroll reveal
   var revealEls = document.querySelectorAll('.reveal');
   var counted = new WeakSet();
   var io = new IntersectionObserver(function(entries){
@@ -313,7 +421,6 @@
   }, {threshold:0.2, rootMargin:'0px 0px -40px 0px'});
   revealEls.forEach(function(el){ io.observe(el); });
 
-  // ambient blob parallax on scroll
   if(!reduced){
     var blobs = document.querySelectorAll('.blob');
     var ticking = false;
