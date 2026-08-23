@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hub Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,500&family=Petit+Formal+Script&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08090d;
+    --glass:rgba(255,255,255,0.05);
+    --glass-2:rgba(255,255,255,0.035);
+    --stroke:rgba(255,255,255,0.10);
+    --stroke-2:rgba(255,255,255,0.16);
+    --text:#f4f5f8;
+    --text-dim:rgba(244,245,248,0.64);
+    --text-faint:rgba(244,245,248,0.36);
+    --rose:#FF6E8E;
+    --blue:#3DA9FF;
+    --green:#3DDC9B;
+    --violet:#9D7BFF;
+    --pink:#F26FC0;
+    --amber:#FFB454;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Newsreader','Iowan Old Style','Palatino Linotype',Georgia,serif;
+    -webkit-font-smoothing:antialiased;
+    padding:60px 20px 110px;position:relative;overflow-x:hidden;
+  }
+  em, .serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;}
+  .field-label{max-width:660px;margin:0 auto 30px;font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);text-align:center;}
+
+  .blob{position:fixed;border-radius:50%;filter:blur(100px);z-index:0;pointer-events:none;}
+  .blob-1{width:560px;height:560px;top:-200px;left:-160px;background:radial-gradient(circle,var(--blue) 0%,transparent 70%);opacity:.28;}
+  .blob-2{width:480px;height:480px;top:400px;right:-200px;background:radial-gradient(circle,var(--pink) 0%,transparent 70%);opacity:.22;}
+  .blob-3{width:620px;height:620px;bottom:-300px;left:10%;background:radial-gradient(circle,var(--green) 0%,transparent 70%);opacity:.20;}
+  .blob-4{width:400px;height:400px;top:1400px;right:0;background:radial-gradient(circle,var(--violet) 0%,transparent 70%);opacity:.22;}
+
+  .wrap{max-width:660px;margin:0 auto;position:relative;z-index:1;}
+
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:52px;}
+  .brand{font-size:14px;font-weight:600;letter-spacing:-.01em;}
+  .brand span{color:var(--text-faint);font-weight:500;font-style:italic;}
+  .script{font-family:'Petit Formal Script',cursive;font-weight:400;letter-spacing:.01em;}
+  .brand .script{font-size:23px;vertical-align:-3px;margin-right:2px;}
+  .date-pill{font-family:'Newsreader',Georgia,serif;font-size:10.5px;letter-spacing:.06em;color:var(--text-dim);background:var(--glass);border:1px solid var(--stroke);border-radius:100px;padding:6px 13px;backdrop-filter:blur(20px);}
+
+  /* HERO */
+  .display{font-family:'Bricolage Grotesque',-apple-system,sans-serif;}
+  .hero h1{font-family:'Bricolage Grotesque',-apple-system,sans-serif;font-size:46px;line-height:1.06;font-weight:600;letter-spacing:-.03em;margin:0 0 22px;max-width:580px;text-wrap:balance;}
+  .hero h1 em{font-style:normal;font-weight:700;background:linear-gradient(100deg,#FF6E8E 10%,#FFB454 55%,#9D7BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+  .spark-line{stroke-dasharray:340;stroke-dashoffset:340;transition:stroke-dashoffset 1.4s cubic-bezier(.16,1,.3,1) .2s;}
+  .reveal.in .spark-line{stroke-dashoffset:0;}
+  .blob{transition:transform 1.2s cubic-bezier(.16,1,.3,1);}
+  @media (prefers-reduced-motion:reduce){.spark-line{transition:none;stroke-dashoffset:0;} .blob{transition:none;}}
+  .ticker{display:flex;gap:0;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:14px 0;margin-bottom:64px;}
+  .tick{flex:1;padding:0 18px;border-right:1px solid var(--stroke);}
+  .tick:last-child{border-right:none;}
+  .tick-label{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px;}
+  .tick-val{font-family:'Newsreader',Georgia,serif;font-size:16px;font-weight:500;color:var(--text);font-variant-numeric:tabular-nums;}
+
+  section{margin-bottom:60px;}
+  .sec-tag{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+  .sec-tag .dot{width:7px;height:7px;border-radius:50%;}
+  .sec-tag .txt{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);}
+  .sec-tag .line{flex:1;height:1px;background:var(--stroke);}
+
+  /* RECUPERAÇÃO — split numeral layout */
+  .recup-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start;}
+  .big-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:76px;line-height:1;letter-spacing:-.04em;color:var(--text);font-variation-settings:'opsz' 96;}
+  .big-num sup{font-size:22px;font-weight:500;color:var(--text-faint);top:-.4em;}
+  .big-num-cap{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-top:6px;}
+  .mini-rows{display:flex;flex-direction:column;gap:14px;}
+  .mini-row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--stroke);padding-bottom:12px;}
+  .mini-row:last-child{border:none;padding-bottom:0;}
+  .mini-row .k{font-size:12.5px;color:var(--text-dim);}
+  .mini-row .v{font-family:'Newsreader',Georgia,serif;font-size:14px;color:var(--text);font-variant-numeric:tabular-nums;}
+  .mini-row .v.up{color:var(--green);}
+  .prose{grid-column:1/-1;margin-top:26px;font-size:14.5px;line-height:1.7;color:var(--text-dim);max-width:560px;}
+
+  /* TREINO — pull number + list */
+  .treino-grid{display:grid;grid-template-columns:130px 1fr;gap:28px;}
+  .pull{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:60px;line-height:0.95;letter-spacing:-.03em;background:linear-gradient(160deg,#5AC8FA,#0A84FF 70%);-webkit-background-clip:text;background-clip:text;color:transparent;font-variation-settings:'opsz' 60;}
+  .pull-cap{font-size:11px;color:var(--text-faint);margin-top:8px;line-height:1.4;}
+  h2.mod-title{font-family:'Bricolage Grotesque',sans-serif;font-size:23px;font-weight:600;letter-spacing:-.015em;margin:0 0 14px;max-width:480px;text-wrap:balance;font-variation-settings:'opsz' 24;}
+  table.log{width:100%;border-collapse:collapse;margin:18px 0 20px;}
+  table.log th{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);text-align:left;font-weight:500;padding:0 0 8px;border-bottom:1px solid var(--stroke-2);}
+  table.log td{font-size:13px;padding:9px 0;border-bottom:1px solid var(--stroke);color:var(--text-dim);}
+  table.log td:last-child, table.log th:last-child{text-align:right;font-family:'Newsreader',Georgia,serif;color:var(--text);}
+  .callout{border-radius:14px;padding:14px 16px;margin-top:6px;background:var(--glass-2);border:1px solid var(--stroke);}
+  .callout .lbl{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
+  .callout p{margin:0;font-size:13.5px;line-height:1.6;color:var(--text-dim);}
+  .callout.good .lbl{color:var(--green);} .callout.bad .lbl{color:var(--rose);}
+
+  /* NUTRIÇÃO — full table */
+  table.meals{width:100%;border-collapse:collapse;}
+  table.meals th{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);text-align:left;font-weight:500;padding:0 10px 10px 0;border-bottom:1px solid var(--stroke-2);}
+  table.meals td{font-size:12.5px;padding:10px 10px 10px 0;border-bottom:1px solid var(--stroke);color:var(--text-dim);vertical-align:top;}
+  table.meals td.num, table.meals th.num{text-align:right;font-family:'Newsreader',Georgia,serif;color:var(--text);font-variant-numeric:tabular-nums;padding-right:0;}
+  table.meals tr.total td{border-bottom:none;padding-top:14px;font-weight:600;color:var(--text);}
+  table.meals tr.total td.num{color:var(--amber);}
+
+  /* TRABALHO — progress */
+  .segbar{display:flex;gap:3px;margin:20px 0 10px;}
+  .seg{height:8px;flex:1;border-radius:2px;background:var(--stroke-2);}
+  .seg.on{background:var(--violet);}
+  .task-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--stroke);}
+  .task-row:last-child{border:none;}
+  .task-name{font-size:13.5px;color:var(--text);}
+  .task-tag{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:100px;}
+  .task-tag.prog{background:rgba(157,123,255,.15);color:var(--violet);}
+  .task-tag.wait{background:rgba(255,180,84,.15);color:var(--amber);}
+
+  /* PSICÓLOGO — quote led, off-grid */
+  .psico{padding-left:28px;border-left:1px solid var(--stroke-2);}
+  .psico .serif{font-size:26px;line-height:1.42;color:var(--text);max-width:520px;text-wrap:balance;}
+  .psico .attrib{font-family:'Petit Formal Script',cursive;font-size:19px;color:var(--text-faint);margin-top:16px;}
+  .psico .prose{margin-top:22px;max-width:480px;}
+
+  /* OVERVIEW closing */
+  .overview{background:linear-gradient(160deg,rgba(157,123,255,.10),rgba(255,110,142,.06));border:1px solid var(--stroke-2);border-radius:24px;padding:38px 36px;text-align:center;}
+  .overview .big-num{font-size:64px;display:block;}
+  .overview p{max-width:440px;margin:16px auto 0;font-size:14px;line-height:1.7;color:var(--text-dim);}
+
+  .footer{margin-top:50px;text-align:center;}
+  .footer p{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:12px;letter-spacing:.01em;color:var(--text-faint);margin:0;}
+  .footer .script{font-size:19px;font-style:normal;color:var(--text-dim);}
+
+  @media (max-width:520px){
+    .recup-grid,.treino-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:34px;}
+  }
+</style>
+</head>
+<body>
+<div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><div class="blob blob-4"></div>
+
+<div class="wrap">
+
+  <div class="top">
+    <div class="brand"><span class="script">Hub</span><span>· diário</span></div>
+    <div class="date-pill">SEX, 22 AGO</div>
+  </div>
+
+  <div class="hero">
+    <h1>O corpo <em>avançou</em> sob carga. À mesa, o excesso <em>cobrou</em> seu preço.</h1>
+  </div>
+
+  <div class="ticker reveal">
+    <div class="tick"><div class="tick-label">Sono</div><div class="tick-val">6h42</div></div>
+    <div class="tick"><div class="tick-label">FC repouso</div><div class="tick-val"><span class="count" data-target="54">0</span>bpm</div></div>
+    <div class="tick"><div class="tick-label">Treino</div><div class="tick-val"><span class="count" data-target="54">0</span>min</div></div>
+    <div class="tick"><div class="tick-label">Consumo</div><div class="tick-val"><span class="count" data-target="3260" data-thousand="1">0</span>kcal</div></div>
+  </div>
+
+  <!-- RECUPERAÇÃO -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--rose);"></div><div class="txt">Recuperação</div><div class="line"></div></div>
+    <div class="recup-grid">
+      <div>
+        <div class="big-num">6<sup>h</sup>42<sup>m</sup></div>
+        <div class="big-num-cap">Sono — 7º dia seguido em queda</div>
+        <svg width="200" height="46" viewBox="0 0 200 46" style="margin-top:18px;">
+          <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF6E8E" stop-opacity=".3"/><stop offset="100%" stop-color="#FF6E8E" stop-opacity="0"/></linearGradient></defs>
+          <path class="spark-line" d="M2 28 L34 22 L66 32 L98 16 L130 26 L162 12 L196 18" fill="none" stroke="#FF6E8E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 28 L34 22 L66 32 L98 16 L130 26 L162 12 L196 18 L196 46 L2 46 Z" fill="url(#sg)" stroke="none"/>
+          <circle cx="196" cy="18" r="3" fill="#FF6E8E"/>
+        </svg>
+      </div>
+      <div class="mini-rows">
+        <div class="mini-row"><span class="k">FC de repouso — quanto mais baixa, melhor a recuperação</span><span class="v up">54bpm ▾</span></div>
+        <div class="mini-row"><span class="k">HRV — variação do intervalo entre batimentos; alta é sinal de sistema nervoso descansado</span><span class="v up">61ms ▴</span></div>
+        <div class="mini-row"><span class="k">VO2max — capacidade aeróbica máxima (tend. 30d)</span><span class="v">42,1 ml/kg/min</span></div>
+        <div class="mini-row"><span class="k">Passos</span><span class="v">8.240</span></div>
+        <div class="mini-row"><span class="k">Cal. ativas</span><span class="v">612kcal</span></div>
+      </div>
+      <p class="prose">Pela sétima noite consecutiva, o sono cedeu terreno — e, ainda assim, tanto a frequência cardíaca de repouso quanto a variabilidade cardíaca (a HRV, que mede o quão descansado está o sistema nervoso autônomo) superaram a média semanal. Isso indica que o organismo vem absorvendo a carga de treino sem sinal de fadiga acumulada. A ressalva é sobre acúmulo, não sobre hoje: esses dois indicadores costumam ser os últimos a piorar — se o déficit de sono persistir por mais três ou quatro noites, é razoável esperar que a FC de repouso comece a subir e o rendimento no treino caia de forma perceptível.</p>
+    </div>
+  </section>
+
+  <!-- TREINO -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--blue);"></div><div class="txt">Performance</div><div class="line"></div></div>
+    <div class="treino-grid">
+      <div>
+        <div class="pull">+<span class="count" data-target="100">0</span><span style="font-size:28px;">%</span></div>
+        <div class="pull-cap">carga no agachamento vs. última sessão</div>
+      </div>
+      <div>
+        <h2 class="mod-title">Força tradicional, 54 minutos: o agachamento como protagonista da sessão</h2>
+        <p style="font-size:14px;line-height:1.7;color:var(--text-dim);margin:0 0 4px;">A sessão desta manhã revela, sobretudo, disciplina de progressão: cada exercício manteve o volume da semana anterior, com exceção do agachamento, cuja carga foi deliberadamente dobrada.</p>
+        <table class="log">
+          <tr><th>Exercício</th><th>Séries × reps</th><th>Carga</th></tr>
+          <tr><td>Agachamento Smith</td><td>1×12 · 1×12 · 2×10</td><td>— · 10kg · 20kg</td></tr>
+          <tr><td>Cadeira extensora</td><td>4×12</td><td>40kg</td></tr>
+          <tr><td>Mesa flexora</td><td>4×12</td><td>40kg</td></tr>
+          <tr><td>Panturrilha (leg press)</td><td>4×12</td><td>40kg</td></tr>
+          <tr><td>Elevação lateral</td><td>4×10</td><td>8kg</td></tr>
+          <tr><td>Puxada de corda</td><td>3×12</td><td>14kg</td></tr>
+          <tr><td>Graviton (negativa)</td><td>1×6</td><td>76kg assist.</td></tr>
+        </table>
+        <div class="callout good">
+          <div class="lbl">Próximo passo</div>
+          <p>Confirmando-se a boa execução dos 20kg na sessão seguinte, o incremento recomendado é para 22,5kg — resista à tentação de saltar diretamente aos 25kg, o que comprometeria a técnica antes da devida adaptação neuromuscular. Já a carga deliberadamente leve na elevação lateral (8kg) constitui decisão criteriosa em razão do beach tênis, e não um recuo no protocolo.</p>
+        </div>
+        <div class="callout" style="margin-top:10px;">
+          <div class="lbl" style="color:var(--amber);">Ponto de atenção</div>
+          <p>O graviton (negativa assistida) segue sendo feito como exercício avulso, sem uma meta de redução de carga assistida ao longo do tempo — e é justamente essa progressão que leva à barra fixa sem assistência, seu objetivo declarado. Sem um marco (ex: reduzir 76kg pra 70kg em 4 semanas), o exercício tende a estagnar em vez de evoluir. Vale definirmos essa meta trimestral.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUTRIÇÃO -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--green);"></div><div class="txt">Nutrition</div><div class="line"></div></div>
+    <h2 class="mod-title">O equilíbrio do almoço, desfeito à mesa do jantar</h2>
+    <p style="font-size:14px;line-height:1.7;color:var(--text-dim);margin:0 0 18px;max-width:540px;">O dia começou e transcorreu, até o início da noite, dentro de um padrão exemplar: o churrasco do meio-dia, apesar da ocasião social, permaneceu rigorosamente dentro dos limites do protocolo lowcarb. Foi à mesa do jantar que o equilíbrio se desfez.</p>
+    <table class="meals">
+      <tr><th>Horário</th><th>Refeição</th><th class="num">kcal</th><th class="num">Prot.</th><th class="num">Gord.</th><th class="num">Carbo</th></tr>
+      <tr><td>08:00–09:00</td><td>Suplementos manhã + queijo + café</td><td class="num">179</td><td class="num">10g</td><td class="num">15g</td><td class="num">1g</td></tr>
+      <tr><td>12:30</td><td>Almoço — churrasco (6 itens)</td><td class="num">1.477</td><td class="num">103g</td><td class="num">111g</td><td class="num">7g</td></tr>
+      <tr><td>13:40</td><td>Suplementos tarde (5 itens)</td><td class="num">10</td><td class="num">0g</td><td class="num">0g</td><td class="num">2g</td></tr>
+      <tr><td>20:15</td><td>Jantar — pizza, 2 fatias s/massa</td><td class="num">1.595</td><td class="num">120g</td><td class="num">117g</td><td class="num">11g</td></tr>
+      <tr class="total"><td colspan="2">Total do dia</td><td class="num">3.260</td><td class="num">233g</td><td class="num">243g</td><td class="num">21g</td></tr>
+    </table>
+    <div class="callout bad" style="margin-top:20px;">
+      <div class="lbl">Sinal atípico · Medical — Gastroenterologia</div>
+      <p>O mal-estar relatado logo após o jantar constitui ocorrência atípica em seu histórico recente. Uma única refeição concentrando 117g de gordura e 3,6g de sódio é plenamente compatível com desconforto digestivo agudo. Convém ressaltar: o total de carboidratos do dia permaneceu baixo (21g) — a dieta lowcarb não é a causa provável; o volume de gordura da pizza, esse sim, parece ser o fator determinante. Um episódio isolado como este não compromete a meta de perda de peso. A repetição, porém, tende a duas consequências simultâneas: desconforto digestivo recorrente e a neutralização do déficit calórico que a semana vinha construindo — daí o valor de observar se o padrão volta a se repetir.</p>
+    </div>
+  </section>
+
+  <!-- TRABALHO -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--violet);"></div><div class="txt">Mentor de Produto</div><div class="line"></div></div>
+    <h2 class="mod-title">Comissões OneFlow: na sexta de treze semanas, o ritmo certo não se confunde com estagnação</h2>
+    <div class="segbar">
+      <div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div>
+      <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+    </div>
+    <p class="prose" style="margin-top:0;">Desde a última verificação, em 15 de agosto, dois dos cinco subitens do escopo de cálculo foram concluídos, e a reunião de alinhamento com o Financeiro já se encontra agendada. O que se alterou nesta semana foi a consolidação do escopo — não o ritmo de execução, que permanece plenamente condizente com uma entrega de ciclo trimestral. Mantido este ritmo, a conclusão projetada permanece dentro da janela do trimestre, com folga aproximada de duas semanas — desde que a reunião com o Financeiro não introduza retrabalho de escopo.</p>
+    <div style="margin-top:18px;">
+      <div class="task-row"><span class="task-name">Comissões OneFlow</span><span class="task-tag prog">Em ritmo</span></div>
+      <div class="task-row"><span class="task-name">Apresentação Novas Homes</span><span class="task-tag wait">Aguardando você</span></div>
+    </div>
+  </section>
+
+  <!-- PSICÓLOGO -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--pink);"></div><div class="txt">Psicólogo</div><div class="line"></div></div>
+    <div class="psico">
+      <div class="serif">"Hoje acabou não sendo aquele dia foda no trabalho — mas foi de boa, adiantei muito o que dependia de mim."</div>
+      <div class="attrib">das suas próprias observações, hoje</div>
+      <p class="prose">O que se lê aqui é regulação emocional, não procrastinação: numa sexta-feira de cobrança deliberadamente baixa, você ainda assim adiantou o que lhe competia. Declinar do boxe em razão da canelite foi um exercício de escuta corporal apurada; substituí-lo por duas horas de beach tênis preservou o movimento sem arriscar a lesão. Quanto à ansiedade em torno da pesagem de amanhã, merece observação cuidadosa nos próximos dias — curiosidade genuína difere substancialmente de carga emocional, e, por ora, o que se manifesta em seu relato parece ser a primeira.</p>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <div class="overview reveal">
+    <span class="big-num"><span class="count" data-target="3">0</span><span style="font-size:28px;color:var(--text-faint);">/5</span></span>
+    <div class="big-num-cap" style="margin-top:8px;">tarefas do dia concluídas</div>
+    <p>Prancha e Duolingo cumpridos; leitura e noticiário permanecem pendentes. Em síntese: um dia de decisões acertadas quanto ao corpo — o treino executado com critério, o descanso do boxe como escuta atenta — manchado por um excesso pontual à mesa que o padrão da semana tem margem de sobra para absorver.</p>
+  </div>
+
+  <div class="footer">
+    <p><span class="script">Hub</span> — redigido às 07:58, com os dados do dia encerrado à meia-noite</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // count-up numbers
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-target'));
+    var thousand = el.getAttribute('data-thousand') === '1';
+    if(reduced){ el.textContent = thousand ? target.toLocaleString('pt-BR') : target; return; }
+    var start = performance.now();
+    var dur = 1300;
+    function tick(now){
+      var p = Math.min(1, (now - start) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.round(target * eased);
+      el.textContent = thousand ? val.toLocaleString('pt-BR') : val;
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // scroll reveal
+  var revealEls = document.querySelectorAll('.reveal');
+  var counted = new WeakSet();
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        entry.target.querySelectorAll('.count').forEach(function(el){
+          if(!counted.has(el)){ counted.add(el); animateCount(el); }
+        });
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.2, rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(function(el){ io.observe(el); });
+
+  // ambient blob parallax on scroll
+  if(!reduced){
+    var blobs = document.querySelectorAll('.blob');
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        var y = window.scrollY;
+        blobs.forEach(function(b, i){
+          var speed = 0.06 + i * 0.03;
+          b.style.transform = 'translateY(' + (y * speed) + 'px)';
+        });
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>
