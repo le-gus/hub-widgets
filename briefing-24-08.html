@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hub Briefing — 24/08/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,500&family=Petit+Formal+Script&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08090d;
+    --glass:rgba(255,255,255,0.05);
+    --glass-2:rgba(255,255,255,0.035);
+    --stroke:rgba(255,255,255,0.10);
+    --stroke-2:rgba(255,255,255,0.16);
+    --text:#f4f5f8;
+    --text-dim:rgba(244,245,248,0.64);
+    --text-faint:rgba(244,245,248,0.36);
+    --rose:#FF6E8E;
+    --blue:#3DA9FF;
+    --green:#3DDC9B;
+    --violet:#9D7BFF;
+    --pink:#F26FC0;
+    --amber:#FFB454;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Newsreader','Iowan Old Style','Palatino Linotype',Georgia,serif;
+    -webkit-font-smoothing:antialiased;
+    padding:60px 20px 110px;position:relative;overflow-x:hidden;
+  }
+  em, .serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;}
+
+  .blob{position:fixed;border-radius:50%;filter:blur(100px);z-index:0;pointer-events:none;}
+  .blob-1{width:560px;height:560px;top:-200px;left:-160px;background:radial-gradient(circle,var(--blue) 0%,transparent 70%);opacity:.28;}
+  .blob-2{width:480px;height:480px;top:400px;right:-200px;background:radial-gradient(circle,var(--rose) 0%,transparent 70%);opacity:.22;}
+  .blob-3{width:620px;height:620px;bottom:-300px;left:10%;background:radial-gradient(circle,var(--green) 0%,transparent 70%);opacity:.20;}
+  .blob-4{width:400px;height:400px;top:1600px;right:0;background:radial-gradient(circle,var(--violet) 0%,transparent 70%);opacity:.22;}
+  .blob-5{width:420px;height:420px;top:2600px;left:-140px;background:radial-gradient(circle,var(--amber) 0%,transparent 70%);opacity:.20;}
+
+  .wrap{max-width:660px;margin:0 auto;position:relative;z-index:1;}
+
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:52px;}
+  .brand{font-size:14px;font-weight:600;letter-spacing:-.01em;}
+  .brand span{color:var(--text-faint);font-weight:500;font-style:italic;}
+  .script{font-family:'Petit Formal Script',cursive;font-weight:400;letter-spacing:.01em;}
+  .brand .script{font-size:23px;vertical-align:-3px;margin-right:2px;}
+  .date-pill{font-family:'Newsreader',Georgia,serif;font-size:10.5px;letter-spacing:.06em;color:var(--text-dim);background:var(--glass);border:1px solid var(--stroke);border-radius:100px;padding:6px 13px;backdrop-filter:blur(20px);}
+
+  .display{font-family:'Bricolage Grotesque',-apple-system,sans-serif;}
+  .hero h1{font-family:'Bricolage Grotesque',-apple-system,sans-serif;font-size:40px;line-height:1.12;font-weight:600;letter-spacing:-.03em;margin:0 0 22px;max-width:580px;text-wrap:balance;}
+  .hero h1 em{font-style:normal;font-weight:700;background:linear-gradient(100deg,#FF6E8E 10%,#FFB454 55%,#9D7BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+  .blob{transition:transform 1.2s cubic-bezier(.16,1,.3,1);}
+  @media (prefers-reduced-motion:reduce){.blob{transition:none;}}
+  .ticker{display:flex;gap:0;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:14px 0;margin-bottom:64px;flex-wrap:wrap;}
+  .tick{flex:1;min-width:130px;padding:8px 18px;border-right:1px solid var(--stroke);}
+  .tick:last-child{border-right:none;}
+  .tick-label{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px;}
+  .tick-val{font-family:'Newsreader',Georgia,serif;font-size:16px;font-weight:500;color:var(--text);font-variant-numeric:tabular-nums;}
+  .tick-note{font-size:9px;color:var(--text-faint);margin-top:3px;line-height:1.4;}
+
+  section{margin-bottom:60px;}
+  .sec-tag{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+  .sec-tag .dot{width:7px;height:7px;border-radius:50%;flex:none;}
+  .sec-tag .txt{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);}
+  .sec-tag .line{flex:1;height:1px;background:var(--stroke);}
+
+  .recup-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start;}
+  .big-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:64px;line-height:1;letter-spacing:-.04em;color:var(--text);font-variation-settings:'opsz' 96;}
+  .big-num sup{font-size:20px;font-weight:500;color:var(--text-faint);top:-.4em;}
+  .big-num-cap{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-top:6px;}
+  .mini-rows{display:flex;flex-direction:column;gap:14px;}
+  .mini-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border-bottom:1px solid var(--stroke);padding-bottom:12px;}
+  .mini-row:last-child{border:none;padding-bottom:0;}
+  .mini-row .k{font-size:12.5px;color:var(--text-dim);}
+  .mini-row .v{font-family:'Newsreader',Georgia,serif;font-size:14px;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .mini-row .v.up{color:var(--green);}
+  .mini-row .v.warn{color:var(--amber);}
+  .prose{margin-top:26px;font-size:14.5px;line-height:1.75;color:var(--text-dim);max-width:580px;}
+  .prose p{margin:0 0 14px;}
+  .prose p:last-child{margin-bottom:0;}
+  .prose b{color:var(--text);font-weight:600;}
+
+  h2.mod-title{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:600;letter-spacing:-.015em;margin:0 0 14px;max-width:520px;text-wrap:balance;font-variation-settings:'opsz' 24;}
+  .callout{border-radius:14px;padding:14px 16px;margin-top:16px;background:var(--glass-2);border:1px solid var(--stroke);}
+  .callout .lbl{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
+  .callout p{margin:0 0 8px;font-size:13.5px;line-height:1.6;color:var(--text-dim);}
+  .callout p:last-child{margin-bottom:0;}
+  .callout.good .lbl{color:var(--green);} .callout.bad .lbl{color:var(--rose);} .callout.warn .lbl{color:var(--amber);}
+
+  table.meals{width:100%;border-collapse:collapse;}
+  table.meals th{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);text-align:left;font-weight:500;padding:0 8px 10px 0;border-bottom:1px solid var(--stroke-2);}
+  table.meals td{font-size:12px;padding:9px 8px 9px 0;border-bottom:1px solid var(--stroke);color:var(--text-dim);vertical-align:top;}
+  table.meals td.num, table.meals th.num{text-align:right;font-family:'Newsreader',Georgia,serif;color:var(--text);font-variant-numeric:tabular-nums;padding-right:0;}
+  table.meals tr.total td{border-bottom:none;padding-top:14px;font-weight:600;color:var(--text);}
+  table.meals tr.total td.num{color:var(--amber);}
+  .table-scroll{overflow-x:auto;}
+
+  .segbar{display:flex;gap:3px;margin:20px 0 10px;}
+  .seg{height:8px;flex:1;border-radius:2px;background:var(--stroke-2);}
+  .seg.on{background:var(--violet);}
+  .task-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--stroke);}
+  .task-row:last-child{border:none;}
+  .task-name{font-size:13.5px;color:var(--text);}
+  .task-tag{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:100px;white-space:nowrap;}
+  .task-tag.prog{background:rgba(157,123,255,.15);color:var(--violet);}
+  .task-tag.wait{background:rgba(255,180,84,.15);color:var(--amber);}
+  .task-tag.stall{background:rgba(255,110,142,.15);color:var(--rose);}
+  .task-tag.good{background:rgba(61,220,155,.15);color:var(--green);}
+
+  .act-grid{display:flex;flex-direction:column;gap:0;}
+  .act-row{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--stroke);}
+  .act-row:last-child{border:none;}
+  .act-check{width:16px;height:16px;border-radius:5px;flex:none;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:10px;}
+  .act-check.yes{background:rgba(61,220,155,.15);color:var(--green);border:1px solid rgba(61,220,155,.4);}
+  .act-check.no{background:rgba(255,110,142,.12);color:var(--rose);border:1px solid rgba(255,110,142,.35);}
+  .act-body .act-name{font-size:13.5px;color:var(--text);}
+  .act-body .act-detail{font-size:12px;color:var(--text-faint);margin-top:2px;line-height:1.5;}
+
+  .psico{padding-left:28px;border-left:1px solid var(--stroke-2);}
+  .psico .serif{font-size:23px;line-height:1.42;color:var(--text);max-width:520px;text-wrap:balance;}
+  .psico .attrib{font-family:'Petit Formal Script',cursive;font-size:19px;color:var(--text-faint);margin-top:16px;}
+  .psico .prose{margin-top:22px;max-width:500px;}
+
+  .sympt-card{display:flex;gap:18px;align-items:flex-start;margin-bottom:20px;padding:16px 18px;border-radius:14px;background:rgba(255,110,142,.06);border:1px solid rgba(255,110,142,.22);}
+  .sympt-time{font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:600;color:var(--rose);white-space:nowrap;}
+  .sympt-meta{font-size:12px;color:var(--text-faint);margin-top:4px;}
+
+  .overview{background:linear-gradient(160deg,rgba(157,123,255,.10),rgba(255,110,142,.06));border:1px solid var(--stroke-2);border-radius:24px;padding:38px 36px;}
+  .overview .ov-top{text-align:center;}
+  .overview .big-num{font-size:52px;display:inline-block;}
+  .overview .prose{margin-top:22px;max-width:100%;}
+  .overview .ov-list{margin-top:20px;padding-top:20px;border-top:1px solid var(--stroke);}
+  .overview .ov-list .row{display:flex;justify-content:space-between;gap:14px;font-size:12.5px;padding:8px 0;color:var(--text-dim);}
+  .overview .ov-list .row b{color:var(--text);font-weight:600;}
+
+  .status-box{background:var(--glass-2);border:1px solid var(--stroke);border-radius:14px;padding:16px 18px;font-size:12.5px;line-height:1.7;color:var(--text-dim);}
+  .status-box .row{display:flex;gap:8px;margin-bottom:6px;}
+  .status-box .row:last-child{margin-bottom:0;}
+  .status-box .ok{color:var(--green);}
+  .status-box .miss{color:var(--amber);}
+
+  .footer{margin-top:50px;text-align:center;}
+  .footer p{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:12px;letter-spacing:.01em;color:var(--text-faint);margin:0;}
+  .footer .script{font-size:19px;font-style:normal;color:var(--text-dim);}
+
+  @media (max-width:520px){
+    .recup-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:29px;}
+    .psico{padding-left:16px;}
+  }
+</style>
+</head>
+<body>
+<div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><div class="blob blob-4"></div><div class="blob blob-5"></div>
+
+<div class="wrap">
+
+  <div class="top">
+    <div class="brand"><span class="script">Hub</span><span>· diário</span></div>
+    <div class="date-pill">SEG, 24 AGO</div>
+  </div>
+
+  <div class="hero">
+    <h1>Manhã difícil, corpo bem recuperado, dia produtivo de verdade — e um défice calórico grande demais pra virar <em>hábito</em>.</h1>
+  </div>
+
+  <div class="ticker reveal">
+    <div class="tick"><div class="tick-label">Sono</div><div class="tick-val"><span class="count" data-target="6.85" data-decimal="1">0</span>h</div><div class="tick-note">noite de 24→25, mais recente sincronizada — não é a noite do dia sendo fechado</div></div>
+    <div class="tick"><div class="tick-label">FC repouso (24/08)</div><div class="tick-val"><span class="count" data-target="70">0</span>bpm</div></div>
+    <div class="tick"><div class="tick-label">HRV (24/08)</div><div class="tick-val"><span class="count" data-target="58">0</span>ms</div></div>
+    <div class="tick"><div class="tick-label">Consumo</div><div class="tick-val"><span class="count" data-target="1647" data-thousand="1">0</span>kcal</div></div>
+  </div>
+
+  <!-- NUTRITION -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--green);"></div><div class="txt">Nutrition</div><div class="line"></div></div>
+    <h2 class="mod-title">Défice calórico agressivo sustentado por macros quase ideais para lowcarb</h2>
+    <div class="table-scroll">
+    <table class="meals">
+      <tr><th>Horário</th><th>Item</th><th class="num">kcal</th><th class="num">Prot.</th><th class="num">Gord.</th><th class="num">Carbo</th></tr>
+      <tr><td>08:00</td><td>Eletrólitos + Metilcobalamina/Metilfolato</td><td class="num">0</td><td class="num">0g</td><td class="num">0g</td><td class="num">0g</td></tr>
+      <tr><td>08:30</td><td>Queijo Minas Padrão (54g) + café preto</td><td class="num">216</td><td class="num">12g</td><td class="num">18,9g</td><td class="num">0,3g</td></tr>
+      <tr><td>12:00</td><td>Suplementos (Maca, Vit. C, Ômega 3 TG, D3+K2)</td><td class="num">9,8</td><td class="num">0,4g</td><td class="num">0,1g</td><td class="num">2g</td></tr>
+      <tr><td>13:40</td><td>Frango à milanesa c/ pururuca (304g) + muçarela + maionese</td><td class="num">861,7</td><td class="num">95,8g</td><td class="num">48,7g</td><td class="num">4,8g</td></tr>
+      <tr><td>20:30</td><td>Strogonoff Low Carb (400g) + Zinco</td><td class="num">527,5</td><td class="num">79,1g</td><td class="num">20,9g</td><td class="num">1,2g</td></tr>
+      <tr><td>23:00</td><td>Suprabio +Fibras + Magnésio bisglicinato</td><td class="num">32</td><td class="num">0g</td><td class="num">0g</td><td class="num">8g</td></tr>
+      <tr class="total"><td colspan="2">Total do dia</td><td class="num">1.647</td><td class="num">187,3g</td><td class="num">88,6g</td><td class="num">16,3g</td></tr>
+    </table>
+    </div>
+    <div class="prose">
+      <p>Reconciliação obrigatória rodada antes de qualquer leitura: nenhuma linha pendente em <b>food_log_queue</b> pra 24/08 — o dia inteiro já estava consolidado em <b>meal_log</b>, nada sumiu.</p>
+      <p>Em proporção calórica isso é ~45,5% proteína, ~48,4% gordura e ~4% carboidrato — um perfil quase cetogênico. Dos 16,3g de carboidrato total, 8,3g são fibra (do Suprabio, prebiótica — alimenta bactérias intestinais benéficas sem elevar glicemia), sobrando cerca de <b>8g de carboidrato líquido</b>, o valor que de fato importa pra reversão de pré-diabetes.</p>
+      <p><b>O que foi bem executado:</b> a execução lowcarb foi impecável — carboidrato líquido na casa de 8g é resultado de dieta muito bem controlada, e 187g de proteína é excelente tanto pra saciedade quanto pra preservar massa magra em défice. A crosta de pururuca (pele de porco moída) no lugar de farinha no almoço é a jogada certa: dá crocância sem carboidrato.</p>
+      <p><b>O que pede atenção:</b> colesterol dietético somou ~525mg e sódio ~2.988mg — não alarmantes isoladamente, mas vale monitorar num contexto de pré-diabetes. Gordura saturada somou 36,4g (~41% da gordura do dia), comum em lowcarb bem executado, mas item pra acompanhar num próximo perfil lipídico.</p>
+      <p>Cruzando com o gasto energético real medido (<b>health_quantity_samples</b>, HealthBridge): gasto basal (funções vitais em repouso) de <b>2.391 kcal</b> + energia ativa (movimento/treino) de <b>891 kcal</b> = <b>3.282 kcal de gasto total</b>. Contra 1.647 kcal ingeridas, isso é um défice de <b>~1.635 kcal</b> — quase metade do gasto do dia. É projeção estimada, não medição direta de gordura corporal: usando ~7.700 kcal por kg de gordura, equivaleria a ~210g de gordura se coberto inteiramente por tecido adiposo, o que não é realista num único dia (parte vem de glicogênio/água). O ponto real de atenção é outro: um défice desse tamanho, coincidindo com um dia de energia ativa alta (treino de boxe), é agressivo demais pra ser hábito diário sem comprometer recuperação muscular — mesmo com proteína alta protegendo o músculo, ela não neutraliza um rombo calórico dessa magnitude repetido dia após dia.</p>
+      <p><b>Perspectiva:</b> se o padrão de macros se mantiver (carboidrato líquido ~8g, proteína ~187g), a tendência pra reversão de pré-diabetes é favorável. Mas esse não é o primeiro dia leve seguido (ontem, 23/08, também fechou em ~1.218 kcal) — se o padrão de défice acentuado virar norma nos dias de treino, o risco é perda de peso mais rápida às custas de massa magra, dificultando o ganho muscular também pretendido.</p>
+      <p><b>Recomendação:</b> manter o padrão de carboidrato baixo e proteína alta — mas em dias com energia ativa alta (como hoje), subir a ingestão via gordura/proteína extra pra não deixar o défice passar de ~700–800 kcal, protegendo recuperação e o objetivo de ganho de massa.</p>
+    </div>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--blue);"></div><div class="txt">Performance</div><div class="line"></div></div>
+    <h2 class="mod-title">Boxe sem sinal de sobrecarga apesar do cansaço relatado — amanhã é dia de tronco superior</h2>
+    <div class="recup-grid">
+      <div>
+        <div class="big-num">58<sup>ms</sup></div>
+        <div class="big-num-cap">HRV médio do dia — acima da média de 7d (~51ms) e de 30d (~44ms)</div>
+      </div>
+      <div class="mini-rows">
+        <div class="mini-row"><span class="k">FC repouso (dia)</span><span class="v up">69,5 bpm</span></div>
+        <div class="mini-row"><span class="k">FC repouso (30 dias)</span><span class="v">72,7 bpm</span></div>
+        <div class="mini-row"><span class="k">VO2max</span><span class="v warn">36,9 mL/min/kg — parado desde 27/07</span></div>
+        <div class="mini-row"><span class="k">Treino</span><span class="v">Boxe, 32min, sem professor</span></div>
+      </div>
+    </div>
+    <div class="prose">
+      <p>Boxe em dupla com o amigo (professor ausente), ~32 minutos (12h24–13h32, horário de Brasília), <b>FC média de 132 bpm e pico de 173 bpm</b> — intensidade cardiovascular alta mesmo em treino informal. Trabalha bem condicionamento, pouco hipertrofia (o boxe recruta ombros/core/cardio, não carga progressiva de força).</p>
+      <p>Você relatou "falta de energia" durante o treino, atribuindo à alimentação do dia anterior. Cruzando com os marcadores objetivos: <b>HRV</b> (variabilidade da frequência cardíaca — quanto maior, mais o sistema nervoso está descansado e pronto pra novo estímulo) em 58ms, acima da média de 7 e 30 dias; <b>FC de repouso</b> em 69,5bpm, abaixo da média de 30 dias. Fisiologicamente você não está em fadiga acumulada — o cansaço de hoje tem cara de furo pontual de combustível, não de excesso de treino.</p>
+      <p><b>Crítica:</b> se a alimentação do dia anterior continuar falhando, esse "sem energia" vai se repetir mesmo com a recuperação em dia, e aí fica mais difícil diferenciar de sobrecarga real. Essa foi a primeira sessão de boxe registrada com esse nível de detalhe — sem histórico prévio do mesmo tipo pra comparar volume/progressão. A dor de perna do treino de sábado (22/08) segue "desagradável" dois dias depois — DOMS que se estende assim não é alarme isolado, mas pesa no planejamento de carga de perna nos próximos dias.</p>
+      <p><b>VO2max</b> (capacidade máxima de consumo de oxigênio — indicador central de condicionamento aeróbico e longevidade) segue em 36,9 mL/min/kg, sem leitura nova desde 27/07 — esperado, já que o relógio só recalcula em caminhadas/corridas com GPS, não em boxe ou musculação.</p>
+      <p><b>Perspectiva:</b> mantendo esse ritmo — cardio/condicionamento quase diário, força dedicada só ~1x/semana — a tendência é continuar perdendo gordura e ganhando fôlego, mas o ganho de massa/shape denso vai ficar lento por falta de frequência de estímulo de carga. Estimativa baseada em consistência observada, não promessa.</p>
+      <p>Pra amanhã (25/08, academia do prédio, almoço), respondendo ao seu pedido: <b>foque em tronco superior — peito, costas e ombros, braços como acessório</b>. O boxe de hoje já trabalhou ombros/core via cardio mas não deu estímulo de força real; a perna segue dolorida do treino de sábado e squats amanhã arriscam piorar a recuperação.</p>
+      <p><b>Recomendação:</b> treino de amanhã na academia do prédio — peito + costas + ombros, poupando quadríceps/posterior até a dor de sábado passar; e, pra não repetir o "sem energia" de hoje, garantir uma refeição completa antes do próximo treino intenso.</p>
+    </div>
+    <div class="callout" style="margin-top:14px;">
+      <div class="lbl" style="color:var(--blue);">Registrado em workout_enrichment</div>
+      <p>Sessão de boxe de 24/08 gravada (specialist_feedback, recommendations, performance_vs_last) — primeira sessão desse tipo no sistema, sem milestone por não haver marco notável.</p>
+    </div>
+  </section>
+
+  <!-- STAFF -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--violet);"></div><div class="txt">Staff</div><div class="line"></div></div>
+    <h2 class="mod-title">Comissões OneFlow avança pra 46/50, mas o bloqueio do "Will" já dura 3 dias</h2>
+    <div class="segbar">
+      <div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div>
+      <div class="seg"></div><div class="seg"></div>
+    </div>
+    <div class="prose" style="margin-top:0;">
+      <p>O board de Tasks hoje tem 6 itens fora de Done/Archived. <b>Comissões OneFlow</b> (issue #89325, prazo 29/08) é o destaque: o checklist saiu de 43/50 pra <b>46/50</b> desde ontem, "Progress" subiu de 70% pra 85%. Dois travamentos abertos há dois dias foram resolvidos hoje — validação de "SubTitle" com o João, e teste do Input-File do Modal de Resgate Manual. Feedback real: não foi só "mexer" na tarefa, foram bloqueios externos efetivamente destravados.</p>
+      <p><b>Crítica:</b> sobrou o bloqueio mais antigo e fora do seu controle: "aguardar retorno do Will sobre a Clear Function" está parado desde 22/08 — terceiro dia sem movimento, já virou <b>dependência de terceiro estagnada</b>, reduzindo a folga até o prazo de 29/08 (faltam 5 dias). "Modal Pedido de Resgate" (RegSources) ainda não começou — não depende de ninguém, é execução sua, maior risco de virar sprint de última hora. "Criação da Doc do motor de Widget" está no terceiro check-in seguido (22, 23, 24/08) sem conteúdo novo — zero movimento em três dias é inércia, não ritmo lento; sem gatilho concreto tende a ficar "In Progress" indefinidamente sem nunca virar entrega. "Criar a rotina do review semanal" foi criada hoje com prazo já pra amanhã (25/08), sem checklist ainda — escopo e prazo apertados.</p>
+      <p>Ponto positivo fora do radar de atraso: "Resolver log de erro da calculadora da reforma" foi fechada hoje com diagnóstico correto — identificou dependência de código ainda não em produção e optou por não fazer hotfix arriscado, esperando o merge de quinta. Cruza bem com sua observação de hoje ("trabalhei bem de boa") — avanço real sem atalho arriscado.</p>
+      <p><b>Perspectiva:</b> cobrando o Will ativamente e atacando os RegSources nos próximos 2-3 dias, o OneFlow chega ao prazo com folga real. Se o bloqueio do Will continuar só "esperando", o risco é entrar na última semana ainda dependente de terceiro. Se a Doc do Widget continuar sem gatilho, deve seguir estagnada por semanas — não grave isoladamente, mas polui a leitura do board.</p>
+    </div>
+    <div style="margin-top:8px;">
+      <div class="task-row"><span class="task-name">Comissões OneFlow — 92% (46/50), prazo 29/08</span><span class="task-tag prog">Em ritmo, dependente de terceiro (Will)</span></div>
+      <div class="task-row"><span class="task-name">Modal Pedido de Resgate (RegSources)</span><span class="task-tag stall">Não iniciado — execução própria</span></div>
+      <div class="task-row"><span class="task-name">Doc motor de Widget</span><span class="task-tag stall">3º check-in sem movimento — sem gatilho</span></div>
+      <div class="task-row"><span class="task-name">Review semanal — prazo 25/08</span><span class="task-tag wait">Criada hoje, sem checklist</span></div>
+      <div class="task-row"><span class="task-name">Calculadora da reforma (bug DSV)</span><span class="task-tag good">Fechada — decisão técnica ponderada</span></div>
+    </div>
+    <div class="callout good">
+      <div class="lbl">Recomendação</div>
+      <p>Cobrança direta e com prazo pro Will sobre a Clear Function hoje ou amanhã, e começar os RegSources do Modal Pedido de Resgate — os dois únicos itens entre você e fechar o OneFlow com folga. Pra Doc do Widget, definir um gatilho concreto em vez de deixá-la "correndo em paralelo" sem nunca correr de fato.</p>
+    </div>
+  </section>
+
+  <!-- COGNITIVE -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--amber);"></div><div class="txt">Cognitive</div><div class="line"></div></div>
+    <h2 class="mod-title">Dia rico em estímulo, mas com o relógio inclinado pros jogos</h2>
+    <div class="act-grid">
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Prancha ao acordar</div><div class="act-detail">44 segundos.</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Leitura</div><div class="act-detail">19 minutos (verificação direta do Apple Livros fora do escopo desta análise — autorrelato).</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Jogos</div><div class="act-detail">~2h15 no total (1h de manhã + 1h15 à noite, 21h20–22h35).</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Guitarra</div><div class="act-detail">35 minutos — aprendizado novo de notas no braço (Fá, Sol, Lá, Si, Dó, Ré, Mi).</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Duolingo</div><div class="act-detail">Vocabulário novo de latim (solus, estne, num).</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Bem-estar, Marcar Beach Tênis, Grooming</div><div class="act-detail">Marcados feitos.</div></div></div>
+    </div>
+    <div class="prose">
+      <p>Seis domínios de estímulo diferentes tocados no mesmo dia — idioma, jogo, instrumento, leitura, terapia e cuidado pessoal. Isso importa porque a <b>neuroplasticidade</b> (capacidade do cérebro de formar e reforçar conexões novas) responde melhor a estímulo variado do que a um tipo isolado. A Guitarra foi o sinal mais forte: aprendizado declarativo novo (mapear notas) somado a prática motora, a combinação que mais reforça conexões.</p>
+      <p><b>O que foi bem executado:</b> parar de jogar mais cedo pra seguir o protocolo de sono foi a escolha certa do ponto de vista cognitivo — é durante o sono que o cérebro consolida o aprendizado do dia, sem esse corte o novo conteúdo de guitarra e idioma teria menos chance de "grudar". A Terapia funcionou como estímulo de processamento verbal/reflexivo, somando à variedade do dia (o conteúdo emocional em si é escopo do Wellbeing).</p>
+      <p><b>Crítica:</b> apesar do 8/8, a distribuição de tempo está desequilibrada — Jogos consumiram mais tempo que Guitarra, Leitura e Duolingo somados, e jogos tendem a ser estímulo mais repetitivo/reativo que os outros três, que exigem construção ativa de conhecimento novo. A Leitura de 19 minutos é curta pra engajamento sustentado com a narrativa. Vale registrar a limitação: essa verificação normalmente passa pelo Apple Livros, ao qual não tive acesso direto nesta análise — o dado usado é o autorrelato, não confirmação independente.</p>
+      <p><b>Perspectiva:</b> se esse padrão se mantiver — jogos dominando o tempo, guitarra e Duolingo em doses pequenas mas reais — o resultado é misto: a repetição diária de guitarra/Duolingo constrói habilidade mensurável ao longo de semanas, vale proteger; mas sem correção no tempo de jogo, a proporção entre estímulo passivo e ativo continua caindo, reduzindo o retorno cognitivo do dia mesmo com todas as caixinhas marcadas.</p>
+      <p><b>Recomendação:</b> proteger um bloco mínimo de leitura maior (25–30 minutos) antes de abrir o jogo, e tratar o tempo de jogos como algo a limitar conscientemente — hoje ele ocupou sozinho mais tempo que as três atividades de aprendizado ativo somadas.</p>
+    </div>
+  </section>
+
+  <!-- WELLBEING -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--pink);"></div><div class="txt">Wellbeing</div><div class="line"></div></div>
+    <div class="psico">
+      <div class="serif">"Fiz a terapia... principalmente a questão de terminar com a Natália. Mas ainda não me sinto pronto."</div>
+      <div class="attrib">das suas próprias Observações, hoje</div>
+      <div class="prose">
+        <p>O dia começou torto: o omeprazol tomado por conta própria antes do café trouxe desconforto e cólica no estômago, e ainda pela manhã veio um comentário de ódio — que, pelo menos, passou rápido. Curiosamente, o registro nativo de Estado de Espírito do Apple Health às 08h03 (horário de São Paulo) mostrou valência positiva moderada (~0,52 numa escala de -1 a 1), bem naquela janela de desconforto — dado que você mesmo registrou deliberadamente, então vale mais que qualquer inferência de texto: sugere que o incômodo físico e o comentário ruim não abateram seu estado emocional geral naquele momento.</p>
+        <p>De resto, o dia rendeu de verdade: trabalho fluiu bem, o boxe aconteceu mesmo sem o professor porque você e seu parceiro se organizaram sozinhos, a consulta com a gastro foi feita, a dor de dente cedeu sem remédio, você fez terapia, terminou e guardou o strogonoff, e ainda parou mais cedo pra seguir o protocolo de sono. Disciplina se sustentando mesmo num dia que não começou fácil.</p>
+        <p>Duas coisas pra sinalizar. A dor na perna do treino de sábado já vai pro terceiro dia incomodando — não alarmante, mas o tipo de coisa que costuma passar em 24-48h. Mais relevante: o tema de terminar com a Natália voltou à terapia, mas com uma nuance em relação a ontem, quando você escreveu que estava "querendo terminar" — hoje o tom mudou pra "ainda não me sinto pronto". Não é contradição, é ambivalência real, aparecendo dois dias seguidos, inclusive dentro da terapia. Você mesmo notou que "queria falar demais e não ouvi muito" justamente nesse assunto — pode indicar que está mais processando em voz alta do que elaborando a decisão com ajuda de fora.</p>
+        <p>Nada aqui foge do esperado dado o que você vem passando — não é sinal de alerta agudo, é um processo em curso que ainda não fechou.</p>
+        <p><b>Recomendação:</b> na próxima sessão de terapia, reservar deliberadamente mais espaço pra ouvir quando o assunto Natália aparecer — você já notou isso em si mesmo, é um ajuste concreto ao seu alcance. Não se cobre por "ainda não estar pronto": ambivalência sobre terminar um relacionamento não é indecisão preguiçosa, é parte do processo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDICAL -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--rose);"></div><div class="txt">Medical — Gastroenterologia</div><div class="line"></div></div>
+    <h2 class="mod-title">Desconforto abdominal após automedicação com omeprazol, no mesmo dia da consulta real com o gastroenterologista</h2>
+    <div class="sympt-card">
+      <div>
+        <div class="sympt-time">~07h30–09h30</div>
+        <div class="sympt-meta">desconforto/cólica · autorrelato</div>
+      </div>
+      <div class="prose" style="margin-top:0;">
+        <p style="margin:0;">Relatado após tomar omeprazol por conta própria, seguindo sugestão de um chatbot de saúde genérico que "achou" que poderia haver úlcera — sem confirmação médica prévia. Coincide com uma consulta real com gastroenterologista no mesmo dia (24/08); exames ainda a fechar.</p>
+      </div>
+    </div>
+    <div class="prose" style="margin-top:0;">
+      <p>Este parecer é um resumo interpretativo de dado de saúde, não uma avaliação médica — e no seu caso isso é ainda mais claro porque você já está literalmente em acompanhamento com um gastroenterologista de verdade. O canal certo pra dúvida sobre úlcera já está ativo e é muito mais confiável que a opinião de um chat genérico.</p>
+      <p>O omeprazol é um inibidor de bomba de prótons — reduz a produção de ácido no estômago, geralmente bem tolerado, mas tomá-lo sem confirmação do diagnóstico que motivou a sugestão tem dois riscos práticos, sem alarmismo: pode mascarar sintomas úteis pro gastro identificar a causa real; e o próprio desconforto/cólica relatado pode ser efeito colateral direto do remédio, o quadro digestivo de base se manifestando, ou os dois — não dá pra diferenciar com o dado disponível, e não é papel deste resumo tentar.</p>
+      <p>Não há sintoma digestivo estruturado registrado em <b>symptom_log_queue</b> nem <b>health_category_samples</b> pra 24/08 — o desconforto existe só no seu relato, normal já que sintomas digestivos raramente entram automaticamente pelo relógio. Já na frequência cardíaca e <b>HRV</b> (variabilidade cardíaca — cai quando o corpo entra em modo de alerta/estresse, sobe quando está tranquilo) há um padrão coerente: por volta de 06h05–06h20 a FC estava baixa e estável (52–57bpm) e a HRV em 64,8ms às 06h08 — repouso tranquilo. A partir de ~07h28 a FC sobe de forma acentuada, chegando a 112bpm às 07h45, e às 08h15 a HRV cai pra 39,8ms (quase 40% mais baixa) com FC ainda em ~104bpm. Essa combinação é a assinatura fisiológica clássica de ativação do sistema nervoso simpático — o mesmo padrão já observado em 22/08, correlacionado com um episódio de náusea. Os batimentos normalizam gradualmente entre 08h17 e 09h30. Essa janela coincide de forma plausível com o horário relatado do remédio e do desconforto — não é prova de causa, mas é um sinal fisiológico real e coerente.</p>
+      <p>O quadro deste episódio já passou — foi ontem de manhã — e a via correta pra investigar já está em curso com a consulta real.</p>
+    </div>
+    <div class="callout good">
+      <div class="lbl">Recomendação</div>
+      <p>Não há necessidade de reagir agora. Vale levar pra gastro (hoje, ao fechar os exames, ou na próxima consulta) três informações objetivas: que o omeprazol foi tomado por conta própria por sugestão de um chat genérico, sem confirmação médica prévia; que o desconforto surgiu logo depois; e, se achar útil, o pico de FC (até 112bpm) com queda de HRV nesse mesmo intervalo. Daqui pra frente, evitar repetir automedicação por sugestão de chatbots — a dúvida sobre úlcera já está com o profissional certo. Se um episódio parecido se repetir, anotar horário e relação com alimentação/medicação pra levar à consulta; se a dor for forte, persistente, ou vier com sangramento, vômito importante ou febre, buscar avaliação médica com prioridade, não esperar a próxima consulta agendada.</p>
+    </div>
+  </section>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="overview reveal">
+    <div class="ov-top">
+      <span class="big-num"><span class="count" data-target="8">0</span><span style="font-size:24px;color:var(--text-faint);">/8</span></span>
+      <div class="big-num-cap" style="margin-top:8px;">atividades diárias concluídas</div>
+    </div>
+    <div class="prose">
+      <p>Um dia que começou torto — automedicação equivocada com desconforto na sequência, um comentário de ódio pela manhã — e virou por cima. Nas suas próprias palavras: "dia bom e produtivo". A fisiologia confirma que não foi só otimismo: HRV bem acima da média (recuperação forte), e o registro nativo de humor do Apple Health mostrou valência positiva mesmo durante a janela de desconforto abdominal.</p>
+      <p>No trabalho, <b>Comissões OneFlow</b> avançou de verdade — 92% do checklist técnico fechado (46/50), prazo de 29/08 ainda alcançável, com o único risco concentrado em dependência de terceiro (retorno do Will, parado há 3 dias, não em ritmo próprio). Um bug foi resolvido com decisão técnica ponderada em vez de hotfix arriscado — coerente com sua observação de ter "trabalhado bem de boa" hoje.</p>
+      <p>No campo físico, o treino de boxe sem professor não deixou sinal de sobrecarga — a "falta de energia" relatada tem cara de combustível insuficiente (nutrição do dia anterior), não de corpo em fadiga acumulada; os marcadores de recuperação seguem fortes. A nutrição de hoje foi tecnicamente impecável pra meta lowcarb, mas o défice calórico (~1.635 kcal contra o gasto real do dia) é grande demais pra virar rotina sem custar recuperação e o objetivo de ganho de massa.</p>
+      <p>No campo pessoal, a terapia trouxe de volta o tema de terminar o relacionamento com a Natália — agora com "ainda não me sinto pronto", uma nuance real em relação ao "querendo terminar" de ontem. É ambivalência genuína, não indecisão preguiçosa nem motivo de alarme; vale ler o parecer de Wellbeing acima com calma antes de qualquer decisão maior. E a consulta real com o gastroenterologista, feita hoje, é o canal certo pra investigar o desconforto do omeprazol tomado por conta própria — sem necessidade de ação adicional além de levar essa informação pra ele.</p>
+    </div>
+    <div class="ov-list">
+      <div class="row"><span>Nutrição</span><b>Dentro da meta (composição) — défice calórico grande, monitorar se virar padrão</b></div>
+      <div class="row"><span>Remédios / suplementos</span><b>Todos — 9/9</b></div>
+      <div class="row"><span>Plantas regadas</span><b>Não confirmado — pendência de validação (seção 7 do Manual)</b></div>
+      <div class="row"><span>Tarefas</span><b>Board geral: 54/60 (não específico do dia) — OneFlow em 92%</b></div>
+    </div>
+  </div>
+
+  <div class="footer" style="margin-top:34px;">
+    <div class="status-box">
+      <div class="row"><span class="ok">●</span><span>Saúde não-nutricional (HealthBridge), nutrição (recipes-hub, reconciliada com food_log_queue), suplementos (Meds and Sups → meal_log, 9/9), Tasks e Observações — consumidos normalmente.</span></div>
+      <div class="row"><span class="ok">●</span><span>Sono do dia sendo fechado (noite de 23→24): 6h44. Hero stat acima usa a noite mais recente sincronizada (24→25, ~6h51), conforme regra do relatório — não é a mesma noite.</span></div>
+      <div class="row"><span class="miss">●</span><span>Plantas: pendência conhecida (frequências de rega ainda sem "Confirmado pelo usuário") — pulado silenciosamente, não é falha desta execução.</span></div>
+      <div class="row"><span class="ok">●</span><span>Nenhum especialista falhou nesta execução. Medical acionado por sintoma real autorreportado (desconforto pós-omeprazol).</span></div>
+    </div>
+    <p style="margin-top:26px;"><span class="script">Hub</span> — fechamento de 24/08/2026, publicado em 25/08</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-target'));
+    var thousand = el.getAttribute('data-thousand') === '1';
+    var decimal = parseInt(el.getAttribute('data-decimal') || '0', 10);
+    if(reduced){ el.textContent = thousand ? target.toLocaleString('pt-BR') : target.toFixed(decimal); return; }
+    var start = performance.now();
+    var dur = 1300;
+    function tick(now){
+      var p = Math.min(1, (now - start) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = target * eased;
+      if(decimal > 0){ el.textContent = val.toFixed(decimal); }
+      else { var rounded = Math.round(val); el.textContent = thousand ? rounded.toLocaleString('pt-BR') : rounded; }
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  var revealEls = document.querySelectorAll('.reveal');
+  var counted = new WeakSet();
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        entry.target.querySelectorAll('.count').forEach(function(el){
+          if(!counted.has(el)){ counted.add(el); animateCount(el); }
+        });
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.2, rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(function(el){ io.observe(el); });
+
+  if(!reduced){
+    var blobs = document.querySelectorAll('.blob');
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        var y = window.scrollY;
+        blobs.forEach(function(b, i){
+          var speed = 0.06 + i * 0.03;
+          b.style.transform = 'translateY(' + (y * speed) + 'px)';
+        });
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>
