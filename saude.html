@@ -38,6 +38,7 @@
   .bars { display: flex; align-items: flex-end; gap: 4px; height: 40px; }
   .bars .bar { flex: 1; background: #c3d4e2; border-radius: 2px 2px 0 0; position: relative; }
   .bars .bar.today { background: #b08a4a; }
+  .bars .bar.nodata { background: #ece1c9; }
   .bar-labels { display: flex; gap: 4px; margin-top: 3px; }
   .bar-labels span { flex: 1; font-size: 8px; color: #9a8a6a; text-align: center; }
 
@@ -50,66 +51,66 @@
 </style>
 </head>
 <body>
-  <div class="headline">Boa noite de sono (<b>6h44</b>) e HRV em alta pelo segundo dia seguido — sinal de recuperação forte. Sincronizado hoje às 08:04.</div>
+  <div class="headline">Noite bem dormida (<b>6h50</b>), com boa proporção de sono profundo e REM. HRV segue em bom patamar essa manhã. Sincronizado hoje às 08:08.</div>
 
   <div class="two-col">
     <div class="col">
-      <div class="section-title">Sono — noite de 23→24/08</div>
+      <div class="section-title">Sono — noite de 25/08</div>
       <div class="sleep-bar">
-        <div class="light" style="width:66%"></div>
-        <div class="deep" style="width:9%"></div>
-        <div class="rem" style="width:25%"></div>
+        <div class="light" style="width:46%"></div>
+        <div class="deep" style="width:18%"></div>
+        <div class="rem" style="width:36%"></div>
       </div>
       <div class="sleep-legend">
-        <span><span class="dot" style="background:#c3d4e2"></span>Leve 4h29</span>
-        <span><span class="dot" style="background:#2b4a6b"></span>Profundo 0h34</span>
-        <span><span class="dot" style="background:#6b8caa"></span>REM 1h40</span>
+        <span><span class="dot" style="background:#c3d4e2"></span>Leve 3h08</span>
+        <span><span class="dot" style="background:#2b4a6b"></span>Profundo 1h16</span>
+        <span><span class="dot" style="background:#6b8caa"></span>REM 2h27</span>
       </div>
-      <div class="stale-note">Total: <b>6h44</b> dormido (00:28–07:18) — 6h49 na cama.</div>
+      <div class="stale-note">Total: <b>6h50</b> dormido (00:16–07:27) — 7h11 na cama.</div>
     </div>
     <div class="col">
-      <div class="section-title">Recuperação — hoje (24/08)</div>
-      <div class="rec-num">71,9ms</div>
-      <div class="rec-label">HRV (variabilidade da frequência cardíaca — quanto maior, melhor a recuperação do sistema nervoso)</div>
-      <div class="rec-range">FC repouso: <b>67bpm</b> — dentro da faixa da semana (64–77bpm)</div>
+      <div class="section-title">Recuperação — hoje (25/08)</div>
+      <div class="rec-num">68,6ms</div>
+      <div class="rec-label">HRV (variabilidade da frequência cardíaca — quanto maior, melhor a recuperação do sistema nervoso) — média parcial da manhã, ainda vai atualizar</div>
+      <div class="rec-range">FC repouso: ainda sem leitura hoje (última: <b>67bpm</b>, 24/08) — dentro da faixa da semana (58–77bpm)</div>
     </div>
   </div>
 
   <div class="trend-block">
     <div class="trend-row">
       <div class="trend-col">
-        <div class="trend-title">HRV — média diária, últimos 7 dias com dado (18–24/08)</div>
+        <div class="trend-title">HRV — média diária, últimos 7 dias com dado (19–25/08)</div>
         <div class="bars">
-          <div class="bar" style="height:33%"></div>
-          <div class="bar" style="height:30%"></div>
-          <div class="bar" style="height:49%"></div>
-          <div class="bar" style="height:46%"></div>
-          <div class="bar" style="height:41%"></div>
+          <div class="bar" style="height:56%"></div>
+          <div class="bar" style="height:64%"></div>
+          <div class="bar" style="height:64%"></div>
+          <div class="bar" style="height:67%"></div>
           <div class="bar" style="height:100%"></div>
-          <div class="bar today" style="height:97%"></div>
+          <div class="bar" style="height:79%"></div>
+          <div class="bar today" style="height:93%"></div>
         </div>
-        <div class="bar-labels"><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span></div>
+        <div class="bar-labels"><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span></div>
       </div>
       <div class="trend-col">
-        <div class="trend-title">FC repouso — diária, últimos 7 dias com dado (18–24/08)</div>
+        <div class="trend-title">FC repouso — diária, últimos 7 dias com dado (19–24/08 + hoje sem sync)</div>
         <div class="bars">
-          <div class="bar" style="height:15%"></div>
           <div class="bar" style="height:100%"></div>
-          <div class="bar" style="height:67%"></div>
-          <div class="bar" style="height:21%"></div>
-          <div class="bar" style="height:63%"></div>
-          <div class="bar" style="height:21%"></div>
-          <div class="bar today" style="height:35%"></div>
+          <div class="bar" style="height:94%"></div>
+          <div class="bar" style="height:84%"></div>
+          <div class="bar" style="height:92%"></div>
+          <div class="bar" style="height:75%"></div>
+          <div class="bar" style="height:87%"></div>
+          <div class="bar nodata today" style="height:4%"></div>
         </div>
-        <div class="bar-labels"><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span></div>
+        <div class="bar-labels"><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span></div>
       </div>
     </div>
   </div>
 
   <div class="nutri-block">
-    <div class="section-title">Nutrição — hoje (24/08)</div>
+    <div class="section-title">Nutrição — hoje (25/08)</div>
     <div class="no-data">Ainda sem refeição registrada hoje.</div>
-    <div class="cal-sub">Ontem (23/08) — dia de descanso, sem sincronização de treino registrada.</div>
+    <div class="cal-sub">Ontem (24/08) fechou com 1.647kcal em 15 registros — 187,3g proteína, 88,6g gordura, 16,3g carboidrato.</div>
   </div>
 
   <div class="sync-note">Fonte: HealthBridge (sono/recuperação) + recipes-hub (nutrição). Fit Score não é mais calculado desde 22/08 — HealthBridge não produz esse índice; ver pareceres de especialista no e-mail de fechamento.</div>
