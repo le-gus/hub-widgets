@@ -13,23 +13,16 @@
   .headline { font-size: 14px; color: #3a3226; line-height: 1.5; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid #ece1c9; }
   .headline b { color: #b5651d; }
   .section-title { font-size: 10.5px; color: #9a8a6a; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; margin-bottom: 10px; }
-  .no-data { font-size: 13px; color: #b08a4a; font-style: italic; margin-top: 6px; }
+  .no-data { font-size: 13px; color: #b08a4a; font-style: italic; margin-top: 6px; line-height: 1.5; }
 
   .two-col { display: flex; gap: 24px; }
   .col { flex: 1; }
-  .sleep-bar { display: flex; height: 14px; border-radius: 4px; overflow: hidden; margin: 8px 0 6px; }
-  .sleep-bar .deep { background: #2b4a6b; }
-  .sleep-bar .rem { background: #6b8caa; }
-  .sleep-bar .light { background: #c3d4e2; }
-  .sleep-legend { display: flex; gap: 12px; font-size: 10px; color: #6b5f48; flex-wrap: wrap; }
-  .sleep-legend span { display: flex; align-items: center; gap: 4px; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
-  .stale-note { font-size: 10.5px; color: #6b5f48; margin-top: 4px; }
+  .stale-note { font-size: 10.5px; color: #6b5f48; margin-top: 4px; line-height: 1.5; }
 
   .rec-num { font-size: 22px; font-weight: 700; color: #3a3226; }
   .rec-num.low { color: #a3402f; }
   .rec-label { font-size: 10px; color: #9a8a6a; margin-bottom: 8px; }
-  .rec-range { font-size: 10.5px; color: #6b5f48; margin-top: 4px; }
+  .rec-range { font-size: 10.5px; color: #6b5f48; margin-top: 4px; line-height: 1.5; }
   .rec-range b { color: #4a7c3f; }
   .rec-range b.warn { color: #a3402f; }
 
@@ -39,82 +32,76 @@
   .trend-title { font-size: 10px; color: #9a8a6a; margin-bottom: 6px; }
   .bars { display: flex; align-items: flex-end; gap: 4px; height: 40px; }
   .bars .bar { flex: 1; background: #c3d4e2; border-radius: 2px 2px 0 0; position: relative; }
-  .bars .bar.today { background: #b08a4a; }
+  .bars .bar.spike { background: #d99a86; }
   .bars .bar.nodata { background: #ece1c9; }
   .bar-labels { display: flex; gap: 4px; margin-top: 3px; }
   .bar-labels span { flex: 1; font-size: 8px; color: #9a8a6a; text-align: center; }
+  .trend-foot { font-size: 10px; color: #6b5f48; margin-top: 6px; line-height: 1.5; }
 
   .nutri-block { margin-top: 20px; padding-top: 16px; border-top: 1px solid #ece1c9; }
-  .nutri-item { font-size: 11.5px; color: #3a3226; margin-bottom: 4px; }
+  .nutri-item { font-size: 11.5px; color: #3a3226; margin-bottom: 4px; line-height: 1.5; }
   .nutri-item b { color: #4a7c3f; }
-  .cal-sub { font-size: 10px; color: #9a8a6a; margin-top: 8px; }
+  .nutri-item b.warn { color: #a3402f; }
+  .cal-sub { font-size: 10px; color: #9a8a6a; margin-top: 8px; line-height: 1.5; }
 
-  .sync-note { font-size: 10px; color: #b08a4a; margin-top: 14px; padding-top: 10px; border-top: 1px solid #ece1c9; }
+  .sync-note { font-size: 10px; color: #b08a4a; margin-top: 14px; padding-top: 10px; border-top: 1px solid #ece1c9; line-height: 1.5; }
 </style>
 </head>
 <body>
-  <div class="headline">Noite curta (<b>6h49</b>) e sono profundo bem abaixo do usual (<b>26min</b>). Recuperação em queda: HRV da manhã em <b>28,8ms</b> (leitura parcial, 4 amostras) contra média de ~55ms nos últimos 7 dias. FC de repouso ainda não sincronizou hoje. Última sincronização do HealthBridge às 08:26.</div>
+  <div class="headline">Dia com <b>lacuna de sincronização</b>: o HealthBridge parou de receber dados às <b>~13:31</b> e o app não sincroniza sozinho — a leitura de 28/08 está incompleta. A noite de 27→28 <b>não foi medida</b> (relógio carregando, ele dormiu sem ele). O sinal que dá pra ler vem de ontem: recuperação bateu no fundo da semana em 27/08 — HRV <b>27,8ms</b> e FC de repouso <b>85bpm</b>, os dois no pior ponto dos últimos 9 dias, batendo com o dia difícil que ele mesmo relatou.</div>
 
   <div class="two-col">
     <div class="col">
-      <div class="section-title">Sono — noite de 26→27/08</div>
-      <div class="sleep-bar">
-        <div class="light" style="width:67%"></div>
-        <div class="deep" style="width:6%"></div>
-        <div class="rem" style="width:27%"></div>
-      </div>
-      <div class="sleep-legend">
-        <span><span class="dot" style="background:#c3d4e2"></span>Leve 4h35</span>
-        <span><span class="dot" style="background:#2b4a6b"></span>Profundo 0h26</span>
-        <span><span class="dot" style="background:#6b8caa"></span>REM 1h48</span>
-      </div>
-      <div class="stale-note">Total: <b>6h49</b> dormido (~00:05–06:55). Sono profundo (fase de reparo físico) representou só 6% da noite — bem abaixo dos ~15% de uma noite típica sua.</div>
+      <div class="section-title">Sono — noite de 27→28/08</div>
+      <div class="no-data">Sem dado. O Apple Watch estava carregando e ele dormiu sem ele — não há amostra dessa noite pra mostrar, e não se empresta a de outra noite.</div>
+      <div class="stale-note">Última noite medida foi 26→27/08: <b>6h49</b> dormido, com sono profundo bem curto (26min, ~6% da noite contra ~15% do usual).</div>
     </div>
     <div class="col">
-      <div class="section-title">Recuperação — hoje (27/08)</div>
-      <div class="rec-num low">28,8ms</div>
-      <div class="rec-label">HRV (variabilidade da frequência cardíaca — quanto maior, melhor a recuperação do sistema nervoso) — média parcial da madrugada, bem abaixo do normal desta semana</div>
-      <div class="rec-range">FC repouso: <b>sem sync hoje</b> — última medida 70,7bpm (26/08), dentro da faixa da semana (65–71bpm)</div>
+      <div class="section-title">Recuperação — última leitura (27/08)</div>
+      <div class="rec-num low">27,8ms</div>
+      <div class="rec-label">HRV (variabilidade da frequência cardíaca — quanto maior, melhor a recuperação do sistema nervoso). Média de 27/08, cerca de metade da média de ~55ms dos últimos 7 dias.</div>
+      <div class="rec-range">FC de repouso: <b class="warn">85bpm em 27/08</b>, contra 65–71bpm no resto da semana — elevada, coerente com noite curta + estresse. Sem leitura nova hoje.</div>
     </div>
   </div>
 
   <div class="trend-block">
     <div class="trend-row">
       <div class="trend-col">
-        <div class="trend-title">HRV — média diária, últimos 7 dias (21–27/08)</div>
+        <div class="trend-title">HRV — média diária (22–28/08)</div>
         <div class="bars">
-          <div class="bar" style="height:64%"></div>
           <div class="bar" style="height:67%"></div>
           <div class="bar" style="height:100%"></div>
           <div class="bar" style="height:79%"></div>
           <div class="bar" style="height:85%"></div>
           <div class="bar" style="height:66%"></div>
-          <div class="bar today" style="height:39%"></div>
+          <div class="bar spike" style="height:38%"></div>
+          <div class="bar nodata" style="height:12%"></div>
         </div>
-        <div class="bar-labels"><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span></div>
+        <div class="bar-labels"><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
       </div>
       <div class="trend-col">
-        <div class="trend-title">FC repouso — diária, últimos 7 dias (21–27/08)</div>
+        <div class="trend-title">FC repouso — média diária (22–28/08)</div>
         <div class="bars">
-          <div class="bar" style="height:91%"></div>
-          <div class="bar" style="height:100%"></div>
-          <div class="bar" style="height:92%"></div>
-          <div class="bar" style="height:99%"></div>
-          <div class="bar" style="height:95%"></div>
-          <div class="bar" style="height:99%"></div>
-          <div class="bar nodata" style="height:20%"></div>
+          <div class="bar" style="height:84%"></div>
+          <div class="bar" style="height:77%"></div>
+          <div class="bar" style="height:83%"></div>
+          <div class="bar" style="height:80%"></div>
+          <div class="bar" style="height:83%"></div>
+          <div class="bar spike" style="height:100%"></div>
+          <div class="bar nodata" style="height:12%"></div>
         </div>
-        <div class="bar-labels"><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span></div>
+        <div class="bar-labels"><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
       </div>
     </div>
+    <div class="trend-foot">Barra clara de 27/08 = pior ponto da série nos dois lados. 28/08 (cinza) ainda sem sincronizar. Um dia isolado assim é reação normal a noite curta e estresse — só vira sinal se a queda persistir depois de dormir bem.</div>
   </div>
 
   <div class="nutri-block">
-    <div class="section-title">Nutrição — hoje (27/08)</div>
-    <div class="nutri-item">Sem refeição registrada ainda.</div>
-    <div class="cal-sub">Ontem (26/08) fechou com ~1.529kcal em 20 registros — 151,6g proteína, 92,5g gordura, 11,5g carboidrato (lowcarb, dia em déficit).</div>
+    <div class="section-title">Nutrição — hoje (28/08)</div>
+    <div class="nutri-item">Só o almoço registrado até agora: <b>~799 kcal</b> em 3 itens — 57,9g proteína, 25,9g gordura, <b class="warn">74,2g carboidrato</b>. Carga de carbo alta, cetose segue quebrada (alinhado com o plano de fim de semana no aniversário da sobrinha). Café, janta e suplementos ainda não lançados.</div>
+    <div class="cal-sub">Ontem (27/08) fechou bem acima da meta: ~2.546 kcal em 19 registros — 164,5g proteína, 166,3g gordura, 94,5g carboidrato. Foi o dia do frango frito + chocolate; classificado como "abaixo/cetose quebrada" no fechamento.</div>
   </div>
 
-  <div class="sync-note">Fonte: HealthBridge (sono/recuperação) + recipes-hub (nutrição). Fit Score não é mais calculado desde 22/08 — HealthBridge não produz esse índice; ver pareceres de especialista no e-mail de fechamento.</div>
+  <div class="sync-note">Fonte: HealthBridge (sono/recuperação, última sync ~13:31 de 28/08) + recipes-hub (nutrição, consultado agora). Fit Score não é mais calculado desde 22/08 — ver pareceres de especialista no e-mail de fechamento.</div>
 </body>
 </html>
