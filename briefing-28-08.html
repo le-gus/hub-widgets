@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hub Briefing — 28/08/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,500&family=Petit+Formal+Script&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08090d;
+    --glass:rgba(255,255,255,0.05);
+    --glass-2:rgba(255,255,255,0.035);
+    --stroke:rgba(255,255,255,0.10);
+    --stroke-2:rgba(255,255,255,0.16);
+    --text:#f4f5f8;
+    --text-dim:rgba(244,245,248,0.64);
+    --text-faint:rgba(244,245,248,0.36);
+    --rose:#FF6E8E;
+    --blue:#3DA9FF;
+    --green:#3DDC9B;
+    --violet:#9D7BFF;
+    --pink:#F26FC0;
+    --amber:#FFB454;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Newsreader','Iowan Old Style','Palatino Linotype',Georgia,serif;
+    -webkit-font-smoothing:antialiased;
+    padding:60px 20px 110px;position:relative;overflow-x:hidden;
+  }
+  em, .serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;}
+
+  .blob{position:fixed;border-radius:50%;filter:blur(100px);z-index:0;pointer-events:none;}
+  .blob-1{width:560px;height:560px;top:-200px;left:-160px;background:radial-gradient(circle,var(--blue) 0%,transparent 70%);opacity:.28;}
+  .blob-2{width:480px;height:480px;top:400px;right:-200px;background:radial-gradient(circle,var(--rose) 0%,transparent 70%);opacity:.22;}
+  .blob-3{width:620px;height:620px;bottom:-300px;left:10%;background:radial-gradient(circle,var(--green) 0%,transparent 70%);opacity:.20;}
+  .blob-4{width:400px;height:400px;top:1600px;right:0;background:radial-gradient(circle,var(--violet) 0%,transparent 70%);opacity:.22;}
+  .blob-5{width:420px;height:420px;top:2600px;left:-140px;background:radial-gradient(circle,var(--amber) 0%,transparent 70%);opacity:.20;}
+
+  .wrap{max-width:660px;margin:0 auto;position:relative;z-index:1;}
+
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:52px;}
+  .brand{font-size:14px;font-weight:600;letter-spacing:-.01em;}
+  .brand span{color:var(--text-faint);font-weight:500;font-style:italic;}
+  .script{font-family:'Petit Formal Script',cursive;font-weight:400;letter-spacing:.01em;}
+  .brand .script{font-size:23px;vertical-align:-3px;margin-right:2px;}
+  .date-pill{font-family:'Newsreader',Georgia,serif;font-size:10.5px;letter-spacing:.06em;color:var(--text-dim);background:var(--glass);border:1px solid var(--stroke);border-radius:100px;padding:6px 13px;backdrop-filter:blur(20px);}
+
+  .display{font-family:'Bricolage Grotesque',-apple-system,sans-serif;}
+  .hero h1{font-family:'Bricolage Grotesque',-apple-system,sans-serif;font-size:38px;line-height:1.15;font-weight:600;letter-spacing:-.03em;margin:0 0 22px;max-width:580px;text-wrap:balance;}
+  .hero h1 em{font-style:normal;font-weight:700;background:linear-gradient(100deg,#FF6E8E 10%,#FFB454 55%,#9D7BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+  .blob{transition:transform 1.2s cubic-bezier(.16,1,.3,1);}
+  @media (prefers-reduced-motion:reduce){.blob{transition:none;}}
+  .ticker{display:flex;gap:0;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:14px 0;margin-bottom:64px;flex-wrap:wrap;}
+  .tick{flex:1;min-width:130px;padding:8px 18px;border-right:1px solid var(--stroke);}
+  .tick:last-child{border-right:none;}
+  .tick-label{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px;}
+  .tick-val{font-family:'Newsreader',Georgia,serif;font-size:16px;font-weight:500;color:var(--text);font-variant-numeric:tabular-nums;}
+  .tick-note{font-size:9px;color:var(--text-faint);margin-top:3px;line-height:1.4;}
+
+  section{margin-bottom:60px;}
+  .sec-tag{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+  .sec-tag .dot{width:7px;height:7px;border-radius:50%;flex:none;}
+  .sec-tag .txt{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);}
+  .sec-tag .line{flex:1;height:1px;background:var(--stroke);}
+
+  .recup-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start;}
+  .big-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:64px;line-height:1;letter-spacing:-.04em;color:var(--text);font-variation-settings:'opsz' 96;}
+  .big-num sup{font-size:20px;font-weight:500;color:var(--text-faint);top:-.4em;}
+  .big-num-cap{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-top:6px;}
+  .mini-rows{display:flex;flex-direction:column;gap:14px;}
+  .mini-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border-bottom:1px solid var(--stroke);padding-bottom:12px;}
+  .mini-row:last-child{border:none;padding-bottom:0;}
+  .mini-row .k{font-size:12.5px;color:var(--text-dim);}
+  .mini-row .v{font-family:'Newsreader',Georgia,serif;font-size:14px;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .mini-row .v.up{color:var(--green);}
+  .mini-row .v.warn{color:var(--amber);}
+  .mini-row .v.bad{color:var(--rose);}
+  .prose{margin-top:26px;font-size:14.5px;line-height:1.75;color:var(--text-dim);max-width:580px;}
+  .prose p{margin:0 0 14px;}
+  .prose p:last-child{margin-bottom:0;}
+  .prose b{color:var(--text);font-weight:600;}
+
+  h2.mod-title{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:600;letter-spacing:-.015em;margin:0 0 14px;max-width:520px;text-wrap:balance;font-variation-settings:'opsz' 24;}
+  .callout{border-radius:14px;padding:14px 16px;margin-top:16px;background:var(--glass-2);border:1px solid var(--stroke);}
+  .callout .lbl{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
+  .callout p{margin:0 0 8px;font-size:13.5px;line-height:1.6;color:var(--text-dim);}
+  .callout p:last-child{margin-bottom:0;}
+  .callout.good .lbl{color:var(--green);} .callout.bad .lbl{color:var(--rose);} .callout.warn .lbl{color:var(--amber);}
+
+  table.meals{width:100%;border-collapse:collapse;}
+  table.meals th{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);text-align:left;font-weight:500;padding:0 8px 10px 0;border-bottom:1px solid var(--stroke-2);}
+  table.meals td{font-size:12px;padding:9px 8px 9px 0;border-bottom:1px solid var(--stroke);color:var(--text-dim);vertical-align:top;}
+  table.meals td.num, table.meals th.num{text-align:right;font-family:'Newsreader',Georgia,serif;color:var(--text);font-variant-numeric:tabular-nums;padding-right:0;}
+  table.meals tr.total td{border-bottom:none;padding-top:14px;font-weight:600;color:var(--text);}
+  table.meals tr.total td.num{color:var(--amber);}
+  .table-scroll{overflow-x:auto;}
+
+  .segbar{display:flex;gap:3px;margin:20px 0 10px;}
+  .seg{height:8px;flex:1;border-radius:2px;background:var(--stroke-2);}
+  .seg.on{background:var(--violet);}
+  .task-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--stroke);}
+  .task-row:last-child{border:none;}
+  .task-name{font-size:13.5px;color:var(--text);}
+  .task-tag{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:100px;white-space:nowrap;}
+  .task-tag.prog{background:rgba(157,123,255,.15);color:var(--violet);}
+  .task-tag.wait{background:rgba(255,180,84,.15);color:var(--amber);}
+  .task-tag.stall{background:rgba(255,110,142,.15);color:var(--rose);}
+  .task-tag.good{background:rgba(61,220,155,.15);color:var(--green);}
+
+  .act-grid{display:flex;flex-direction:column;gap:0;}
+  .act-row{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--stroke);}
+  .act-row:last-child{border:none;}
+  .act-check{width:16px;height:16px;border-radius:5px;flex:none;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:10px;}
+  .act-check.yes{background:rgba(61,220,155,.15);color:var(--green);border:1px solid rgba(61,220,155,.4);}
+  .act-check.no{background:rgba(255,110,142,.12);color:var(--rose);border:1px solid rgba(255,110,142,.35);}
+  .act-body .act-name{font-size:13.5px;color:var(--text);}
+  .act-body .act-detail{font-size:12px;color:var(--text-faint);margin-top:2px;line-height:1.5;}
+
+  .psico{padding-left:28px;border-left:1px solid var(--stroke-2);}
+  .psico .serif{font-size:22px;line-height:1.42;color:var(--text);max-width:520px;text-wrap:balance;}
+  .psico .attrib{font-family:'Petit Formal Script',cursive;font-size:19px;color:var(--text-faint);margin-top:16px;}
+  .psico .prose{margin-top:22px;max-width:500px;}
+
+  .overview{background:linear-gradient(160deg,rgba(157,123,255,.10),rgba(255,110,142,.06));border:1px solid var(--stroke-2);border-radius:24px;padding:38px 36px;}
+  .overview .ov-top{text-align:center;}
+  .overview .big-num{font-size:52px;display:inline-block;}
+  .overview .prose{margin-top:22px;max-width:100%;}
+  .overview .ov-list{margin-top:20px;padding-top:20px;border-top:1px solid var(--stroke);}
+  .overview .ov-list .row{display:flex;justify-content:space-between;gap:14px;font-size:12.5px;padding:8px 0;color:var(--text-dim);}
+  .overview .ov-list .row b{color:var(--text);font-weight:600;}
+
+  .status-box{background:var(--glass-2);border:1px solid var(--stroke);border-radius:14px;padding:16px 18px;font-size:12.5px;line-height:1.7;color:var(--text-dim);}
+  .status-box .row{display:flex;gap:8px;margin-bottom:6px;}
+  .status-box .row:last-child{margin-bottom:0;}
+  .status-box .ok{color:var(--green);}
+  .status-box .miss{color:var(--amber);}
+
+  .footer{margin-top:50px;text-align:center;}
+  .footer p{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:12px;letter-spacing:.01em;color:var(--text-faint);margin:0;}
+  .footer .script{font-size:19px;font-style:normal;color:var(--text-dim);}
+
+  @media (max-width:520px){
+    .recup-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:28px;}
+    .psico{padding-left:16px;}
+  }
+</style>
+</head>
+<body>
+<div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><div class="blob blob-4"></div><div class="blob blob-5"></div>
+
+<div class="wrap">
+
+  <div class="top">
+    <div class="brand"><span class="script">Hub</span><span>· diário</span></div>
+    <div class="date-pill">SEX, 28 AGO</div>
+  </div>
+
+  <div class="hero">
+    <h1>Uma sexta decidida antes das 9h: os exames de jejum foram <em>abandonados</em> no hospital, o fim de semana virou livre de dieta por escolha, e o pouco que sincronizou já mostrava a recuperação no fundo do poço.</h1>
+  </div>
+
+  <div class="ticker reveal">
+    <div class="tick"><div class="tick-label">Sono</div><div class="tick-val"><span class="count" data-target="6.8" data-decimal="1">0</span>h</div><div class="tick-note">noite de 26→27, mais recente sincronizada. A noite do dia fechado (27→28) não foi medida — relógio carregando, sem estimativa manual</div></div>
+    <div class="tick"><div class="tick-label">Consumo</div><div class="tick-val">≈<span class="count" data-target="3131" data-thousand="1">0</span>kcal</div><div class="tick-note">registrado; provável ~3.400–3.550 real contando o etanol das ~9 cervejas. Beach tênis de 2h segurou o balanço</div></div>
+    <div class="tick"><div class="tick-label">Carboidrato</div><div class="tick-val"><span class="count" data-target="281">0</span>g</div><div class="tick-note">~13× a meta lowcarb (~21 g) — cetose quebrada, três picos de glicose em sequência (sushi, cerveja, açaí)</div></div>
+    <div class="tick"><div class="tick-label">Tarefas movidas</div><div class="tick-val"><span class="count" data-target="0">0</span>/5</div><div class="tick-note">manhã perdida no hospital; OneFlow vence hoje (29/08) congelada em 61/68</div></div>
+  </div>
+
+  <!-- NUTRITION -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--green);"></div><div class="txt">Nutrition</div><div class="line"></div></div>
+    <h2 class="mod-title">Sexta fora da dieta por escolha própria — 281 g de carbo e nove cervejas, com o beach tênis segurando o balanço calórico</h2>
+    <div class="table-scroll">
+    <table class="meals">
+      <tr><th>Refeição</th><th>Item</th><th class="num">kcal</th><th class="num">Prot.</th><th class="num">Gord.</th><th class="num">Carbo</th></tr>
+      <tr><td>Almoço</td><td>Uramaki de salmão (190 g) — arroz japonês, cream cheese, gergelim</td><td class="num">332,5</td><td class="num">13,3g</td><td class="num">11,4g</td><td class="num">41,8g</td></tr>
+      <tr><td>Almoço</td><td>Hossomaki de salmão (180 g) — nori, arroz, salmão</td><td class="num">252,0</td><td class="num">14,4g</td><td class="num">5,4g</td><td class="num">32,4g</td></tr>
+      <tr><td>Almoço</td><td>Sashimi de salmão (151 g) — peixe puro, zero carbo, rico em ômega-3</td><td class="num">214,4</td><td class="num">30,2g</td><td class="num">9,1g</td><td class="num">0g</td></tr>
+      <tr><td>Lanche</td><td>Queijo tipo Brie – Vigor (80 g)</td><td class="num">304,0</td><td class="num">16,3g</td><td class="num">26,7g</td><td class="num">0g</td></tr>
+      <tr><td>Lanche</td><td>Queijo Gouda – Vigor (30 g)</td><td class="num">106,8</td><td class="num">7,5g</td><td class="num">8,2g</td><td class="num">0,7g</td></tr>
+      <tr><td>Lanche</td><td>Queijo Gorgonzola (20 g)</td><td class="num">70,6</td><td class="num">4,2g</td><td class="num">5,8g</td><td class="num">0,4g</td></tr>
+      <tr><td>Lanche</td><td>Queijo Parmesão (12 g)</td><td class="num">51,7</td><td class="num">4,6g</td><td class="num">3,5g</td><td class="num">0,4g</td></tr>
+      <tr><td>Lanche</td><td>Queijo Cheddar (20 g)</td><td class="num">78,0</td><td class="num">4,8g</td><td class="num">6,4g</td><td class="num">0,3g</td></tr>
+      <tr><td>Noite</td><td>Cerveja Michelob Ultra (~3.150 ml ≈ 9 latas de 350 ml) — kcal provavelmente subestimada (não cobre todo o etanol)</td><td class="num">913,5</td><td class="num">15,8g</td><td class="num">0g</td><td class="num">81,9g</td></tr>
+      <tr><td>Jantar</td><td>Açaí Cremosão recheado 550 ml — leite condensado, paçoca, granola, ovomaltine</td><td class="num">797,5</td><td class="num">13,8g</td><td class="num">30,3g</td><td class="num">121,0g</td></tr>
+      <tr><td>Suplem.</td><td>Vit. C 1000 mg · Eletrólitos · D3+K2 · B12+Metilfolato · Maca Peruana (3 g)</td><td class="num">9,8</td><td class="num">0,4g</td><td class="num">0,1g</td><td class="num">2,0g</td></tr>
+      <tr class="total"><td colspan="2">Total do dia (10 alimentos + 5 suplementos)</td><td class="num">≈3.131</td><td class="num">125,1g</td><td class="num">106,8g</td><td class="num">280,8g</td></tr>
+    </table>
+    </div>
+    <div class="prose">
+      <p>O dia fechou em 3.130,8 kcal registradas, e esse número está provavelmente subestimado em 300 a 400 kcal: o cálculo da cerveja (913,5 kcal para as ~9 unidades de Michelob Ultra, 3.150 ml) não cobre todo o etanol ingerido (~130 g de álcool puro valem sozinhos ~900 kcal). Intake real mais provável: 3.400 a 3.550 kcal. A distribuição de macronutrientes ficou em 125,1 g de proteína (~16% das calorias), 106,8 g de gordura (~31%), 280,8 g de carboidrato (~36%) e o restante, ~17%, vindo puro do álcool. Proteína em 125 g é razoável — perto do piso do que serve para hipertrofia (o ideal seria 1,6 a 2,2 g por kg) — e é mérito tê-la mantido mesmo numa esbórnia, graças aos ~470 g de peixe (uramaki, hossomaki e sashimi de salmão) no almoço e à rodada de queijos à noite.</p>
+      <p>O problema do dia não é tanto a caloria, é o carboidrato e a glicose. 281 g de carbo é cerca de 13 vezes a meta lowcarb dele (~21 g). Nessa faixa, qualquer estado de queima preferencial de gordura (o corpo recorrendo à gordura e a corpos cetônicos como combustível quando falta carbo) fica interrompido por 24 a 48 h. Pior: foram três picos glicêmicos grandes em sequência — o arroz de sushi (~74 g de carbo no almoço), as 9 cervejas (~82 g de carbo, absorção rápida, à noite) e o açaí recheado das 21h (121 g de carbo, 99 g de açúcar, com leite condensado, paçoca, granola e ovomaltine). Para quem está tentando reverter pré-diabetes (glicemia de jejum entre 100 e 125 mg/dL, ou hemoglobina glicada — a média do açúcar no sangue dos últimos ~3 meses — entre 5,7 e 6,4%), são exatamente essas excursões repetidas de glicose pós-refeição que sustentam a resistência à insulina. Um dia não move a HbA1c; o padrão, se repetido, move. Nos micronutrientes, o que ele tomou cobriu bem: vitamina C 1000 mg, eletrólitos (Na 260 mg / K 240 mg / Mg 63 mg — acerto num dia de sol, 2 h de esporte e álcool, que é diurético), vitamina D 50 mcg (2.000 UI) + K2, e B12 500 mcg + metilfolato. Ficaram descobertos o ômega-3 suplementar (EPA 360 mg + DHA 240 mg — as gorduras anti-inflamatórias do óleo de peixe, que ajudam a baixar triglicérides e melhoram a sensibilidade à insulina), o magnésio de dormir (vieram só 63 mg do eletrólito, contra +130 mg da cápsula que ficou desmarcada — e o álcool depleta magnésio) e o zinco 29 mg. Fibra do dia ficou em ~13 g (baixa; alvo 25 a 30 g) e açúcar em pelo menos 99 g (altíssimo).</p>
+      <p>Do lado do que funcionou: a suplementação parcial foi mantida, a hidratação com eletrólitos foi bem pensada para o contexto, a proteína não desabou, e — o ponto mais relevante para adesão de longo prazo — ele <b>declarou</b> o desvio com plano de retorno ("segunda eu volto"), não foi um lapso disfarçado. E, mesmo sem a cápsula, o meio quilo de salmão provavelmente fez desse o maior aporte de ômega-3 dietético da semana. <b>Recomendação:</b> como sábado e domingo já estão dados como liberados, fixe segunda (01/09) como reentrada firme e inegociável; no fim de semana que resta, limite a bebida a uma única ocasião (não duas), mantenha a âncora de proteína/peixe em cada refeição, não pule magnésio + zinco + ômega-3 nos dias off (não são "dieta", são manutenção), e reagende já os exames de jejum abandonados (endoscopia, ultrassom, sangue) para uma manhã no início da próxima semana, antes do restart — inclusive porque fígado gorduroso é comorbidade comum de pré-diabetes e o álcool desse dia pesa nesse quadro.</p>
+      <p>A crítica direta: o dia ficou acima da meta calórica e com carga glicêmica alta num contexto em que o objetivo declarado é justamente baixar glicose; a cerveja sozinha representou ~29% das calorias e ~130 g de etanol, que travam a oxidação de gordura por horas e prejudicam o controle de glicose e a qualidade do sono na noite seguinte; ômega-3, magnésio e zinco foram perdidos; e há uma divergência entre o que ele anotou ("pelo menos omega 3 ficou em dia") e o registro — o checkbox do Ômega 3 TG está desmarcado e nenhuma dose foi lançada. O aporte real de ômega-3 veio do salmão, não do suplemento; vale reconciliar isso no Notion para o log não ficar enganoso.</p>
+      <p>Perspectiva de progresso — projeção estimada, não medição nem promessa. O gasto energético de 28/08 não sincronizou (as amostras de energia do HealthBridge param ~07:11 local; só 597 kcal basais e 10 kcal ativas foram capturadas). Estimando de forma grosseira: metabolismo basal ~2.300 kcal (média dos 4 dias anteriores dele) mais as ~2 h de beach tênis relatadas (~1.000 a 1.400 kcal) mais deslocamento do dia, o gasto total provável fica entre 3.100 e 3.800 kcal. Contra um intake real de ~3.400 a 3.550 kcal, o dia fecha entre empate e superávit leve — não o rombo que o prato sugere, porque o esporte de fato salvou o lado calórico (o que ele não salvou foram os picos de glicose e o efeito do álcool). Ganho de gordura corporal real, na pior hipótese: ~300 a 500 kcal de sobra, ou seja ~35 a 55 g de gordura — desprezível, e num dia isolado. A balança vai subir 1 a 2 kg de segunda a quarta; isso é água presa ao glicogênio (a reserva de carbo no músculo e fígado), não gordura, e não é para assustar. Se ele cumprir a volta na segunda, a trajetória de perda de peso e de reversão do pré-diabetes segue intacta. Se o "fim de semana livre" escorregar para dentro da semana (segunda, terça, quarta também fora), muda de figura: 5 a 6 dias seguidos de ~280 g de carbo mais álcool passam a somar gordura de verdade (a ~400 kcal/dia de sobra real, ~0,3 kg por semana e composto), mantêm a glicemia de jejum elevada, estacionam ou revertem o progresso, e tornam cada recomeço mais difícil. O risco não é a sexta; é o quarto dia em diante.</p>
+    </div>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--blue);"></div><div class="txt">Performance</div><div class="line"></div></div>
+    <h2 class="mod-title">Duas horas de beach tênis num corpo que já tinha pedido pausa</h2>
+    <div class="recup-grid">
+      <div>
+        <div class="big-num">27,8<sup>ms</sup></div>
+        <div class="big-num-cap">HRV médio de 27/08 — a variação em milissegundos entre um batimento e o seguinte; quanto mais alta em relação ao próprio histórico, melhor a recuperação. Contra ~56 ms de média na semana de 20–26/08 e ~43 ms na média de 30 dias: o pior dia do mês</div>
+      </div>
+      <div class="mini-rows">
+        <div class="mini-row"><span class="k">FC de repouso (27/08)</span><span class="v bad">85 bpm — o valor mais alto do mês, contra a faixa habitual de 65–73</span></div>
+        <div class="mini-row"><span class="k">Sono (noite 26→27, mais recente sincronizada)</span><span class="v warn">6h50 — profundo ~26 min (6%, baixo). Noite 27→28 não medida; 2 noites sem sync novo</span></div>
+        <div class="mini-row"><span class="k">VO2máx</span><span class="v warn">36,9 — congelado desde 27/07 (o Watch só recalcula em corrida/caminhada ao ar livre)</span></div>
+        <div class="mini-row"><span class="k">Treino de 28/08</span><span class="v warn">Beach tênis ~2 h relatado — não sincronizou, sem amostras de FC/energia/duração</span></div>
+      </div>
+    </div>
+    <div class="prose">
+      <p>O dia 28/08 praticamente não foi medido. O HealthBridge sincronizou só fragmentos da madrugada e do começo da manhã: gasto basal (energia que o corpo queima parado) de ~597 kcal entre 00h e 06h local, dez amostras de energia ativa somando irrisórios 9,6 kcal por volta das 07h05, um único batimento avulso de 93 bpm às 07h02 e 1 minuto de "tempo em pé" às 07h05. Depois disso, silêncio — sem passos, sem FC de repouso, sem sono da noite 27→28, sem nenhuma amostra da sessão de beach tênis da tarde. Os dados legíveis do dia terminam por volta das 07h10 local. Na prática, o que dá pra avaliar é a tendência que vinha antes e o treino relatado nas Observações, não números frescos do próprio 28/08.</p>
+      <p>A tendência de recuperação até 27/08 conta uma história clara. O HRV (variabilidade da frequência cardíaca — a variação em milissegundos entre um batimento e o seguinte; quanto mais alta em relação ao seu próprio histórico, melhor o tônus parassimpático e a recuperação) vinha excelente na semana de 20 a 26/08, com média de ~56 ms, acima da média de 30 dias (~43 ms) — bom. Em 27/08 despencou para 27,8 ms, o pior dia do mês inteiro, queda de ~50% sobre a semana anterior — ruim. A FC de repouso (frequência cardíaca com o corpo em repouso; mais baixa é melhor, mais alta que o normal é sinal clássico de recuperação incompleta) saltou da faixa habitual de 65–73 bpm para 85 bpm em 27/08, também o valor mais alto do mês — ruim. O VO2máx (consumo máximo de oxigênio, medida de condicionamento aeróbio e um dos melhores preditores de longevidade) está congelado em 36,9 desde 27/07; vinha subindo de ~32 em junho, o que é bom, mas o Apple Watch só recalcula esse índice em corrida ou caminhada ao ar livre, então o ganho do beach tênis não está sendo capturado — neutro, por falta de leitura. Veredito: até meados da semana a recuperação acompanhava a carga; 27/08 foi um estouro agudo (perna dia 22, boxe dia 24, força dia 25, beach tênis quase máximo dias 26 e 27) e 28/08 entrou nesse buraco sem nenhum marcador para confirmar se o corpo tinha voltado. Há uma leitura solta de HRV de 42,5 ms na manhã de 28/08 sugerindo algum repique, mas com n=1 e tirada antes dos estressores do dia não dá para confiar.</p>
+      <p>As ~2 h de beach tênis relatadas são um volume atípico. Uma sessão normal dele dura 50–55 min e gasta 550–870 kcal (26/08: 54 min / 867 kcal / FC média 172, pico 190; 27/08: 51 min / 813 kcal / FC média 172, pico 189 — dois dias seguidos a ~90% da FC máxima estimada). Duas horas dobram isso, comparável só à sessão longa de dupla de 21/08 (112 min). Foi o terceiro dia consecutivo de raquete e o mais longo dos três, empilhado sobre a pior noite da semana (dormiu mal depois de comer demais), episódio gastrointestinal de manhã, boa parte do dia em jejum e bebida à noite. Isso tem valor real: foi válvula de escape num dia de humor ruim, ele trocou a academia planejada por algo que regulou o estado emocional e ainda marcou presença. Mas não foi recuperação ativa — recuperação ativa é movimento leve, em ritmo de conversa, bem abaixo da FC de treino, para circular sangue sem somar estresse; 2 h de jogo competitivo é o oposto. Foi carga sobre um sistema já cansado, e como não sincronizou não dá nem para saber se ele segurou o ritmo ou manteve 170+ bpm as duas horas.</p>
+      <p><b>Recomendação:</b> as próximas 48–72 h são de recuperação antes de qualquer novo pico — sono como prioridade número um (o profundo da última noite medida foi curtíssimo) e, se jogar beach tênis, que seja partida social leve, não outra sessão de 170 bpm. A próxima sessão de verdade deve ser de FORÇA, intensidade moderada (RPE 7–8 numa escala de esforço percebido de 0 a 10, ou seja, sem chegar à falha), servindo hipertrofia, longevidade e gasto calórico ao mesmo tempo. Priorizar cadeia posterior de perna — levantamento terra romeno/stiff 3–4x8–10, mesa flexora 4x12, elevação pélvica 3x12 —, que não é fatigada pelo beach tênis e cujo último estímulo foi 22/08, seis dias atrás. Somar espessura de dorsal (remada baixa ou curvada 4x10–12, remada unilateral 3x10/lado), crucifixo inverso ou face pull 3x15 para deltoide posterior e saúde do manguito rotador (muito exigido na raquete) e core anti-rotação (prancha e pallof press 3x30–45 s). Evitar desenvolvimento vertical pesado de ombro por ora. Os últimos três dias foram só raquete/aeróbio; força apareceu só duas vezes em dez dias (22 e 25/08).</p>
+      <p>Projeção de composição corporal (estimativa, não meta nem promessa): mantendo este ritmo — beach tênis quase diário de alta intensidade, deslocamento de bike e 2–3 sessões curtas de força por semana —, a perda de gordura tende a continuar de forma consistente pelo déficit de energia, com queda gradual de peso e cintura nas próximas semanas. O objetivo de shape denso, porém, fica sub-atendido: força em poucas sessões curtas com cargas modestas competindo com cardio quase máximo 4–5x/semana gera interferência (recuperação concorrente, cortisol elevado) que atenua a síntese proteica e, em déficit, pode custar densidade muscular — a projeção honesta é "mais magro, porém raso" se a proporção não mudar. Blindar 2–3 sessões de força com sobrecarga progressiva registrada e limitar o beach tênis quase máximo a 2–3x/semana é o que reconcilia os quatro objetivos.</p>
+    </div>
+    <div class="callout" style="margin-top:14px;">
+      <div class="lbl" style="color:var(--blue);">Nada registrado em workout_enrichment</div>
+      <p>A sessão de ~2 h de beach tênis de 28/08 não entrou em <b>health_workouts</b> (o HealthBridge parou de sincronizar de manhã), então não há <b>health_workout_id</b> para ancorar um registro — nenhum INSERT/UPDATE foi feito, conforme a regra de nunca inventar id. A sessão não pôde ser enriquecida com feedback estruturado nem comparada à anterior. Quando o relógio sincronizar, vale reprocessar.</p>
+    </div>
+  </section>
+
+  <!-- STAFF -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--violet);"></div><div class="txt">Staff</div><div class="line"></div></div>
+    <h2 class="mod-title">OneFlow chega no dia do prazo ainda no last-mile enquanto Doc do motor e curso do Claude seguem parados</h2>
+    <div class="segbar">
+      <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+    </div>
+    <div class="prose" style="margin-top:0;">
+      <p>Sexta fechou 0 de 5 tarefas movidas para Done, mas o número engana. 28/08 foi um dia atípico e majoritariamente perdido para saúde e burocracia médica (episódio gastrointestinal de manhã, exames abandonados, dia emocionalmente desgastante, 2 h de beach tênis, bebida à noite). A própria observação do dia — "pelo menos foquei nos roles do trabalho, tá indo devagar mas tá indo" — mostra que houve trabalho real no fim da tarde; ele só não aterrissou como mudança de checkbox nestas 5 tarefas. Ou seja: baixa vazão explicada por um dia ruim, não desleixo. O que preocupa não é a sexta isolada, é o acúmulo em três frentes.</p>
+      <p>A frente crítica é <b>Comissões OneFlow</b>. O histórico de continuidade (task_progress_log) mostra que desde 27/08 o estado é idêntico — 61/68 itens, Progress 90%, In Progress. E o prazo é hoje (issue #89325). Isso não é uma entrega "parada": na semana passada ela andou muito (revisão tela a tela contra o Handoff, causa-raiz do soft hyphen, causa-raiz do OnValid). Ela platôou na véspera. O checklist funcional da esteira PDD está 8/8 desde 22/08; o que resta é polimento e dependência de terceiro. Dos itens abertos, só 2 estão nas mãos do Gustavo (reteste do OnValid em DSV e decidir de onde puxar o nValor no Resgate Manual); o resto é Scroll Infinito e 3 pedidos ao Fábio, todos já contornados no ERP. A crítica: entrar no dia do prazo com o checklist congelado há 2 dias e a maioria dos pendentes em terceiros é a receita para o prazo escorregar por silêncio, não por falta de trabalho.</p>
+      <p><b>Recomendação:</b> hoje, antes de qualquer coisa, fazer um go/no-go escrito do OneFlow — ou seja, decidir explicitamente e registrar o que entra pronto na entrega de hoje e o que sai como "gap conhecido" com dono e data. Fechar hoje os 2 itens que dependem só do Gustavo, transformar os 3 pedidos ao Fábio numa única cobrança com data-limite (não espera passiva), e dizer ao Marvin ainda hoje se o Scroll Infinito bloqueia ou não a entrega. Se OneFlow não fechar hoje, o custo real é uma entrega de 3º trimestre com o nome do Gustavo como Tech Lead escorregando e o hand-off da esteira PDD para a Engenharia atrasando junto — e sem um go/no-go a entrega vira "quase pronta" por tempo indefinido.</p>
+      <p>As outras duas frentes são de estagnação. A <b>Doc do motor de Widget</b> está no 7º fechamento seguido (22 a 28/08) com zero conteúdo na página — só o parágrafo de contexto, Progress travado em 10%. Isso é "backlog rot": tarefa que apodrece parada em In Progress sem produzir nenhum artefato, inflando artificialmente o WIP (trabalho em andamento) do board. A recomendação já foi dada duas vezes e vale repetir com firmeza: no próximo fechamento, ou nasce um esqueleto mínimo (só títulos de seção, aproveitando o mapa de refresh dos 3 repos que a investigação de AutoRefresh de 27/08 já produziu), ou a tarefa volta para Not Started. O <b>curso do Claude</b> está em 6/11 aulas (~40 min de vídeo restantes), parado no meio há vários dias — exatamente a zona de maior risco de abandono, e é a resposta mais barata e direta ao conselho do chefe de 26/08 sobre profundidade no uso de IA. Marco sugerido: bloco fixo de 2 aulas por sessão; 2 sessões encerram.</p>
+      <p>Fecha o diagnóstico a <b>rotina do review semanal</b>: Not Started, venceu 25/08, agora 3 dias atrasada. É tarefa pequena, sem dependência externa, mas auto-atribuída e sem "forcing function" (uma pressão externa ou prazo cobrado que obriga a ação) — por isso ficou invisível enquanto o trabalho com requester e prazo consumiu a atenção. A ironia: é justamente essa rotina que pegaria de forma estruturada a Doc do motor apodrecendo. Enquanto ela não existir, o e-mail diário pega o dia e nada pega a semana. (A quinta tarefa, migração dos callsites de omie-google-chart, é débito técnico Low sem prazo, 0/5, bem groomado e com issue #104009 — ritmo parado é o esperado, nada a cobrar.)</p>
+    </div>
+    <div style="margin-top:8px;">
+      <div class="task-row"><span class="task-name">Comissões OneFlow — 90% (61/68), vence 29/08 (hoje)</span><span class="task-tag stall">Checklist congelado há 2 dias — precisa de go/no-go escrito</span></div>
+      <div class="task-row"><span class="task-name">Criação da Doc do motor de Widget</span><span class="task-tag stall">7º fechamento sem conteúdo — backlog rot</span></div>
+      <div class="task-row"><span class="task-name">Fazer o curso do Claude — 6/11 aulas</span><span class="task-tag wait">Parado no meio, zona de risco de abandono</span></div>
+      <div class="task-row"><span class="task-name">Criar a rotina do review semanal — venceu 25/08</span><span class="task-tag stall">3 dias atrasada, não iniciada</span></div>
+      <div class="task-row"><span class="task-name">Migrar callsites omie-google-chart</span><span class="task-tag prog">Low, sem prazo — ritmo parado é esperado</span></div>
+    </div>
+    <div class="callout" style="margin-top:14px;">
+      <div class="lbl" style="color:var(--violet);">Registrado em task_progress_log</div>
+      <p>5 linhas novas com log_date 2026-08-28, uma por tarefa rastreada, sem sobrescrever o histórico. Continuidade: Comissões OneFlow (61/68, Progress 90%, idêntico a 27/08 — platô no dia do prazo, avanço real do dia nos "roles do trabalho" citado nas Observações mas não refletido no Notion), Doc do motor de Widget (7º check-in sem conteúdo, backlog rot consolidado), Curso do Claude (6/11, parado), rotina do review semanal (Not Started, 3 dias atrasada), Migrar callsites omie-google-chart (0/5, débito Low sem prazo, não é rot).</p>
+    </div>
+  </section>
+
+  <!-- COGNITIVE -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--amber);"></div><div class="txt">Cognitive</div><div class="line"></div></div>
+    <h2 class="mod-title">Três estímulos cognitivos preservados num dia que cobrou o preço à noite</h2>
+    <div class="act-grid">
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Duolingo</div><div class="act-detail">Feito — eixo linguístico mantido, com aquisição de vocabulário e padrões gramaticais por repetição espaçada. Vale mais pela regularidade do que pela duração.</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Guitarra — 25 min</div><div class="act-detail">O bloco mais rico do dia: coordenação bimanual, memória procedural (a memória dos movimentos que vão ficando automáticos) e processamento auditivo ao mesmo tempo.</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Leitura — 5 min</div><div class="act-detail">Entrou, mas quase um placebo: mantém o hábito vivo como check-in, sem gerar imersão nem ganho de vocabulário (isso pediria 20–30 min contínuos).</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Bem-estar</div><div class="act-detail">Registro de humor/energia feito.</div></div></div>
+      <div class="act-row"><div class="act-check yes">✓</div><div class="act-body"><div class="act-name">Marcar o Beach</div><div class="act-detail">Feito — beach tênis jogado à tarde (~2 h), estímulo motor-cognitivo além do físico.</div></div></div>
+      <div class="act-row"><div class="act-check no">✗</div><div class="act-body"><div class="act-name">Prancha ao acordar</div><div class="act-detail">Desmarcada, e era esperada todo dia — falha real de execução. Perdeu-se o componente de disciplina somática matinal, o gesto físico curto que ancora o resto da rotina.</div></div></div>
+      <div class="act-row"><div class="act-check no">✗</div><div class="act-body"><div class="act-name">Jogos</div><div class="act-detail">Sem registro de jogo no dia — nenhuma fonte de raciocínio lógico, espacial ou de resolução de problema.</div></div></div>
+    </div>
+    <div class="prose">
+      <p>O dia 28 cobriu três frentes de estímulo cognitivo. O Duolingo manteve o eixo linguístico, com aquisição de vocabulário e padrões gramaticais por repetição espaçada. A Guitarra, com 25 minutos, foi o bloco mais rico: exige coordenação bimanual, memória procedural — a memória dos movimentos que vão ficando automáticos, como trocar de acorde sem pensar — e processamento auditivo ao mesmo tempo. A Leitura entrou, mas com só 5 minutos. Ficaram de fora os Jogos (sem registro de jogo no dia, ou seja, nenhuma fonte de raciocínio lógico, espacial ou de resolução de problema) e a Prancha ao acordar, que estava desmarcada e era esperada todo dia — perdeu-se aí o componente de disciplina somática matinal, o gesto físico curto que ancora o resto da rotina.</p>
+      <p>O mérito do dia está no contexto. Foi uma sexta caótica: noite mal dormida, episódio gastrointestinal de manhã, manhã inteira perdida num hospital, exames abandonados, muita raiva e álcool à noite. Mesmo assim, três âncoras cognitivas (Duolingo, Guitarra, Leitura) e o registro de Bem-estar sobreviveram. Isso importa mais do que parece: a neuroplasticidade — a capacidade do cérebro de formar e reforçar conexões pela prática repetida — responde à consistência, não a picos isolados. Manter o mínimo num dia ruim protege a curva melhor do que um dia excepcional seguido de três dias zerados. <b>Recomendação:</b> para o fim de semana livre, escolha uma única âncora inegociável — a Guitarra, 20 a 25 minutos por dia — e trate as outras como bônus; uma âncora cumprida vale mais que três planejadas e nenhuma feita. E troque os 5 minutos de leitura por um bloco real de 20 a 30 minutos pelo menos uma vez no fim de semana.</p>
+      <p>A crítica honesta: 25 minutos de guitarra é um bloco de verdade, mas 5 minutos de leitura é quase um placebo — mantém o hábito vivo como um check-in, sem gerar imersão nem ganho de vocabulário, que pediriam 20 a 30 minutos contínuos. A ausência de Jogos tirou a única fonte de raciocínio fluido do dia, ou seja, resolver um problema novo sem apoio de conhecimento já sabido. E o custo cognitivo real do 28 não está no bloco de Atividades, está na noite: sono curto somado a álcool prejudica diretamente a consolidação de memória (o processo pelo qual o cérebro fixa durante o sono o que foi aprendido no dia) e a função executiva (planejamento, foco e controle de impulso). O Duolingo e a guitarra de ontem tendem a render menos porque a noite não deixou o cérebro arquivar direito, e o dia 29 começa com esse débito.</p>
+      <p>Projeção estimada, não medição: se as três âncoras diárias se mantiverem mesmo nos dias ruins, o efeito composto ao longo de semanas é concreto — fluência mais estável no idioma, mão mais solta na guitarra, menos esforço consciente em tarefas que hoje ainda pesam. Se, ao contrário, o "fim de semana livre" afrouxar as âncoras e empilhar mais noites com álcool, a janela de consolidação piora noite após noite e o progresso estagna mesmo com o mesmo volume de prática. O fator decisivo nos próximos dois dias não é quanto ele treina, é se ele dorme e se segura na bebida.</p>
+    </div>
+  </section>
+
+  <!-- WELLBEING -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--pink);"></div><div class="txt">Wellbeing</div><div class="line"></div></div>
+    <div class="psico">
+      <div class="serif">"eu bebi, já não tá batendo tão bem quanto mais cedo, agora mais incômodo que alegria."</div>
+      <div class="attrib">das suas próprias Observações, ontem</div>
+      <h2 class="mod-title" style="margin-top:24px;">Uma sexta perdida na burocracia do hospital, e ainda assim você não desmontou por inteiro</h2>
+      <div class="prose">
+        <p>Antes de qualquer análise: o dia 28 foi objetivamente ruim, e ficar puto foi uma resposta proporcional, não frescura. Você dormiu mal por ter comido demais na véspera, acordou mais cedo à força por causa dos exames, teve um episódio gastrointestinal logo ao acordar, passou das 8h50 às 11h20 no hospital e mesmo assim não conseguiu fazer o exame de sangue. Terminar essa manhã em jejum, irritado e com a sensação de que "ia foder com todos os exames" é um acúmulo de frustrações reais numa sequência curta. Faz sentido o dia ter descarrilado a partir daí.</p>
+        <p>O que vale olhar com atenção é o formato do descarrilamento, porque ele se repete. A decisão "esse fim de semana eu não faço dieta, segunda eu volto", tomada no calor da manhã, é legítima como válvula de escape — mas é a mesma lógica tudo-ou-nada de quinta (27/08), quando meio quilo de sushi no almoço "autorizou" abandonar o plano do resto do dia. São dois dias seguidos em que um desvio pequeno vira "então joga tudo fora". A mesma régua tudo-ou-nada aparece na autocrítica: "caguei no pau" é um julgamento duro para um dia em que você ainda foi jogar 2 horas de beach tênis e depois sentou para tocar os assuntos do trabalho ("tá indo devagar mas tá indo"). Essa resiliência num dia ruim é real e merece ser contabilizada junto com o resto. <b>Recomendação:</b> na segunda, antes de "voltar", faça um check rápido e honesto de se o plano de retorno se manteve como combinado — e, no momento em que quebrar a dieta de novo, tente separar na cabeça "furei hoje" de "o fim de semana inteiro está perdido"; são coisas diferentes, e tratar como a mesma coisa é o que transforma um deslize em três dias.</p>
+        <p>Sobre a bebida, sem nenhum juízo de valor: o que você escreveu — "já não tá batendo tão bem quanto mais cedo, agora mais incômodo que alegria" — é uma auto-observação precisa, você mesmo identificou o ponto em que virou. Isso é um insight que vale guardar, porque nem sempre a gente percebe esse limite no momento em que ele acontece. Vale só registrar em voz alta que a bebida entrou hoje como resposta a um dia de estresse — o que em psicologia se chama estratégia de enfrentamento, ou seja, o recurso que a gente aciona para lidar com uma emoção difícil. Não é para condenar; é para você ter mapeado que "dia pesado" tem andado junto de "vou beber", e poder decidir com clareza se é assim que quer que funcione.</p>
+        <p>Por último, o laço que costura tudo: o episódio gastrointestinal claramente mexeu com você no emocional, não só no corpo ("super abalado", "nervoso"), e os exames que ficaram para trás são justamente os que existem para investigar esse sintoma. Ou seja: a ansiedade em torno do problema está atrapalhando a investigação do problema, e investigação adiada tende a alimentar mais ansiedade. Quando remarcar os exames, ajuda encarar isso como logística — uma data na agenda — e não como um veredito que vai sair. E vale a pena levar esse laço específico para a terapia, porque ele é o tipo de coisa que se resolve melhor com alguém ajudando a separar o medo do resultado do ato prático de fazer o exame. O sinal de base do dia, apesar de tudo, é bom: mesmo desmontado você manteve esporte e trabalho de pé.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:16px;">
+      <div class="lbl" style="color:var(--pink);">Registrado nos bastidores</div>
+      <p>mood_log_queue: 1 linha kind='dailyMood', valência −0,50 (inferência a partir do texto — não é medição), labels de saúde-digestiva / ansiedade / exames-adiados / álcool / frustração / burocracia-hospital / beach-tênis / trabalho / dieta-pausada / autocrítica / tudo-ou-nada / lucidez-sobre-álcool / resiliência. psych_insights: (1) atualizado o insight aberto em 27/08 ("colapso motivacional... lógica do 'já que estragou'") com a recorrência de 28/08; (2) inserido um insight novo, status "monitorando", sobre o laço "ansiedade sobre o sintoma GI → adiar a investigação do sintoma GI".</p>
+    </div>
+  </section>
+
+  <!-- MEDICAL -->
+  <section class="reveal">
+    <div class="sec-tag"><div class="dot" style="background:var(--rose);"></div><div class="txt">Medical — Gastroenterologia</div><div class="line"></div></div>
+    <h2 class="mod-title">Os exames que responderiam à diarreia recorrente ficaram para depois — remarcar é a prioridade da semana</h2>
+    <div class="prose">
+      <p>O quadro relatado por escrito nas Observações é de episódios recorrentes de fezes amolecidas / diarreia pela manhã, em 27 e em 28/08, e como tema que já vinha aparecendo nos dias anteriores. Não há registro estruturado no Hub — nem em <b>symptom_log_queue</b>, nem em <b>health_category_samples</b> — então o que se pode avaliar é o texto. Um ponto que pesa a favor da tranquilidade: em nenhum momento você mencionou "sinais de alarme", que são os sintomas que, quando presentes, aumentam a chance de uma causa orgânica mais séria e apressam a investigação — sangue nas fezes, febre, perda de peso sem intenção, dor abdominal forte e persistente, ou acordar à noite especificamente para evacuar. A ausência deles é um bom sinal, mas não substitui a investigação, porque quadros sem alarme também podem ter causa identificável e tratável. Sobre os contribuintes plausíveis, sem cravar diagnóstico: há um provável componente funcional ligado à ansiedade, pelo chamado eixo intestino-cérebro — a comunicação nos dois sentidos entre o sistema digestivo e o sistema nervoso, em que um estresse agudo acelera o trânsito intestinal (a velocidade com que o conteúdo percorre o intestino; quando ele acelera, sobra menos tempo para reabsorver água e as fezes saem mais líquidas). Somam-se a isso um possível gatilho alimentar e o fato de que dias de grande oscilação — jejum prolongado seguido de refeição pesada, mais álcool — tendem a desorganizar esse trânsito. E 28/08 foi exatamente esse tipo de dia: jejum desde a noite anterior por causa dos exames, cerca de meio quilo de sushi no almoço, álcool à noite e aproximadamente 281 g de carboidrato no total.</p>
+      <p>O que você fez bem merece registro. Você estava buscando esclarecer isso da forma certa: passou pela consulta com o gastroenterologista e deixou marcados a endoscopia digestiva alta (exame em que uma câmera fina desce pela boca até o estômago e o início do intestino para ver a mucosa diretamente e, se preciso, colher amostras), a ultrassonografia abdominal e o painel de sangue, fezes e urina. Manteve hidratação com eletrólitos e registrou o episódio por escrito em vez de deixar passar. Isso tudo é o encaminhamento correto.</p>
+      <p>A crítica é sobre o desfecho do dia: a ansiedade em torno do sintoma acabou levando você a adiar justamente a investigação que responderia a ele. Chegou às 08h50, o hospital estava lento, saiu às 11h20 sem nem a coleta de sangue e desistiu, também abalado pelo episódio da véspera. O problema é que esses três exames são de baixo risco e alto valor diagnóstico neste caso concreto: juntos, eles descartam ou confirmam causas orgânicas, doença celíaca (uma reação imune ao glúten que agride o revestimento do intestino e causa má absorção e diarreia crônica), gastrite e infecção por H. pylori (bactéria comum no estômago que provoca inflamação e úlcera), além de alterações estruturais. Cada semana de adiamento é mais uma semana convivendo com o sintoma sem resposta. Em paralelo, romper a dieta com carga alta de carboidrato e álcool num contexto de pré-diabetes — glicemia de jejum ou hemoglobina glicada acima do normal, mas ainda abaixo do limiar de diabetes, um estágio ainda reversível com dieta e perda de peso — tem custo glicêmico real; um fim de semana isolado é administrável, mas é o padrão que decide o resultado.</p>
+      <p><b>Recomendação:</b> remarcar os três exames — endoscopia, ultrassonografia abdominal e o painel de sangue, fezes e urina — para a primeira janela disponível, escolhendo o primeiro horário do dia e, se possível, um laboratório ou hospital com coleta mais ágil; vale considerar levar um acompanhante ou reservar a manhã inteira sem compromissos, para tirar a pressão do relógio e encurtar o tempo em jejum. Junto disso, passar a registrar cada episódio de forma estruturada — data, horário, consistência das fezes, o que comeu na refeição anterior e o nível de estresse do momento — para levar esse histórico ao gastro na próxima consulta; começar a anotar já ajuda o acompanhamento mesmo antes dos exames. E os sinais que, se aparecerem, pedem avaliação médica sem esperar pela data marcada: sangue nas fezes, febre, dor abdominal forte e que não passa, perda de peso não intencional, ou acordar à noite só para evacuar. Como projeção, não promessa: remarcando para a primeira data possível, é provável que em uma a duas semanas você tenha um retrato diagnóstico e possa parar de conviver com a incerteza. Se o adiamento continuar, o sintoma segue sem definição e a ansiedade tende a se realimentar — a preocupação atrapalha a realização do exame, e a falta do exame sustenta a preocupação. É uma projeção baseada no padrão atual, não uma garantia de resultado.</p>
+    </div>
+    <div class="callout" style="margin-top:14px;">
+      <div class="lbl" style="color:var(--rose);">Sem dado estruturado para cruzar</div>
+      <p>Varredura em <b>symptom_log_queue</b> e <b>health_category_samples</b> nos últimos ~90 dias: o único registro digestivo estruturado é uma náusea isolada em 22/08 (ligada a pizza pesada). Nada em 27 nem 28/08 — o quadro dos dois dias existe só em texto nas Observações. Não há nenhuma amostra de glicemia (bloodGlucose) na base, em data alguma, então não foi possível cruzar controle glicêmico. Nenhum registro foi criado (não se inventa dado de sintoma).</p>
+    </div>
+  </section>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="overview reveal">
+    <div class="ov-top">
+      <span class="big-num"><span class="count" data-target="0">0</span><span style="font-size:24px;color:var(--text-faint);">/5</span></span>
+      <div class="big-num-cap" style="margin-top:8px;">tarefas movidas no board — a manhã foi consumida pela burocracia médica; à noite ainda entrou trabalho real em OneFlow, sem refletir no Notion</div>
+    </div>
+    <div class="prose">
+      <p>28/08 foi decidido antes das 9h. Gustavo acordou mal dormido (efeito de ter comido demais na quinta), com um episódio gastrointestinal logo cedo — o mesmo que já vinha se repetindo nos dias anteriores — e foi ao hospital levar os exames de jejum: ultrassonografia abdominal, endoscopia digestiva alta e o painel de sangue, fezes e urina. Chegou 08:50, o hospital estava lento, saiu 11:20 sem nem a coleta de sangue e desistiu de tudo, tão abalado pelo episódio da véspera quanto irritado com a espera. A partir daí declarou o fim de semana livre de dieta ("segunda eu volto"), almoçou meio quilo de sushi, jogou duas horas de beach tênis e bebeu à noite.</p>
+      <p><b>Nutrição:</b> ~3.131 kcal registradas (provavelmente ~3.400–3.550 reais, contando o etanol das ~9 cervejas), com 281 g de carboidrato — cerca de 13 vezes a meta lowcarb de ~21 g. A cetose (estado em que o corpo queima gordura como combustível principal em vez de açúcar) foi interrompida, e foram três picos grandes de glicose em sequência — arroz de sushi, cerveja, açaí recheado —, o tipo de excursão que, repetida, sustenta a resistência à insulina que ele está tentando reverter. O beach tênis de 2 h salvou o lado calórico: contra o gasto estimado, o dia fecha entre empate e superávit leve, ou seja, ganho de gordura real desprezível num dia isolado (~35–55 g). O custo não é a sexta; é o quarto dia seguido, se o "fim de semana livre" escorregar para dentro da semana.</p>
+      <p><b>Recuperação e treino:</b> 28/08 quase não foi medido — o HealthBridge parou de sincronizar de manhã e a noite 27→28 não foi registrada (relógio carregando). O que dá para ler é a tendência até quinta: a variabilidade da frequência cardíaca (HRV — quanto maior, mais recuperado o sistema nervoso) despencou para 27,8 ms em 27/08, o pior ponto do mês, e a frequência cardíaca de repouso subiu para 85 bpm, ~15 acima da faixa habitual. Sobre essa base já baixa ele empilhou a terceira sessão de raquete em três dias, a mais longa das três. Foi válvula de escape legítima num dia ruim, não recuperação ativa — e a próxima sessão de verdade deveria ser força de perna/dorsal, não outro jogo de 170 bpm.</p>
+      <p><b>Trabalho:</b> 0 de 5 tarefas mudaram de status, mas o número engana — a manhã foi consumida pela burocracia médica e, à noite, ele mesmo registra ter avançado nos "roles do trabalho". Ainda assim, Comissões OneFlow chega ao dia do prazo (hoje, 29/08) com o checklist congelado há dois dias em 61/68 e a maioria dos pendentes em terceiros — precisa de um go/no-go escrito hoje. E as duas frentes sem cobrador — Doc do motor de Widget, no sétimo fechamento sem conteúdo, e o curso do Claude, parado em 6/11 — continuam exatamente onde estavam.</p>
+      <p><b>Cabeça:</b> o dia foi objetivamente frustrante e a irritação foi proporcional. O que se repete — e o Wellbeing está acompanhando — é a régua tudo-ou-nada: um desvio pequeno ("furei o almoço") vira "o fim de semana inteiro está perdido", e um dia com esporte e trabalho vira "caguei no pau". Há também um laço que merece atenção: a ansiedade com o sintoma digestivo é justamente o que fez adiar a investigação que esclareceria o sintoma. A parte boa — mesmo desmontado, ele manteve três âncoras cognitivas (Duolingo, guitarra 25 min, leitura), foi jogar e ainda focou no trabalho, e teve a lucidez de notar sozinho o ponto em que a bebida deixou de compensar.</p>
+      <p>A energia de 29/08 aponta para: remarcar os três exames para o primeiro horário de um dia útil da próxima semana (encarar como logística, não veredito), fixar segunda como reentrada firme no lowcarb sem "compensar" cortando calorias, proteger uma única âncora cognitiva no fim de semana, e dar um go/no-go ao OneFlow ainda hoje.</p>
+    </div>
+    <div class="ov-list">
+      <div class="row"><span>Nutrição</span><b>Abaixo — fim de semana livre declarado; 281 g de carbo, cetose quebrada; beach tênis segurou o balanço calórico</b></div>
+      <div class="row"><span>Remédios / suplementos</span><b>Parcial — 5/9 (Suprabio, Magnésio, Ômega 3 TG e Zinco não tomados)</b></div>
+      <div class="row"><span>Plantas regadas</span><b>Não avaliado — pendência de validação das frequências</b></div>
+      <div class="row"><span>Tarefas</span><b>0/5 movidas — manhã perdida no hospital; OneFlow vence hoje em 61/68; trabalho real à noite não refletido no board</b></div>
+      <div class="row"><span>Sono (noite do dia fechado, 27→28)</span><b>Não medido — relógio carregando; sem estimativa manual desta vez</b></div>
+    </div>
+  </div>
+
+  <div class="footer" style="margin-top:34px;">
+    <div class="status-box">
+      <div class="row"><span class="ok">●</span><span>Nutrição (recipes-hub, reconciliada com food_log_queue — vazio em 28/08, nada pendente), suplementos (Meds and Sups → meal_log, 5 lançados: Vit C, Eletrólitos, D3+K2, B12+Metilfolato, Maca), Tasks, Atividades Diárias e Observações — consumidos normalmente.</span></div>
+      <div class="row"><span class="miss">●</span><span><b>Sono da noite 27→28 (a noite do dia fechado) NÃO foi medido</b> — o relógio estava carregando e ele dormiu sem ele. Diferente de 27/08, não há nem estimativa manual: o campo Sono (h) do Histórico Diário ficou vazio.</span></div>
+      <div class="row"><span class="miss">●</span><span><b>Lacuna de sincronização do HealthBridge:</b> os dados de 28/08 param por volta das 07:10 local — sem HRV, FC de repouso, passos ou energia ativa para o resto do dia. A sessão de ~2 h de beach tênis não entrou em health_workouts e não pôde ser enriquecida. Toda a matéria de Performance é tendência até 27/08, não dado fresco do dia.</span></div>
+      <div class="row"><span class="ok">●</span><span>Hero stat de Sono acima usa a noite mais recente sincronizada no HealthBridge (26→27, 6h50) — conforme regra do relatório, não é a noite do dia fechado; são 2 noites sem sync novo.</span></div>
+      <div class="row"><span class="ok">●</span><span>Os 6 especialistas rodaram sem falha: Nutrition, Performance, Staff, Cognitive, Wellbeing e Medical — Gastroenterologia. O Wellbeing foi acionado pela Observação substancial do dia; o Medical, pelo sintoma gastrointestinal recorrente relatado em texto e pelos exames abandonados — não há sintoma estruturado em health_category_samples nem métrica vital fora da faixa pessoal.</span></div>
+      <div class="row"><span class="miss">●</span><span>Sinais atípicos: (1) os itens 119–128 do meal_log foram lançados por outra rotina sem descrição — identificados pelo ingrediente; (2) divergência do Ômega 3 — as Observações dizem "omega 3 ficou em dia", mas o checkbox está desmarcado e nenhuma dose foi lançada (o aporte real veio do salmão); (3) Magnésio e Zinco também não tomados; (4) os exames de jejum de 28/08 (endoscopia, ultrassom, sangue/fezes/urina) não foram realizados e seguem pendentes de remarcação.</span></div>
+    </div>
+    <p style="margin-top:26px;"><span class="script">Hub</span> — fechamento de 28/08/2026, publicado em 29/08</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-target'));
+    var thousand = el.getAttribute('data-thousand') === '1';
+    var decimal = parseInt(el.getAttribute('data-decimal') || '0', 10);
+    if(reduced){ el.textContent = thousand ? target.toLocaleString('pt-BR') : target.toFixed(decimal); return; }
+    var start = performance.now();
+    var dur = 1300;
+    function tick(now){
+      var p = Math.min(1, (now - start) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = target * eased;
+      if(decimal > 0){ el.textContent = val.toFixed(decimal); }
+      else { var rounded = Math.round(val); el.textContent = thousand ? rounded.toLocaleString('pt-BR') : rounded; }
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  var revealEls = document.querySelectorAll('.reveal');
+  var counted = new WeakSet();
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        entry.target.querySelectorAll('.count').forEach(function(el){
+          if(!counted.has(el)){ counted.add(el); animateCount(el); }
+        });
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.2, rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(function(el){ io.observe(el); });
+
+  if(!reduced){
+    var blobs = document.querySelectorAll('.blob');
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        var y = window.scrollY;
+        blobs.forEach(function(b, i){
+          var speed = 0.06 + i * 0.03;
+          b.style.transform = 'translateY(' + (y * speed) + 'px)';
+        });
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>
